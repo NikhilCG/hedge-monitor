@@ -68,6 +68,9 @@
   <h1>Hedge Monitor — Fund Activity</h1>
   <div class="sub">
     <span id="meta">Loading…</span>
+    <label style="margin-left:10px;">Country
+      <select id="f-country"></select>
+    </label>
     <button class="btn" id="refresh-btn" style="margin-left:10px;padding:4px 10px;">↻ Refresh</button>
     <a class="btn" id="rebuild-link" target="_blank" rel="noopener"
        href="https://github.com/NikhilCG/hedge-monitor/actions/workflows/deploy.yml"
@@ -190,7 +193,19 @@ const fmtUsd = v => {
 const fmtNum = v => (Number(v)||0).toLocaleString('en-US');
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
-let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[]};
+let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[], countries:[]};
+let FLAGS = {};
+const countryFlag = c => FLAGS[c] ? FLAGS[c] + ' ' + c : (c||'');
+function populateCountries() {
+  FLAGS = {}; (DATA.countries||[]).forEach(c => FLAGS[c.code] = c.flag);
+  const sel = document.getElementById('f-country');
+  if (sel.options.length) return;  // populate once
+  const all = document.createElement('option'); all.value=''; all.textContent='\uD83C\uDF0D All countries'; sel.appendChild(all);
+  (DATA.countries||[]).forEach(c => {
+    const o=document.createElement('option'); o.value=c.code; o.textContent=`${c.flag} ${c.name}`; sel.appendChild(o);
+  });
+  sel.value = 'US';  // default
+}
 
 function makeTable(el, cols, rows) {
   let sortIdx = -1, sortDir = -1;
@@ -298,13 +313,15 @@ function openStock(cusip) {
 function renderNews() {
   const q = document.getElementById('q-news').value.toLowerCase();
   const src = document.getElementById('f-source').value;
+  const country = document.getElementById('f-country').value;
   let rows = (DATA.news_feed||[]).filter(x =>
     (x.title+' '+(x.source||'')+' '+x.funds.join(' ')).toLowerCase().includes(q) &&
-    (!src || x.source === src));
+    (!src || x.source === src) && (!country || (x.country||'US') === country));
   const srcPill = v => `<span class="pill" style="background:rgba(91,157,255,.12);color:var(--accent)">${esc(v||'—')}</span>`;
   const headline = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:none;font-weight:600">${esc(v)}</a>`;
   const n = makeTable(document.getElementById('t-news'), [
     {label:'Date (UTC)', key:'published'},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Source', key:'source', fmt:srcPill},
     {label:'Headline', key:'title', fmt:headline},
     {label:'Fund(s)', key:'funds', fmt:v=>`<span class="muted">${esc(v.join(', '))}</span>`},
@@ -358,7 +375,9 @@ function populateAnalysts() {
 function renderFunds() {
   const q = document.getElementById('q-funds').value.toLowerCase();
   const sort = document.getElementById('f-fundsort').value;
-  let rows = DATA.funds.filter(f => f.name.toLowerCase().includes(q));
+  const country = document.getElementById('f-country').value;
+  let rows = DATA.funds.filter(f => f.name.toLowerCase().includes(q) &&
+    (!country || (f.country||'US') === country));
   const lastAct = {};
   (DATA.actions||[]).forEach(a => {
     const d = a.date || '';
@@ -380,6 +399,7 @@ function renderFunds() {
   });
   const n = makeTable(document.getElementById('t-funds'), [
     {label:'#', key:'rank', num:true},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Fund', key:'name', fmt:v=>`<a class="fundlink" data-name="${esc(v)}">${esc(v)}</a>`},
     {label:'Latest Filing', key:'filing_date'},
     {label:'Positions', key:'positions', num:true, fmt:fmtNum},
@@ -468,6 +488,7 @@ document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
 document.getElementById('q-news').addEventListener('input',renderNews);
 document.getElementById('f-source').addEventListener('change',renderNews);
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 document.getElementById('only-bbg').addEventListener('click',(e)=>{
@@ -486,6 +507,7 @@ async function loadData(initial) {
     document.getElementById('meta').textContent =
       `${d.funds.length} funds · updated ${d.generated}${priced}`;
     if (initial) { populateSources(); populateAnalysts(); }
+    populateCountries();
     renderCards(); renderActions(); renderCommon(); renderFunds(); renderNews();
     renderSignals(); renderAnalysts();
   } catch (e) {

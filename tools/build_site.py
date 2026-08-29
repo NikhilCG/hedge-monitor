@@ -29,6 +29,7 @@ from hedge_monitor.edgar import EdgarClient
 from hedge_monitor import news as news_mod
 from hedge_monitor import prices as prices_mod
 from hedge_monitor.storage import Storage
+from tools.countries import COUNTRIES, COUNTRY_ORDER, international_managers
 
 SITE_DIR = Path("site")
 SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
@@ -293,6 +294,7 @@ def build(config_path: str, data_dir: str, per_side: int, max_quotes: int = 300,
             {
                 "name": name,
                 "cik": cik,
+                "country": "US",
                 "filing_date": filing_date,
                 "positions": len(current),
                 "buys": n_buys,
@@ -332,8 +334,6 @@ def build(config_path: str, data_dir: str, per_side: int, max_quotes: int = 300,
     all_actions.sort(key=lambda a: (a.get("date", ""), a.get("value", 0)), reverse=True)
 
     funds_sorted = sorted(fund_summaries, key=lambda f: f["total_value"], reverse=True)
-    for i, f in enumerate(funds_sorted, 1):
-        f["rank"] = i
 
     data = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
@@ -341,6 +341,7 @@ def build(config_path: str, data_dir: str, per_side: int, max_quotes: int = 300,
         "actions": all_actions,
         "common": common,
     }
+    ensure_international_and_countries(data)
 
     ticker_map = load_ticker_map(client)
     enrich_with_prices(data, ticker_map, max_quotes)
@@ -363,10 +364,14 @@ def collect_news(data: dict, news_days: int, news_per_fund: int, with_news: bool
     print(f"Fetching latest news (incl. Bloomberg) for {len(data['funds'])} funds...")
     feed: dict[str, dict] = {}
     for f in data["funds"]:
+        country = f.get("country", "US")
         general = fetch_fund_news(f["name"], news_days, news_per_fund)
         time.sleep(0.2)
-        bloom = fetch_fund_news(f["name"], news_days, news_per_fund, site="bloomberg.com")
-        time.sleep(0.2)
+        if f.get("cik"):  # Bloomberg pass only for US 13F filers
+            bloom = fetch_fund_news(f["name"], news_days, news_per_fund, site="bloomberg.com")
+            time.sleep(0.2)
+        else:
+            bloom = []
         links = {g["link"] for g in general}
         f["news"] = general + [b for b in bloom if b["link"] not in links]
         f["news"].sort(key=lambda x: x.get("ts", 0), reverse=True)
@@ -376,7 +381,7 @@ def collect_news(data: dict, news_days: int, news_per_fund: int, with_news: bool
                 if f["name"] not in feed[key]["funds"]:
                     feed[key]["funds"].append(f["name"])
             else:
-                feed[key] = {**item, "funds": [f["name"]]}
+                feed[key] = {**item, "funds": [f["name"]], "country": country}
     news_feed = sorted(feed.values(), key=lambda x: x.get("ts", 0), reverse=True)
     data["news_feed"] = news_feed
     data["news_count"] = sum(len(f.get("news", [])) for f in data["funds"])
@@ -406,6 +411,29 @@ def collect_news(data: dict, news_days: int, news_per_fund: int, with_news: bool
     print(f"  {len(signals)} signals, {len(analysts)} analyst items.")
 
 
+def ensure_international_and_countries(data: dict) -> None:
+    """Append news-only managers from non-US countries and set country metadata.
+
+    Idempotent: skips managers already present. US funds keep country='US'.
+    """
+    have = {f["name"] for f in data["funds"]}
+    for mgr, code in international_managers():
+        if mgr not in have:
+            data["funds"].append({
+                "name": mgr, "cik": "", "country": code, "filing_date": "",
+                "positions": 0, "buys": 0, "sells": 0, "total_value": 0,
+            })
+    for f in data["funds"]:
+        f.setdefault("country", "US")
+    data["funds"].sort(key=lambda f: f.get("total_value", 0), reverse=True)
+    for i, f in enumerate(data["funds"], 1):
+        f["rank"] = i
+    data["countries"] = [
+        {"code": c, "name": COUNTRIES[c]["name"], "flag": COUNTRIES[c]["flag"]}
+        for c in COUNTRY_ORDER
+    ]
+
+
 def refresh_dynamic(config_path: str, max_quotes: int, news_days: int,
                     news_per_fund: int, with_news: bool = True) -> dict:
     """Update only fast-moving data (prices + news/signals) on existing site data."""
@@ -416,6 +444,7 @@ def refresh_dynamic(config_path: str, max_quotes: int, news_days: int,
         raise FileNotFoundError("No site/data.json yet; run a full build first.")
     data = json.loads(path.read_text(encoding="utf-8"))
     data["generated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    ensure_international_and_countries(data)
     ticker_map = load_ticker_map(client)
     enrich_with_prices(data, ticker_map, max_quotes)
     collect_news(data, news_days, news_per_fund, with_news)
@@ -612,6 +641,9 @@ INDEX_HTML = r"""<!DOCTYPE html>
   <h1>Hedge Monitor — Fund Activity</h1>
   <div class="sub">
     <span id="meta">Loading…</span>
+    <label style="margin-left:10px;">Country
+      <select id="f-country"></select>
+    </label>
     <button class="btn" id="refresh-btn" style="margin-left:10px;padding:4px 10px;">↻ Refresh</button>
     <a class="btn" id="rebuild-link" target="_blank" rel="noopener"
        href="https://github.com/NikhilCG/hedge-monitor/actions/workflows/deploy.yml"
@@ -734,7 +766,19 @@ const fmtUsd = v => {
 const fmtNum = v => (Number(v)||0).toLocaleString('en-US');
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
-let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[]};
+let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[], countries:[]};
+let FLAGS = {};
+const countryFlag = c => FLAGS[c] ? FLAGS[c] + ' ' + c : (c||'');
+function populateCountries() {
+  FLAGS = {}; (DATA.countries||[]).forEach(c => FLAGS[c.code] = c.flag);
+  const sel = document.getElementById('f-country');
+  if (sel.options.length) return;  // populate once
+  const all = document.createElement('option'); all.value=''; all.textContent='\uD83C\uDF0D All countries'; sel.appendChild(all);
+  (DATA.countries||[]).forEach(c => {
+    const o=document.createElement('option'); o.value=c.code; o.textContent=`${c.flag} ${c.name}`; sel.appendChild(o);
+  });
+  sel.value = 'US';  // default
+}
 
 function makeTable(el, cols, rows) {
   let sortIdx = -1, sortDir = -1;
@@ -842,13 +886,15 @@ function openStock(cusip) {
 function renderNews() {
   const q = document.getElementById('q-news').value.toLowerCase();
   const src = document.getElementById('f-source').value;
+  const country = document.getElementById('f-country').value;
   let rows = (DATA.news_feed||[]).filter(x =>
     (x.title+' '+(x.source||'')+' '+x.funds.join(' ')).toLowerCase().includes(q) &&
-    (!src || x.source === src));
+    (!src || x.source === src) && (!country || (x.country||'US') === country));
   const srcPill = v => `<span class="pill" style="background:rgba(91,157,255,.12);color:var(--accent)">${esc(v||'—')}</span>`;
   const headline = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:none;font-weight:600">${esc(v)}</a>`;
   const n = makeTable(document.getElementById('t-news'), [
     {label:'Date (UTC)', key:'published'},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Source', key:'source', fmt:srcPill},
     {label:'Headline', key:'title', fmt:headline},
     {label:'Fund(s)', key:'funds', fmt:v=>`<span class="muted">${esc(v.join(', '))}</span>`},
@@ -902,7 +948,9 @@ function populateAnalysts() {
 function renderFunds() {
   const q = document.getElementById('q-funds').value.toLowerCase();
   const sort = document.getElementById('f-fundsort').value;
-  let rows = DATA.funds.filter(f => f.name.toLowerCase().includes(q));
+  const country = document.getElementById('f-country').value;
+  let rows = DATA.funds.filter(f => f.name.toLowerCase().includes(q) &&
+    (!country || (f.country||'US') === country));
   const lastAct = {};
   (DATA.actions||[]).forEach(a => {
     const d = a.date || '';
@@ -924,6 +972,7 @@ function renderFunds() {
   });
   const n = makeTable(document.getElementById('t-funds'), [
     {label:'#', key:'rank', num:true},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Fund', key:'name', fmt:v=>`<a class="fundlink" data-name="${esc(v)}">${esc(v)}</a>`},
     {label:'Latest Filing', key:'filing_date'},
     {label:'Positions', key:'positions', num:true, fmt:fmtNum},
@@ -1012,6 +1061,7 @@ document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
 document.getElementById('q-news').addEventListener('input',renderNews);
 document.getElementById('f-source').addEventListener('change',renderNews);
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 document.getElementById('only-bbg').addEventListener('click',(e)=>{
@@ -1030,6 +1080,7 @@ async function loadData(initial) {
     document.getElementById('meta').textContent =
       `${d.funds.length} funds · updated ${d.generated}${priced}`;
     if (initial) { populateSources(); populateAnalysts(); }
+    populateCountries();
     renderCards(); renderActions(); renderCommon(); renderFunds(); renderNews();
     renderSignals(); renderAnalysts();
   } catch (e) {

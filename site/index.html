@@ -94,13 +94,25 @@
 </div>
 <div class="wrap">
   <div class="tabs">
-    <button class="tab active" data-t="actions">Latest Actions (Buy / Sell)</button>
+    <button class="tab active" data-t="markets">Markets</button>
+    <button class="tab" data-t="actions">Latest Actions (Buy / Sell)</button>
     <button class="tab" data-t="signals">Ratings &amp; Analysts</button>
     <button class="tab" data-t="common">Common Holdings</button>
     <button class="tab" data-t="funds">Funds</button>
   </div>
 
-  <div class="section active" id="s-actions">
+  <div class="section active" id="s-markets">
+    <h3>Indices</h3>
+    <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>
+    <h3>Currencies (FX)</h3>
+    <div style="overflow:auto; max-height:26vh;"><table id="t-fx"></table></div>
+    <h3>Cryptocurrency</h3>
+    <div style="overflow:auto; max-height:26vh;"><table id="t-crypto"></table></div>
+    <h3>Most Active Stocks (US, by volume)</h3>
+    <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
+  </div>
+
+  <div class="section" id="s-actions">
     <div class="controls">
       <input type="search" id="q-actions" placeholder="Search fund or stock…">
       <select id="f-side">
@@ -196,7 +208,7 @@ const fmtUsd = v => {
 const fmtNum = v => (Number(v)||0).toLocaleString('en-US');
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
-let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[], countries:[]};
+let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[], countries:[], markets:{}};
 let FLAGS = {};
 const countryFlag = c => FLAGS[c] ? FLAGS[c] + ' ' + c : (c||'');
 function populateCountries() {
@@ -345,6 +357,27 @@ function populateSources() {
   const sel = document.getElementById('f-source');
   const set = [...new Set((DATA.news_feed||[]).map(x=>x.source).filter(Boolean))].sort();
   set.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+}
+
+function renderMarkets() {
+  const m = DATA.markets || {};
+  const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
+  const cols = [
+    {label:'Name', key:'name'},
+    {label:'Symbol', key:'symbol', fmt:v=>`<span class="muted">${esc(v)}</span>`},
+    {label:'Price', key:'price', num:true, fmt:num},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+  ];
+  makeTable(document.getElementById('t-indices'), cols, m.indices||[]);
+  makeTable(document.getElementById('t-fx'), cols, m.currencies||[]);
+  makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
+  makeTable(document.getElementById('t-active'), [
+    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':'$'+Number(v).toFixed(2)},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
+  ], m.most_active||[]);
 }
 
 function renderBanner() {
@@ -519,7 +552,7 @@ async function loadData(initial) {
     if (initial) { populateAnalysts(); }
     populateCountries();
     renderActions(); renderCommon(); renderFunds();
-    renderSignals(); renderAnalysts(); renderBanner();
+    renderSignals(); renderAnalysts(); renderBanner(); renderMarkets();
   } catch (e) {
     document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;
   }

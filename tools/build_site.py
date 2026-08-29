@@ -24,6 +24,8 @@ import webbrowser
 from datetime import datetime, timezone
 from pathlib import Path
 
+import requests
+
 from hedge_monitor.config import load_config
 from hedge_monitor.edgar import EdgarClient
 from hedge_monitor import news as news_mod
@@ -190,6 +192,63 @@ ANALYSTS = [
 ]
 
 
+INDICES = [
+    ("S&P 500", "^GSPC"), ("Dow Jones", "^DJI"), ("Nasdaq", "^IXIC"),
+    ("Russell 2000", "^RUT"), ("VIX", "^VIX"), ("FTSE 100", "^FTSE"),
+    ("DAX", "^GDAXI"), ("CAC 40", "^FCHI"), ("Euro Stoxx 50", "^STOXX50E"),
+    ("Nikkei 225", "^N225"), ("Hang Seng", "^HSI"), ("Shanghai", "000001.SS"),
+    ("Sensex", "^BSESN"), ("Nifty 50", "^NSEI"), ("OMX Stockholm 30", "^OMX"),
+    ("Oslo OBX", "OBX.OL"),
+]
+CURRENCIES = [
+    ("EUR/USD", "EURUSD=X"), ("GBP/USD", "GBPUSD=X"), ("USD/JPY", "USDJPY=X"),
+    ("USD/INR", "USDINR=X"), ("USD/CNY", "USDCNY=X"), ("USD/SEK", "USDSEK=X"),
+    ("USD/NOK", "USDNOK=X"), ("USD/DKK", "USDDKK=X"), ("AUD/USD", "AUDUSD=X"),
+    ("USD/CAD", "USDCAD=X"), ("USD/CHF", "USDCHF=X"), ("Dollar Index", "DX-Y.NYB"),
+]
+CRYPTO = [
+    ("Bitcoin", "BTC-USD"), ("Ethereum", "ETH-USD"), ("BNB", "BNB-USD"),
+    ("Solana", "SOL-USD"), ("XRP", "XRP-USD"), ("Cardano", "ADA-USD"),
+    ("Dogecoin", "DOGE-USD"), ("Tron", "TRX-USD"), ("Avalanche", "AVAX-USD"),
+    ("Chainlink", "LINK-USD"),
+]
+
+
+def fetch_markets(max_active: int = 25) -> dict:
+    """Live indices, currencies, crypto (Yahoo chart) + most-active stocks (screener)."""
+    def rows(pairs: list[tuple[str, str]]) -> list[dict]:
+        out: list[dict] = []
+        for name, sym in pairs:
+            try:
+                q = prices_mod.get_quote(sym)
+            except Exception:  # noqa: BLE001
+                q = None
+            if q:
+                out.append({"name": name, "symbol": sym,
+                            "price": round(q.price, 4), "change_pct": round(q.change_pct, 2)})
+            time.sleep(0.05)
+        return out
+
+    markets = {"indices": rows(INDICES), "currencies": rows(CURRENCIES),
+               "crypto": rows(CRYPTO), "most_active": []}
+    try:
+        url = ("https://query1.finance.yahoo.com/v1/finance/screener/predefined/"
+               f"saved?count={max_active}&scrIds=most_actives")
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
+        if r.status_code == 200:
+            for x in r.json()["finance"]["result"][0]["quotes"]:
+                markets["most_active"].append({
+                    "symbol": x.get("symbol"),
+                    "name": x.get("shortName") or x.get("longName") or x.get("symbol"),
+                    "price": x.get("regularMarketPrice"),
+                    "change_pct": round(x.get("regularMarketChangePercent", 0) or 0, 2),
+                    "volume": x.get("regularMarketVolume"),
+                })
+    except Exception as exc:  # noqa: BLE001
+        print(f"  [warn] most-active screener: {exc}")
+    return markets
+
+
 def load_ticker_map(client: EdgarClient) -> dict[str, str]:
     """Map normalized company name -> ticker using SEC's official ticker list."""
     try:
@@ -348,6 +407,8 @@ def build(config_path: str, data_dir: str, per_side: int, max_quotes: int = 300,
 
     ticker_map = load_ticker_map(client)
     enrich_with_prices(data, ticker_map, max_quotes)
+    print("Fetching markets (indices, FX, crypto, most active)...")
+    data["markets"] = fetch_markets()
     collect_news(data, news_days, news_per_fund, with_news)
     return data
 
@@ -453,6 +514,8 @@ def refresh_dynamic(config_path: str, max_quotes: int, news_days: int,
     ensure_international_and_countries(data)
     ticker_map = load_ticker_map(client)
     enrich_with_prices(data, ticker_map, max_quotes)
+    print("Fetching markets (indices, FX, crypto, most active)...")
+    data["markets"] = fetch_markets()
     collect_news(data, news_days, news_per_fund, with_news)
     return data
 
@@ -673,13 +736,25 @@ INDEX_HTML = r"""<!DOCTYPE html>
 </div>
 <div class="wrap">
   <div class="tabs">
-    <button class="tab active" data-t="actions">Latest Actions (Buy / Sell)</button>
+    <button class="tab active" data-t="markets">Markets</button>
+    <button class="tab" data-t="actions">Latest Actions (Buy / Sell)</button>
     <button class="tab" data-t="signals">Ratings &amp; Analysts</button>
     <button class="tab" data-t="common">Common Holdings</button>
     <button class="tab" data-t="funds">Funds</button>
   </div>
 
-  <div class="section active" id="s-actions">
+  <div class="section active" id="s-markets">
+    <h3>Indices</h3>
+    <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>
+    <h3>Currencies (FX)</h3>
+    <div style="overflow:auto; max-height:26vh;"><table id="t-fx"></table></div>
+    <h3>Cryptocurrency</h3>
+    <div style="overflow:auto; max-height:26vh;"><table id="t-crypto"></table></div>
+    <h3>Most Active Stocks (US, by volume)</h3>
+    <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
+  </div>
+
+  <div class="section" id="s-actions">
     <div class="controls">
       <input type="search" id="q-actions" placeholder="Search fund or stock…">
       <select id="f-side">
@@ -775,7 +850,7 @@ const fmtUsd = v => {
 const fmtNum = v => (Number(v)||0).toLocaleString('en-US');
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
-let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[], countries:[]};
+let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[], countries:[], markets:{}};
 let FLAGS = {};
 const countryFlag = c => FLAGS[c] ? FLAGS[c] + ' ' + c : (c||'');
 function populateCountries() {
@@ -924,6 +999,27 @@ function populateSources() {
   const sel = document.getElementById('f-source');
   const set = [...new Set((DATA.news_feed||[]).map(x=>x.source).filter(Boolean))].sort();
   set.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+}
+
+function renderMarkets() {
+  const m = DATA.markets || {};
+  const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
+  const cols = [
+    {label:'Name', key:'name'},
+    {label:'Symbol', key:'symbol', fmt:v=>`<span class="muted">${esc(v)}</span>`},
+    {label:'Price', key:'price', num:true, fmt:num},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+  ];
+  makeTable(document.getElementById('t-indices'), cols, m.indices||[]);
+  makeTable(document.getElementById('t-fx'), cols, m.currencies||[]);
+  makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
+  makeTable(document.getElementById('t-active'), [
+    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':'$'+Number(v).toFixed(2)},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
+  ], m.most_active||[]);
 }
 
 function renderBanner() {
@@ -1098,7 +1194,7 @@ async function loadData(initial) {
     if (initial) { populateAnalysts(); }
     populateCountries();
     renderActions(); renderCommon(); renderFunds();
-    renderSignals(); renderAnalysts(); renderBanner();
+    renderSignals(); renderAnalysts(); renderBanner(); renderMarkets();
   } catch (e) {
     document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;
   }

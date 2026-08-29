@@ -101,6 +101,7 @@
   <button class="backbtn" id="back-markets">← Return</button>
   <div class="tabs">
     <button class="tab active" data-t="markets">Markets</button>
+    <button class="tab" data-t="news">News</button>
     <button class="tab" data-t="actions">Latest Actions (Buy / Sell)</button>
     <button class="tab" data-t="signals">Ratings &amp; Analysts</button>
     <button class="tab" data-t="common">Common Holdings</button>
@@ -116,6 +117,16 @@
     <div style="overflow:auto; max-height:26vh;"><table id="t-fx"></table></div>
     <h3>Cryptocurrency</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-crypto"></table></div>
+  </div>
+
+  <div class="section" id="s-news">
+    <div class="controls">
+      <input type="search" id="q-news" placeholder="Search headline or fund…">
+      <select id="f-source"><option value="">All sources</option></select>
+      <button class="btn" id="only-bbg">Bloomberg only</button>
+      <span class="count" id="c-news"></span>
+    </div>
+    <div style="overflow:auto; max-height:74vh;"><table id="t-news"></table></div>
   </div>
 
   <div class="section" id="s-ratings">
@@ -744,10 +755,19 @@ document.getElementById('chart-mode').addEventListener('click', e => {
   renderRatingChart(activeRange ? activeRange.dataset.range : '6mo');
 });
 ['q-actions','f-side'].forEach(id=>document.getElementById(id).addEventListener('input',renderActions));
+document.getElementById('q-news').addEventListener('input',renderNews);
+document.getElementById('f-source').addEventListener('change',renderNews);
+document.getElementById('only-bbg').addEventListener('click', e => {
+  const source = document.getElementById('f-source');
+  const enabled = source.value !== 'Bloomberg.com';
+  source.value = enabled ? 'Bloomberg.com' : '';
+  e.currentTarget.classList.toggle('on', enabled);
+  renderNews();
+});
 document.getElementById('q-common').addEventListener('input',renderCommon);
 document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); renderMarkets(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); renderMarkets(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 
@@ -758,9 +778,9 @@ async function loadData(initial) {
     const priced = d.priced_at ? ` · live prices ${d.priced_at}` : '';
     document.getElementById('meta').textContent =
       `${d.funds.length} funds · updated ${d.generated}${priced}`;
-    if (initial) { populateAnalysts(); }
+    if (initial) { populateSources(); populateAnalysts(); }
     populateCountries();
-    renderActions(); renderCommon(); renderFunds();
+    renderActions(); renderNews(); renderCommon(); renderFunds();
     renderSignals(); renderAnalysts(); renderBanner(); renderMarkets();
   } catch (e) {
     document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;

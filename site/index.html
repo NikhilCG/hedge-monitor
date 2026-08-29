@@ -95,8 +95,7 @@
 <div class="wrap">
   <div class="tabs">
     <button class="tab active" data-t="actions">Latest Actions (Buy / Sell)</button>
-    <button class="tab" data-t="news">News (by date)</button>
-    <button class="tab" data-t="signals">News Signals</button>
+    <button class="tab" data-t="signals">Ratings &amp; Analysts</button>
     <button class="tab" data-t="common">Common Holdings</button>
     <button class="tab" data-t="funds">Funds</button>
   </div>
@@ -131,16 +130,6 @@
     <div style="overflow:auto; max-height:38vh;"><table id="t-stock-actions"></table></div>
     <h3>Held by <span class="muted" id="held-sub"></span></h3>
     <div id="held-funds"></div>
-  </div>
-
-  <div class="section" id="s-news">
-    <div class="controls">
-      <input type="search" id="q-news" placeholder="Search headline or fund…">
-      <select id="f-source"><option value="">All sources</option></select>
-      <button class="btn" id="only-bbg">Bloomberg only</button>
-      <span class="count" id="c-news"></span>
-    </div>
-    <div style="overflow:auto; max-height:74vh;"><table id="t-news"></table></div>
   </div>
 
   <div class="section" id="s-signals">
@@ -516,18 +505,9 @@ document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
 document.getElementById('q-common').addEventListener('input',renderCommon);
 document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
-document.getElementById('q-news').addEventListener('input',renderNews);
-document.getElementById('f-source').addEventListener('change',renderNews);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
-document.getElementById('only-bbg').addEventListener('click',(e)=>{
-  const sel=document.getElementById('f-source');
-  const on = sel.value!=='Bloomberg.com';
-  sel.value = on ? 'Bloomberg.com' : '';
-  e.currentTarget.classList.toggle('on', on);
-  renderNews();
-});
 
 async function loadData(initial) {
   try {
@@ -536,9 +516,9 @@ async function loadData(initial) {
     const priced = d.priced_at ? ` · live prices ${d.priced_at}` : '';
     document.getElementById('meta').textContent =
       `${d.funds.length} funds · updated ${d.generated}${priced}`;
-    if (initial) { populateSources(); populateAnalysts(); }
+    if (initial) { populateAnalysts(); }
     populateCountries();
-    renderActions(); renderCommon(); renderFunds(); renderNews();
+    renderActions(); renderCommon(); renderFunds();
     renderSignals(); renderAnalysts(); renderBanner();
   } catch (e) {
     document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;

@@ -49,6 +49,17 @@
   .fundlink:hover { text-decoration:underline; }
   .chip { display:inline-block; background:var(--card); border:1px solid var(--line);
           border-radius:20px; padding:4px 12px; margin:0 6px 6px 0; }
+  .banner-wrap { display:flex; align-items:center; gap:10px; background:#10192b;
+                 border-bottom:1px solid var(--line); padding:0 14px; }
+  .banner-label { flex:0 0 auto; font-size:12px; font-weight:700; color:var(--accent);
+                  text-transform:uppercase; letter-spacing:.04em; }
+  .banner-view { flex:1 1 auto; overflow:hidden; white-space:nowrap; }
+  .banner-track { display:inline-block; padding:9px 0; animation:bannerscroll 80s linear infinite; }
+  .banner-view:hover .banner-track { animation-play-state:paused; }
+  @keyframes bannerscroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .banner-item { color:var(--fg); text-decoration:none; margin-right:38px; font-size:13px; }
+  .banner-item:hover { color:var(--accent); }
+  .banner-item .b-src { color:var(--mut); }
   .backbtn { background:var(--card); border:1px solid var(--line); color:var(--fg);
              padding:7px 12px; border-radius:8px; cursor:pointer; margin-bottom:12px; }
   .kpis { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 16px; }
@@ -77,6 +88,10 @@
        style="margin-left:6px;padding:4px 10px;text-decoration:none;">Rebuild data ↗</a>
   </div>
 </header>
+<div class="banner-wrap">
+  <span class="banner-label" id="banner-label">Latest</span>
+  <div class="banner-view"><div class="banner-track" id="banner-track"></div></div>
+</div>
 <div class="wrap">
   <div class="tabs">
     <button class="tab active" data-t="actions">Latest Actions (Buy / Sell)</button>
@@ -343,6 +358,21 @@ function populateSources() {
   set.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
 }
 
+function renderBanner() {
+  const country = document.getElementById('f-country').value;
+  let items = (DATA.news_feed||[]);
+  if (country) items = items.filter(x => (x.country||'US') === country);
+  items = items.slice(0, 20);
+  document.getElementById('banner-label').textContent =
+    (country ? (FLAGS[country]||'') : '🌍') + ' Latest';
+  const track = document.getElementById('banner-track');
+  if (!items.length) { track.innerHTML = '<span class="banner-item muted">No recent news</span>'; return; }
+  const html = items.map(n =>
+    `<a class="banner-item" href="${esc(n.link)}" target="_blank" rel="noopener">\uD83D\uDCF0 ${esc(n.title)}<span class="b-src"> — ${esc(n.source||'')}</span></a>`
+  ).join('');
+  track.innerHTML = html + html;  // duplicated for a seamless loop
+}
+
 const newsLink = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:none;font-weight:600">${esc(v)}</a>`;
 
 function renderSignals() {
@@ -488,7 +518,7 @@ document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
 document.getElementById('q-news').addEventListener('input',renderNews);
 document.getElementById('f-source').addEventListener('change',renderNews);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 document.getElementById('only-bbg').addEventListener('click',(e)=>{
@@ -509,7 +539,7 @@ async function loadData(initial) {
     if (initial) { populateSources(); populateAnalysts(); }
     populateCountries();
     renderActions(); renderCommon(); renderFunds(); renderNews();
-    renderSignals(); renderAnalysts();
+    renderSignals(); renderAnalysts(); renderBanner();
   } catch (e) {
     document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;
   }

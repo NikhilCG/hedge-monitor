@@ -5,6 +5,8 @@ name: Deploy Hedge Monitor to Pages
 # refreshed on every run.
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       full_build:
@@ -38,11 +40,11 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Build site (full 13F rebuild)
-        if: github.event_name == 'schedule' || inputs.full_build
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.full_build)
         run: python -m tools.build_site
 
       - name: Refresh prices + news only
-        if: github.event_name == 'workflow_dispatch' && !inputs.full_build
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.full_build)
         run: python -m tools.build_site --refresh-only
 
       - uses: actions/upload-pages-artifact@v3

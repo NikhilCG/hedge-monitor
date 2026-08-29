@@ -66,7 +66,13 @@
 <body>
 <header>
   <h1>Hedge Monitor — Fund Activity</h1>
-  <div class="sub" id="meta">Loading…</div>
+  <div class="sub">
+    <span id="meta">Loading…</span>
+    <button class="btn" id="refresh-btn" style="margin-left:10px;padding:4px 10px;">↻ Refresh</button>
+    <a class="btn" id="rebuild-link" target="_blank" rel="noopener"
+       href="https://github.com/NikhilCG/hedge-monitor/actions/workflows/deploy.yml"
+       style="margin-left:6px;padding:4px 10px;text-decoration:none;">Rebuild data ↗</a>
+  </div>
 </header>
 <div class="wrap">
   <div class="cards" id="cards"></div>
@@ -488,6 +494,12 @@ async function loadData(initial) {
 }
 loadData(true);
 setInterval(() => loadData(false), 20000);  // re-read local data.json every 20s (no external calls)
+document.getElementById('refresh-btn').addEventListener('click', async () => {
+  const b = document.getElementById('refresh-btn');
+  b.textContent = '↻ Refreshing…'; b.disabled = true;
+  await loadData(false);
+  b.textContent = '↻ Refresh'; b.disabled = false;
+});
 </script>
 </body>
 </html>

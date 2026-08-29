@@ -245,9 +245,11 @@ const tickerCell = v => v ? `<b>${esc(v)}</b>` : '<span class="muted">—</span>
 function renderActions() {
   const q = document.getElementById('q-actions').value.toLowerCase();
   const side = document.getElementById('f-side').value;
+  const country = document.getElementById('f-country').value;
   let rows = DATA.actions.filter(a =>
     (a.fund+' '+a.name+' '+(a.ticker||'')).toLowerCase().includes(q) &&
-    (!side || (side==='buy' ? ['BUY','ADD'].includes(a.action) : ['SELL','TRIM'].includes(a.action)))
+    (!side || (side==='buy' ? ['BUY','ADD'].includes(a.action) : ['SELL','TRIM'].includes(a.action))) &&
+    (!country || (a.country||'US') === country)
   );
   const n = makeTable(document.getElementById('t-actions'), [
     {label:'Fund', key:'fund'},
@@ -340,10 +342,13 @@ const newsLink = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noo
 function renderSignals() {
   const q = document.getElementById('q-sig').value.toLowerCase();
   const s = document.getElementById('f-sig').value;
+  const country = document.getElementById('f-country').value;
   let rows = (DATA.stock_signals||[]).filter(x =>
-    (x.ticker+' '+x.company+' '+x.title).toLowerCase().includes(q) && (!s || x.signal === s));
+    (x.ticker+' '+x.company+' '+x.title).toLowerCase().includes(q) && (!s || x.signal === s) &&
+    (!country || (x.country||'US') === country));
   const n = makeTable(document.getElementById('t-sig'), [
     {label:'Date (UTC)', key:'published'},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Stock', key:'ticker', fmt:v=>`<b>${esc(v)}</b>`},
     {label:'Signal', key:'signal', fmt:actionPill},
     {label:'Headline', key:'title', fmt:newsLink},
@@ -355,10 +360,13 @@ function renderSignals() {
 function renderAnalysts() {
   const q = document.getElementById('q-an').value.toLowerCase();
   const a = document.getElementById('f-analyst').value;
+  const country = document.getElementById('f-country').value;
   let rows = (DATA.analysts||[]).filter(x =>
-    (x.analyst+' '+x.title+' '+(x.source||'')).toLowerCase().includes(q) && (!a || x.analyst === a));
+    (x.analyst+' '+x.title+' '+(x.source||'')).toLowerCase().includes(q) && (!a || x.analyst === a) &&
+    (!country || (x.country||'US') === country));
   const n = makeTable(document.getElementById('t-an'), [
     {label:'Date (UTC)', key:'published'},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Analyst', key:'analyst', fmt:v=>`<b>${esc(v)}</b>`},
     {label:'Headline', key:'title', fmt:newsLink},
     {label:'Source', key:'source', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
@@ -488,7 +496,7 @@ document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
 document.getElementById('q-news').addEventListener('input',renderNews);
 document.getElementById('f-source').addEventListener('change',renderNews);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 document.getElementById('only-bbg').addEventListener('click',(e)=>{

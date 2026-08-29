@@ -100,6 +100,91 @@ COUNTRIES: dict[str, dict] = {
 # Order for the country selector (US first / default).
 COUNTRY_ORDER = ["US", "IN", "JP", "SE", "DK", "NO", "FR", "DE", "IE", "GB", "CN"]
 
+# Famous listed stocks per country -> (ticker, company name for news search).
+# Used for the "News Signals" buy/sell scan.
+STOCKS: dict[str, list[tuple[str, str]]] = {
+    "US": [
+        ("NVDA", "Nvidia"), ("TSLA", "Tesla"), ("AAPL", "Apple"), ("AMZN", "Amazon"),
+        ("MSFT", "Microsoft"), ("GOOGL", "Alphabet"), ("META", "Meta Platforms"),
+        ("AMD", "AMD"), ("NFLX", "Netflix"), ("PLTR", "Palantir"), ("COIN", "Coinbase"),
+        ("MSTR", "MicroStrategy"), ("AVGO", "Broadcom"), ("INTC", "Intel"),
+        ("MU", "Micron"), ("SMCI", "Super Micro Computer"), ("UBER", "Uber"),
+        ("DIS", "Disney"),
+    ],
+    "IN": [
+        ("RELIANCE", "Reliance Industries"), ("TCS", "Tata Consultancy Services"),
+        ("HDFCBANK", "HDFC Bank"), ("INFY", "Infosys"), ("ICICIBANK", "ICICI Bank"),
+        ("BHARTIARTL", "Bharti Airtel"), ("ADANIENT", "Adani Enterprises"),
+    ],
+    "JP": [
+        ("7203", "Toyota Motor"), ("6758", "Sony Group"), ("9984", "SoftBank Group"),
+        ("6861", "Keyence"), ("7974", "Nintendo"), ("8306", "Mitsubishi UFJ"),
+        ("8035", "Tokyo Electron"),
+    ],
+    "SE": [
+        ("ATCO-A", "Atlas Copco"), ("VOLV-B", "Volvo"), ("ERIC", "Ericsson"),
+        ("INVE-B", "Investor AB"), ("SPOT", "Spotify"), ("EQT", "EQT AB"),
+        ("HM-B", "H&M Hennes Mauritz"),
+    ],
+    "DK": [
+        ("NOVO-B", "Novo Nordisk"), ("MAERSK-B", "Maersk"), ("DSV", "DSV"),
+        ("VWS", "Vestas Wind Systems"), ("CARL-B", "Carlsberg"),
+        ("COLO-B", "Coloplast"), ("ORSTED", "Orsted"),
+    ],
+    "NO": [
+        ("EQNR", "Equinor"), ("DNB", "DNB Bank"), ("NHY", "Norsk Hydro"),
+        ("TEL", "Telenor"), ("AKRBP", "Aker BP"), ("MOWI", "Mowi"), ("YAR", "Yara"),
+    ],
+    "FR": [
+        ("MC", "LVMH"), ("TTE", "TotalEnergies"), ("SAN", "Sanofi"),
+        ("AIR", "Airbus"), ("SU", "Schneider Electric"), ("OR", "L'Oreal"),
+        ("BNP", "BNP Paribas"),
+    ],
+    "DE": [
+        ("SAP", "SAP"), ("SIE", "Siemens"), ("VOW3", "Volkswagen"),
+        ("ALV", "Allianz"), ("MBG", "Mercedes-Benz"), ("DTE", "Deutsche Telekom"),
+        ("BAS", "BASF"),
+    ],
+    "IE": [
+        ("RYA", "Ryanair"), ("CRH", "CRH"), ("KRZ", "Kerry Group"),
+        ("KNGSPAN", "Kingspan"), ("FLTR", "Flutter Entertainment"),
+        ("BIRG", "Bank of Ireland"), ("A5G", "AIB Group"),
+    ],
+    "GB": [
+        ("AZN", "AstraZeneca"), ("SHEL", "Shell"), ("HSBA", "HSBC"),
+        ("ULVR", "Unilever"), ("BP", "BP"), ("GSK", "GSK"),
+        ("RR", "Rolls-Royce"),
+    ],
+    "CN": [
+        ("BABA", "Alibaba"), ("0700", "Tencent"), ("BYDDY", "BYD"),
+        ("PDD", "PDD Holdings"), ("3690", "Meituan"), ("BIDU", "Baidu"),
+        ("JD", "JD.com"),
+    ],
+}
+
+# Well-known market commentators / analysts per country for the "Analyst" panel.
+PUNDITS: dict[str, list[str]] = {
+    "US": ["Jim Cramer", "Dan Ives", "Tom Lee", "Cathie Wood", "Gene Munster", "Mad Money"],
+    "IN": ["Raamdeo Agrawal", "Porinju Veliyath", "Samir Arora", "Nilesh Shah"],
+    "JP": ["Masayoshi Son", "Nomura strategist"],
+    "SE": ["Christer Gardell"],
+    "DK": [],
+    "NO": ["Norges Bank Nicolai Tangen"],
+    "FR": ["Carmignac strategist"],
+    "DE": ["Flossbach von Storch strategist"],
+    "IE": [],
+    "GB": ["Terry Smith", "Nick Train", "Ruffer strategist"],
+    "CN": ["Hillhouse Zhang Lei"],
+}
+
+
+def country_stocks(code: str) -> list[tuple[str, str]]:
+    return STOCKS.get(code, [])
+
+
+def country_pundits(code: str) -> list[str]:
+    return PUNDITS.get(code, [])
+
 
 def international_managers() -> list[tuple[str, str]]:
     """Return (manager_name, country_code) for every non-US country."""

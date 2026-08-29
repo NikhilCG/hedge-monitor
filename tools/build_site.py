@@ -29,7 +29,9 @@ from hedge_monitor.edgar import EdgarClient
 from hedge_monitor import news as news_mod
 from hedge_monitor import prices as prices_mod
 from hedge_monitor.storage import Storage
-from tools.countries import COUNTRIES, COUNTRY_ORDER, international_managers
+from tools.countries import (
+    COUNTRIES, COUNTRY_ORDER, international_managers, country_stocks, country_pundits,
+)
 
 SITE_DIR = Path("site")
 SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
@@ -285,6 +287,7 @@ def build(config_path: str, data_dir: str, per_side: int, max_quotes: int = 300,
         for a in actions:
             a["fund"] = name
             a["date"] = filing_date
+            a["country"] = "US"
         n_buys = sum(1 for a in actions if a["action"] in ("BUY", "ADD"))
         n_sells = sum(1 for a in actions if a["action"] in ("SELL", "TRIM"))
         all_actions.extend(top_actions(actions, per_side))
@@ -388,24 +391,27 @@ def collect_news(data: dict, news_days: int, news_per_fund: int, with_news: bool
     data["news_feed_count"] = len(news_feed)
     print(f"  collected {data['news_count']} items ({len(news_feed)} unique articles).")
 
-    print(f"Scanning news buy/sell signals for {len(FAMOUS_STOCKS)} famous stocks...")
+    print(f"Scanning news buy/sell signals across {len(COUNTRY_ORDER)} countries...")
     signals: list[dict] = []
-    for tk, company in FAMOUS_STOCKS:
-        q = f'{company} stock (upgrade OR downgrade OR "price target" OR "buy rating" OR "sell rating")'
-        for it in _google_news(q, news_days, 12):
-            sig = classify_signal(it["title"])
-            if sig:
-                signals.append({**it, "ticker": tk, "company": company, "signal": sig})
-        time.sleep(0.2)
+    for code in COUNTRY_ORDER:
+        for tk, company in country_stocks(code):
+            q = f'{company} stock (upgrade OR downgrade OR "price target" OR "buy rating" OR "sell rating")'
+            for it in _google_news(q, news_days, 10):
+                sig = classify_signal(it["title"])
+                if sig:
+                    signals.append({**it, "ticker": tk, "company": company,
+                                    "signal": sig, "country": code})
+            time.sleep(0.2)
     signals.sort(key=lambda x: x.get("ts", 0), reverse=True)
     data["stock_signals"] = signals
 
-    print(f"Fetching latest commentary for {len(ANALYSTS)} analysts...")
+    print("Fetching analyst commentary across countries...")
     analysts: list[dict] = []
-    for person in ANALYSTS:
-        for it in _google_news(f"{person} stocks", news_days, 8):
-            analysts.append({**it, "analyst": person})
-        time.sleep(0.2)
+    for code in COUNTRY_ORDER:
+        for person in country_pundits(code):
+            for it in _google_news(f"{person} stocks", news_days, 6):
+                analysts.append({**it, "analyst": person, "country": code})
+            time.sleep(0.2)
     analysts.sort(key=lambda x: x.get("ts", 0), reverse=True)
     data["analysts"] = analysts
     print(f"  {len(signals)} signals, {len(analysts)} analyst items.")
@@ -818,9 +824,11 @@ const tickerCell = v => v ? `<b>${esc(v)}</b>` : '<span class="muted">—</span>
 function renderActions() {
   const q = document.getElementById('q-actions').value.toLowerCase();
   const side = document.getElementById('f-side').value;
+  const country = document.getElementById('f-country').value;
   let rows = DATA.actions.filter(a =>
     (a.fund+' '+a.name+' '+(a.ticker||'')).toLowerCase().includes(q) &&
-    (!side || (side==='buy' ? ['BUY','ADD'].includes(a.action) : ['SELL','TRIM'].includes(a.action)))
+    (!side || (side==='buy' ? ['BUY','ADD'].includes(a.action) : ['SELL','TRIM'].includes(a.action))) &&
+    (!country || (a.country||'US') === country)
   );
   const n = makeTable(document.getElementById('t-actions'), [
     {label:'Fund', key:'fund'},
@@ -913,10 +921,13 @@ const newsLink = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noo
 function renderSignals() {
   const q = document.getElementById('q-sig').value.toLowerCase();
   const s = document.getElementById('f-sig').value;
+  const country = document.getElementById('f-country').value;
   let rows = (DATA.stock_signals||[]).filter(x =>
-    (x.ticker+' '+x.company+' '+x.title).toLowerCase().includes(q) && (!s || x.signal === s));
+    (x.ticker+' '+x.company+' '+x.title).toLowerCase().includes(q) && (!s || x.signal === s) &&
+    (!country || (x.country||'US') === country));
   const n = makeTable(document.getElementById('t-sig'), [
     {label:'Date (UTC)', key:'published'},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Stock', key:'ticker', fmt:v=>`<b>${esc(v)}</b>`},
     {label:'Signal', key:'signal', fmt:actionPill},
     {label:'Headline', key:'title', fmt:newsLink},
@@ -928,10 +939,13 @@ function renderSignals() {
 function renderAnalysts() {
   const q = document.getElementById('q-an').value.toLowerCase();
   const a = document.getElementById('f-analyst').value;
+  const country = document.getElementById('f-country').value;
   let rows = (DATA.analysts||[]).filter(x =>
-    (x.analyst+' '+x.title+' '+(x.source||'')).toLowerCase().includes(q) && (!a || x.analyst === a));
+    (x.analyst+' '+x.title+' '+(x.source||'')).toLowerCase().includes(q) && (!a || x.analyst === a) &&
+    (!country || (x.country||'US') === country));
   const n = makeTable(document.getElementById('t-an'), [
     {label:'Date (UTC)', key:'published'},
+    {label:'Country', key:'country', fmt:v=>countryFlag(v||'US')},
     {label:'Analyst', key:'analyst', fmt:v=>`<b>${esc(v)}</b>`},
     {label:'Headline', key:'title', fmt:newsLink},
     {label:'Source', key:'source', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
@@ -1061,7 +1075,7 @@ document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
 document.getElementById('q-news').addEventListener('input',renderNews);
 document.getElementById('f-source').addEventListener('change',renderNews);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 document.getElementById('only-bbg').addEventListener('click',(e)=>{

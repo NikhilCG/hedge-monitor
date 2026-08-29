@@ -423,7 +423,7 @@ def _quote_full(sym: str) -> dict | None:
             "volume": m.get("regularMarketVolume"), "currency": m.get("currency")}
 
 
-def fetch_markets(max_active: int = 25) -> dict:
+def fetch_markets(max_active: int = 100) -> dict:
     """Live indices, currencies, crypto (global) + most-active stocks per country."""
     def rows(pairs: list[tuple[str, str]]) -> list[dict]:
         out: list[dict] = []
@@ -1037,9 +1037,9 @@ INDEX_HTML = r"""<!DOCTYPE html>
   <div class="section active" id="s-markets">
     <h3 id="active-head">Most Active Stocks</h3>
     <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
-    <h3>Most Active Buyers (Top Gainers, US)</h3>
+    <h3>Top Gainers (US)</h3>
     <div style="overflow:auto; max-height:30vh;"><table id="t-buyers"></table></div>
-    <h3>Most Active Sellers (Top Losers, US)</h3>
+    <h3>Top Losers (US)</h3>
     <div style="overflow:auto; max-height:30vh;"><table id="t-sellers"></table></div>
     <h3>Indices</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>

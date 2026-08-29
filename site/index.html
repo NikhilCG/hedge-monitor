@@ -23,6 +23,9 @@
   .tab { background:var(--card); border:1px solid var(--line); color:var(--fg);
          padding:8px 14px; border-radius:8px; cursor:pointer; }
   .tab.active { background:var(--accent); border-color:var(--accent); color:#04122c; font-weight:600; }
+    .tabs.focused .tab { display:none; }
+    #back-markets { display:none; margin-bottom:12px; }
+    #back-markets.visible { display:inline-block; }
   .btn { background:var(--card); border:1px solid var(--line); color:var(--fg);
          padding:8px 14px; border-radius:8px; cursor:pointer; }
   .btn.on { background:var(--accent); border-color:var(--accent); color:#04122c; font-weight:600; }
@@ -95,6 +98,7 @@
   <div class="banner-view"><div class="banner-track" id="banner-track"></div></div>
 </div>
 <div class="wrap">
+  <button class="backbtn" id="back-markets">← Markets</button>
   <div class="tabs">
     <button class="tab active" data-t="markets">Markets</button>
     <button class="tab" data-t="actions">Latest Actions (Buy / Sell)</button>
@@ -626,12 +630,18 @@ document.getElementById('back-ratings').onclick = () => {
   document.getElementById('s-markets').classList.add('active');
 };
 
-document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+function showMainView(target) {
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
-  t.classList.add('active');
-  document.getElementById('s-'+t.dataset.t).classList.add('active');
-});
+  document.querySelector(`.tab[data-t="${target}"]`).classList.add('active');
+  document.getElementById('s-'+target).classList.add('active');
+  document.querySelector('.tabs').classList.toggle('focused', target !== 'markets');
+  document.getElementById('back-markets').classList.toggle('visible', target !== 'markets');
+  window.scrollTo(0,0);
+}
+
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => showMainView(t.dataset.t));
+document.getElementById('back-markets').onclick = () => showMainView('markets');
 ['q-actions','f-side'].forEach(id=>document.getElementById(id).addEventListener('input',renderActions));
 document.getElementById('q-common').addEventListener('input',renderCommon);
 document.getElementById('q-funds').addEventListener('input',renderFunds);

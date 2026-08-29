@@ -432,15 +432,20 @@ function renderMarkets() {
     {label:'Valuation', key:'valuation', fmt:v=>{if(!v)return '<span class="muted">\u2014</span>';const c=v==='Undervalued'?'pos':(v==='Overvalued'?'neg':'muted');return `<span class="${c}">${esc(v)}</span>`;}},
   ], mac);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
-  const cols = [
+  const marketCols = [
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:num},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+  ];
+  const cryptoCols = [
     {label:'Name', key:'name'},
     {label:'Symbol', key:'symbol', fmt:v=>`<span class="muted">${esc(v)}</span>`},
     {label:'Price', key:'price', num:true, fmt:num},
     {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
   ];
-  makeTable(document.getElementById('t-indices'), cols, m.indices||[]);
-  makeTable(document.getElementById('t-fx'), cols, m.currencies||[]);
-  makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
+  makeTable(document.getElementById('t-indices'), marketCols, m.indices||[]);
+  makeTable(document.getElementById('t-fx'), marketCols, m.currencies||[]);
+  makeTable(document.getElementById('t-crypto'), cryptoCols, m.crypto||[]);
 }
 
 function sparkSVG(closes, w=760, h=200) {

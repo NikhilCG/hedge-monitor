@@ -248782,44 +248782,44 @@
       {
         "name": "Bitcoin",
         "symbol": "BTC-USD",
-        "price": 78153.52,
-        "change_pct": 0.52
+        "price": 78130.0,
+        "change_pct": 0.49
       },
       {
         "name": "Ethereum",
         "symbol": "ETH-USD",
-        "price": 2450.58,
+        "price": 2450.64,
         "change_pct": 0.35
       },
       {
         "name": "BNB",
         "symbol": "BNB-USD",
-        "price": 692.33,
-        "change_pct": 0.39
+        "price": 692.48,
+        "change_pct": 0.41
       },
       {
         "name": "Solana",
         "symbol": "SOL-USD",
-        "price": 104.94,
-        "change_pct": 0.78
+        "price": 105.02,
+        "change_pct": 0.85
       },
       {
         "name": "XRP",
         "symbol": "XRP-USD",
-        "price": 1.3918,
-        "change_pct": 0.65
+        "price": 1.3917,
+        "change_pct": 0.64
       },
       {
         "name": "Cardano",
         "symbol": "ADA-USD",
-        "price": 0.2013,
-        "change_pct": -0.56
+        "price": 0.2012,
+        "change_pct": -0.58
       },
       {
         "name": "Dogecoin",
         "symbol": "DOGE-USD",
         "price": 0.0851,
-        "change_pct": -0.06
+        "change_pct": -0.07
       },
       {
         "name": "Tron",
@@ -248836,8 +248836,8 @@
       {
         "name": "Chainlink",
         "symbol": "LINK-USD",
-        "price": 11.435,
-        "change_pct": -0.04
+        "price": 11.427,
+        "change_pct": -0.11
       }
     ],
     "most_active_by_country": {
@@ -248859,6 +248859,15 @@
           "div_yield": 0.0044,
           "w52_high": 236.54,
           "w52_low": 164.07,
+          "sector": "Technology",
+          "industry": "Semiconductors",
+          "earnings_date": "2026-11-17",
+          "financial_period": 1785456000,
+          "revenue": 96221000000,
+          "net_income": 59688000000,
+          "operating_cashflow": 134359998464,
+          "cash": 62469001216,
+          "debt": 38860001280,
           "trend": {
             "strongBuy": 9,
             "buy": 49,
@@ -250935,7 +250944,45 @@
           },
           "upside_pct": 40.6,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027",
+              "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcjZPeVV6eC01Z2tWOHlyVEhmMG9uZDgyaXdvVTV3MVVMWGdKVVhJdlNiRHBvejd0UnlSNFJfTFA4dXAxUk9fVi1RQ2h2VU1kd2FkSUoydEJheDVMNWRnYUdMa2RFcG8zcTROTl9ZX1lJQ0tRU1VZR2pkQjFRdEtkM0tpUUlOcXhsYTFGcGY5RHFQYWZyNkh6LXVCSmN0Y1J3WWc?oc=5",
+              "source": "NVIDIA Newsroom",
+              "published": "2026-08-26 20:25",
+              "ts": 1787775918.0
+            },
+            {
+              "title": "Jim Cramer Explained What Turned The Tide For NVIDIA Corporation (NASDAQ:NVDA)\u2019s Stock",
+              "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQ0hJUzNUMER3V0VCRHZwN0o0Q2ZkVjJLWmhoalNMbmNyWUpUOVI0bV8xbF9DUmFfV1IyS195UHFOS2s1SkdzLWdaNHF2ZUpjU2xwN3ZFU2MtNEpWRTNfY2dNSk1EVW9oUjdJVU5VOWxkbGN5MHA3YktpOV9TQlpQekw4MHg3a1BCMlcwMWxMaVVSUXlZNXBpT2NDSXE3dw?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-29 03:33",
+              "ts": 1787974380.0
+            },
+            {
+              "title": "Nvidia Adds $442 Billion in Second Biggest Ever Stock Surge",
+              "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNS1NENk9rRTlfX3NnOGZGNWgwV2E0Y3pQRlVtZmI0MUk5bXJWSGtlcWdRQXVzaDlpa1p0WlFsNFlVTVM0a01FdGFUVlNSR3RrUm1kdVRRYU83cGNIczJUb3ZpMUo5WmE0d0Z5MFpZSlJ4aWlpbmhXMUtYZVJrMDNUd3BWOEVMckVoNGs2NzJDbGlRWlJfd1RzcWdfaTlBa3FhdXVTZG9qRXpqU0lsV1E?oc=5",
+              "source": "Bloomberg.com",
+              "published": "2026-08-27 20:28",
+              "ts": 1787862510.0
+            },
+            {
+              "title": "Going Into Earnings, Is Nvidia Stock a Buy, a Sell, or Fairly Valued?",
+              "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb0VOQm9kVnMtUWdwakFBUWNBU25nU3Z1ZzJfcjE0c1FIRndqRXJiV3VKNGV1S1VhTzc2aGdfaXBmZENTR00wdmlWa1RLR2hmNVlQTW5vMmtLa1JSSU5wMzE4SEk3ei1JX2FFN0k3eFFRNzRJX1RXQ2NsMC04TU9RTDVvd3Y5NE1vTE8yWlI2ODZHMkpQQXJvLXBGWDFyUjQ?oc=5",
+              "source": "Morningstar",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "Why Nvidia Is A Broken Stock (NASDAQ:NVDA)",
+              "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5oeW1QWU1mSndvWUpGOHRPS2kwczRNWDE4SGNieU81UmhLM3R1dDVBRExxQjJraTdjTzFBSjZvcTdtWUVXdHpOOXFTVXFXanRJdzRDYXJLMTVuNVMycWJVclNIRDc2RWtDTC1LU0d2MmFCN0xGVXpWUA?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-24 17:10",
+              "ts": 1787591439.0
+            }
+          ],
+          "industry_pe": 54.4
         },
         {
           "symbol": "PCG",
@@ -250954,6 +251001,15 @@
           "div_yield": 0.0111,
           "w52_high": 19.16,
           "w52_low": 14.34,
+          "sector": "Utilities",
+          "industry": "Utilities - Regulated Electric",
+          "earnings_date": "2026-10-22",
+          "financial_period": 1782777600,
+          "revenue": 5902000000,
+          "net_income": 733000000,
+          "operating_cashflow": 8146999808,
+          "cash": 972000000,
+          "debt": 64703000576,
           "trend": {
             "strongBuy": 3,
             "buy": 11,
@@ -252702,7 +252758,44 @@
           },
           "upside_pct": 36.9,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "PCG Stock Quote Price and Forecast",
+              "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE13MzZWVmkybUxqaXpyakI2bjJRR0FiX0NFUmFJUVpseW1lU2ZBWnhwb0Y3cXBpV2RIeXFWdm5Tb19HZTBxZEtOUzJmaURSYlk?oc=5",
+              "source": "CNN",
+              "published": "2026-08-28 14:18",
+              "ts": 1787926684.0
+            },
+            {
+              "title": "Pacific Gas & Electric (PCG) Short Interest & Short Float | Updated Aug 2026 $PCG",
+              "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0tcG1jR3FNdUczblJGbU96el9LUmF4akd5ampERlI5WEtYZ0hPOHlvVWduWXZDT01iTG9LV0xnbUx2WGhMM0hWQ21SdDZSTVVlZDZ0RlRWdzFPa3F4NHVPV3kteXpPb3h5eUE?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-25 07:00",
+              "ts": 1787641200.0
+            },
+            {
+              "title": "PCG Stock Slides As Heavy Volume Triggers Key Break",
+              "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZXN2UEdRY1pKeFg2ME5YcUtJM2FBb3lRdTZYSWpDUjU5NGszejBsUTZKQ1gxSjk0Q3ZXY0lnWUppd19kTFFuNDVscGR2LVc0QXlDU2RmcWU5MEtkbGhFV05OTkpGVHhjQmQ5a3BzOFJ5TnlMZUFlUWw5bUdvcnhyTDhtZC0?oc=5",
+              "source": "timothysykes.com",
+              "published": "2026-08-28 19:02",
+              "ts": 1787943752.0
+            },
+            {
+              "title": "PG&E Corp (NYSE: PCG) grants phantom stock to Chief People Officer",
+              "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON0hYSVRrWmNTMWVvcHljQ05BWDlCSlZqdUFvMG54OEhzNXVBVTZ4X3EyYkNudFFOOGNCb3FhczZOZFZ0OEZheWQ2aV8zWW5wdUtzd0QwOEJWbDB4TkZNeE13SHJ5QnMzYkotUGN0VVdnNUJZSlZHUS1xM2hFN1FWVW50VVRuemJ2SmJicGQ3UkhZZ0VPdk43MjN3WFRWekNUSUc4RA?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-24 20:16",
+              "ts": 1787602606.0
+            },
+            {
+              "title": "After weeks of pushback, Newsom drops his utility wildfire cost plan",
+              "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONmQ4MmlxOHJxanFySVZpTWRnbDAwNUphQzVWT28tbGFUR2FLN1hoMzFPb1d5ZG1qU0dBWE5hcDMyV2lJMndPbTQzUTlTTmNXWVd6ZWppcmZzMVBQdlpQZGVxMWoyalozQkZyNmFVb1VuX1VObDRGVG1CblZBbnRZTzNZS2pSdw?oc=5",
+              "source": "CalMatters",
+              "published": "2026-08-29 21:40",
+              "ts": 1788039638.0
+            }
+          ]
         },
         {
           "symbol": "INTC",
@@ -252721,6 +252814,15 @@
           "div_yield": null,
           "w52_high": 142.35,
           "w52_low": 23.68,
+          "sector": "Technology",
+          "industry": "Semiconductors",
+          "earnings_date": "2026-10-22",
+          "financial_period": 1782777600,
+          "revenue": 16128000000,
+          "net_income": -11033000000,
+          "operating_cashflow": 14936000512,
+          "cash": 29727000576,
+          "debt": 50537000960,
           "trend": {
             "strongBuy": 2,
             "buy": 12,
@@ -254469,7 +254571,45 @@
           },
           "upside_pct": 28.4,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Is Intel (INTC) Stock Above Fair Value Or Still Below It?",
+              "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMmJYYkp1LXplYmljS0phTWlIalhqRFFzZW5DalVOLVF4V0lXWWphdXZzMVJZUWxsU20xTUNCX1N3U2s1ZXFlWFdlTDBWOVhMQWNGY1B5VThxekp1WFhxZXB4N3IwRDY5QzJiTlpWdHY2bXV0dmhVOHdFT2hBQ3F3cFU1LWtVNm1Vb0kxZXJ2eXBZODNMR2hZ?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-26 22:17",
+              "ts": 1787782672.0
+            },
+            {
+              "title": "Intel Stock Has Plunged 32% \u2014 What Investors Need to Know Beyond Dilution",
+              "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPY2o2bFdvVi1XRXVuMksxeUN2bC1TbGVnYU9EcXJqZmhpcmtfWHRRTGEwNlBZaXRXSmFKWTluWXc3Zm1jX0Q0NUNWcHFqZG1DSF8wZVJicUxrTm9rQnBqclF3eFhBRDZ5UU9nblZDOEtRT3ptNHkxcGhpdFZkSXMyQ24tdEEzYkY1WFY0NEhxTDZQSzF0NG0wcnU4by1JRGtUcTFwUk1tZHM0VzhLUTdMOUlTeE8?oc=5",
+              "source": "Barchart.com",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "Intel Corporation Stock (INTC) Opinions on Pelosi's Recent Purchases",
+              "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZEpab3F4S2lJbExNVVZWZTctYks1MkwyYV9xSXR1QmJNbXhNV2xFMDhQR1FET21DdXZiVDZwTmZMS2NQV2VRSEo1UmQzRXdyekl2WUNZbm91Q3NOZ1Nvank5VXd5S01BVzM3RDZLOHVjd1BIQldaNjY4Y2ZtcE9jcTdfNHE2Wi1TT3VHYmNaM3EyZVUtUUF2NlVkR1ZNV2FfTm9GNzVoaGdRdWM?oc=5",
+              "source": "Quiver Quantitative",
+              "published": "2026-08-25 14:04",
+              "ts": 1787666640.0
+            },
+            {
+              "title": "Why Intel Stock Is Falling Today",
+              "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOa2tGSXJjYlRfUWFxUER6eV9RZXl3X1VYRUk3emd5RHY0b1ByTmxKY3Q1bGl0NEJVWjl0aTVqbUdxQ1NVYkpYQ3ZNSWNBWlVLZzNjRE5RSGFTMTZjaEpQQUpEWi1RRHVBRE55WXB5LWJTQ0dVVVQ5aXBZZ2FEejM3ZQ?oc=5",
+              "source": "The Motley Fool",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "'Insiders Only Buy for One Reason': Intel's CEO Just Bet $10 Million on His Company's Stock. It's Now Even Cheaper to Get In.",
+              "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPOHpCbnlzU3lRLXZnM3p4Ylo2WXZsNHRITFE5WHNjeFR1MVdodW0zSktweGVyR25VcUdNTGxyU1IwZUV2RE85TEE0bXZKdEROclJOXzZsS2dWWktSZW0tTkU1eF9IbzV6WlRMWEN3UlY1b2RGTmdYMURrZURiQWRQT3A2dF8tQV9UVGc4bmlsYjEwdFRPUGtqOV9sX0k3cFI5dnJxbGYtb2ZnV2NaekhicWdwaURiMTNMZW00d3puNGJSaFFsRnpGdjhGMmRPSzZlUzlIRXNUYmtGanNSTXZwZjZrVEI3T1Z1dzRtbjRaaUdHdw?oc=5",
+              "source": "24/7 Wall St.",
+              "published": "2026-08-28 14:08",
+              "ts": 1787926080.0
+            }
+          ],
+          "industry_pe": 54.4
         },
         {
           "symbol": "NU",
@@ -254488,6 +254628,15 @@
           "div_yield": null,
           "w52_high": 18.98,
           "w52_low": 11.2,
+          "sector": "Financial Services",
+          "industry": "Banks - Regional",
+          "earnings_date": "2026-11-12",
+          "financial_period": 1774915200,
+          "revenue": 4967967000,
+          "net_income": 872056000,
+          "operating_cashflow": -10304786432,
+          "cash": 15170837504,
+          "debt": 5896687104,
           "trend": {
             "strongBuy": 5,
             "buy": 13,
@@ -256396,7 +256545,44 @@
           },
           "upside_pct": 31.3,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Why Nu Holdings (NU) Stock Is Up Today",
+              "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQVFkTFduZnNheEc0YkZRLXpNY2ozdWk3a1J4cEctRXRKRDhPa2VxclY1RGYwN1IxQVVhYUVrTlhNTFQzREgxXzQtcmxFQm12WlROWnVjR1JNNjBzZGxNZWpXRWZzWk5wbU0yT2hlT3IzLUFlZVY2TkV2UDdrZ3NOeHlxTDA?oc=5",
+              "source": "Moomoo",
+              "published": "2026-08-21 15:34",
+              "ts": 1787326448.0
+            },
+            {
+              "title": "Nu Holdings (NYSE: NU) reports insider share trade",
+              "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNT0o0VWlGdnlnNk82QUtFcGVsT0J0OGM4dExKWlZpek9VSnJEVU5yM3J1dUExSDZ1eDV0cXNMckdyZUtjbzQ1ank1d3Q3QzBBREhqUnVjcnN6N3ZrSEVpMUNaXzJraHNjd0plSkxlLXJDSlN5MzktM29BNVcweGRYRW81eE1QTDhpdGVnXzJMdmJIM1hJTGJDbUI1UXFaWFhSUzZ3LXRUbmw4ZHM?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-26 20:09",
+              "ts": 1787774984.0
+            },
+            {
+              "title": "This Insider Has Just Sold Shares In Nu Holdings",
+              "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQOFVkRE1QRWZHTXd4U1dmWEotM3ZQSlc2N0tSeVo5UVhiZ2tEUEhzLV83M2Z3NVBVLUtPUjlndEoteVZJN3FoQzVHeHV1U0tWRmpfZVNkbVdYOGMtMVlsQ2ZTbjgxejNOaGVIMFIwTmpTNXE0R296Tkg5cUxkSWFWYXRUMV9YbWhVUGx5S3lsaVhIdjFrN1VaTnk1NDlwOV83S3F2LUJ0UmM2dW9CV0Y2SNIBtgFBVV95cUxNbEVvclVOTlIzekRUNHFYVHA4eU13NkVsVnRrazZlcloxMzJQc2xUV2lucWZqb3BSSG12REpZSmhPQ2RQbEVUQl9GOHhoMmItVHRUaWQzTGhvLVRReGZLeU51eXlNTXdyXzlyUkRRYWlNX1hCYlFKcnhPX2JucURYSUxvb3Jfb19SbHpFMkNscGNYOVYwVmNPa0ZVYUFxb0JTVnJ6ZWN0MW5WLWQ4eVpVaHh5M0V4dw?oc=5",
+              "source": "simplywall.st",
+              "published": "2026-08-22 12:18",
+              "ts": 1787401106.0
+            },
+            {
+              "title": "NU (NU) Stock Forecast and Price Target 2026 $NU",
+              "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE96NTRPOHpfWXV0Q3RZWHRkSnI1WjFOSF9aR2E0cEs1SGFKSnBqQk9KWVp4bmpEQThucXdYUDVrQlduV1RCLWI3TEJ4YXRfeFVJV3d0RVppMXgtNDJmV2ZSUg?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-25 07:00",
+              "ts": 1787641200.0
+            },
+            {
+              "title": "Nu Holdings Still Has A Massive Growth Runway (NYSE:NU)",
+              "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSFI5WERPdEtod25IallnLWpNS3Fqc2F5MXFWX1dYWWN0VDV1aTlfTjAyaVltQW1yMkFfRnNlZmRYTlJLWlpHLW50VmhrVzBBNHZnNkhielJIalhKQloxZmN4NDIzd1FVV3cwajhoaEVfaFVWcG4zTDNOQVp0WlNxa1dJYlMxUFdSelpweTRXbw?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            }
+          ]
         },
         {
           "symbol": "IREN",
@@ -256415,6 +256601,15 @@
           "div_yield": null,
           "w52_high": 76.87,
           "w52_low": 25.31,
+          "sector": "Financial Services",
+          "industry": "Capital Markets",
+          "earnings_date": "2026-11-05",
+          "financial_period": 1782777600,
+          "revenue": 137200000,
+          "net_income": -684000000,
+          "operating_cashflow": 2100400000,
+          "cash": 6084700160,
+          "debt": 7839600128,
           "trend": {
             "strongBuy": 1,
             "buy": 12,
@@ -258329,7 +258524,44 @@
           },
           "upside_pct": 126.2,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Earnings Preview: IREN Limited (IREN) Q4 Earnings Expected to Decline",
+              "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTUlDOXRfMWFibXdOUTJaVXlXSjNBMnk5YUQ5eVN4a0FmbC1tdDhITUI5QlZQaXRib1BxU19ka1AxZWlBS0FMTzc1UWg0YW5VSnp2dkdXZ3NpNGpUb2dzaE5MWXpMbzhhdXBrdjlIcnhuc2Vyb3VPRGZHdUZ6SlRNaWd0R05YZTdtVTZyVGpQS1c4Sjc2M3lyRjhZSWhKeUFl?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-20 07:00",
+              "ts": 1787209200.0
+            },
+            {
+              "title": "IREN Stock Forecast | $2.8bn AI Contracts, Higher Target",
+              "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5FOER6b2ZFLWJXbXphVzN4U3BGN19vS1hJa0dHakJNVmh4Z2diVmFoWmNxWUd1NkxCSUxrdlZVcVVxS1VPRTdnTzVBRWp0dnFwR2x0R2lDTUpQNml6VXJ6RWRJZHNmbGZKS1ZOTjVnang?oc=5",
+              "source": "Capital.com",
+              "published": "2026-08-26 08:20",
+              "ts": 1787732457.0
+            },
+            {
+              "title": "Iren Stock Drops After Earnings. Why This Analyst Says It\u2019s Time to Buy.",
+              "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWkh2WmROS1FrbjJrcmRHb3ZtOXJZaEQ5el95WHFKY19jTnFKZkk1V2xmWUxuaElCel9KTDAtRXBqWko4LUp3SjhYVmhCd1Eyb01sZmFkRkN5SXVUNEQ3cTVqVEdkdk04RlhnMDNTVzVvNXV2MlF6cXZybHNFZVo0MDhVdzR4YmJiWHc?oc=5",
+              "source": "Barron's",
+              "published": "2026-08-28 18:19",
+              "ts": 1787941140.0
+            },
+            {
+              "title": "2 Major Catalysts Are Lifting IREN Stock. How to Play It Here.",
+              "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdDhMVzl5V0hWenhXOHpFdThSeDEzUVJXN2xWcUQxUzlxMGlOUk5heGlFZ0E2eFNPRHVfdWt5ck9Ed2lqVU1lcWNzNzJua0RyZTZuLVBvdTZGSkp6Q25QZVM0WmQ4MEpfY3lTNk94U09wcHdGX3o4d2RwS0dlWVZ2emFVSHI1VzVYb0ZPM1o0UFlYdXFGTHIxdnhXbEZueUVCVXJYSmpERQ?oc=5",
+              "source": "Barchart.com",
+              "published": "2026-08-16 07:00",
+              "ts": 1786863600.0
+            },
+            {
+              "title": "IREN Slides 6% as Traders De-Risk Before Q4 Earnings, Core Scientific Declines 4%",
+              "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNd2tZM2luSFJmNGY2UFZ1aHFWdXEtT2UwT1ZxVmJSZzB6anotU1lDQ1BaN1lvRTZJLUtiUHNacjhVT3JKZmNzOTBsZUdFS2YyVHhaS0RiT3UwV1llVHNaRG5WeHJad2lQQW5WRnptcnNfbGJESjZFRDMyME9wdGtQMTVjUEYwdDMtR0Y1ZHk0cm9uOFc4VGFRWFFtNDc2TkdWN3hVbzJfY0pzbVNYUVE2bElqU0xHTHE4ODhkMzk1Zw?oc=5",
+              "source": "24/7 Wall St.",
+              "published": "2026-08-26 18:09",
+              "ts": 1787767740.0
+            }
+          ]
         },
         {
           "symbol": "ONDS",
@@ -258348,6 +258580,15 @@
           "div_yield": null,
           "w52_high": 15.28,
           "w52_low": 4.9,
+          "sector": "Technology",
+          "industry": "Communication Equipment",
+          "earnings_date": "2026-11-12",
+          "financial_period": 1782777600,
+          "revenue": 83772000,
+          "net_income": -88587000,
+          "operating_cashflow": -161062000,
+          "cash": 1384493056,
+          "debt": 41096000,
           "trend": {
             "strongBuy": 2,
             "buy": 7,
@@ -260362,7 +260603,44 @@
           },
           "upside_pct": 145.8,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Ondas vs. Red Cat: Which Drone Stock Is the Better Pick Now?",
+              "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMHNqZFJfOGxlNEZDZTdjLWZmdWN0YklLODRUbmhfSFpXTE5xMENOSDBpelZVeFlyLXF6YmlZRDhBTDE1OXFyVEp0b29CYlgtTDVFM0ItWHQ5Nl9Pa3ZucHpPRHlraUd6ZnktT3dJcVFqcUZQLUZoR191aFR5SkJCUHdHQmJDZ1E3bW9NTVduczc?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            },
+            {
+              "title": "Ondas Inc Stock Short Interest Falls to 40.65%",
+              "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT29DVXJha3lkWl94UnEwWWlQMnRBRWp1ODVVd19BNjhWenVZaUhIcmEwQlpkazQ0Q0gzamlvaVB0TmptaFMxVl9ZbFNJSTl1QXZhTG1YN3FySmlGMGdkbUphS25Dd09kX1pRVnRMZTNkTzlRWWxUdUE1Wl96Z3o0YzF4ZG80eXAz?oc=5",
+              "source": "Quiver Quantitative",
+              "published": "2026-08-26 13:38",
+              "ts": 1787751480.0
+            },
+            {
+              "title": "Drone Stocks Drop While Broad Market Rises: Unusual Machines Sinks 9%, Ondas Falls 6%, Red Cat Slides 5%",
+              "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNU3JDTkI3NlVjRnBzb0Jtd0NBeDNGak1td3VWV2hZbXktb0M1UXBIdERGaE9Ranh1VGlEZ2xZMGtuUHFPWmVodjR5aEt4UGxsUk8tN3B5TXZ1eGJYRlZHYUxkdHk4UUtrcFNpVk9zZDh3UHFPME0wVG9jSzRwNUJLZmFjS1hUdTV0UVZmOG40OXBYbWVFT2IyMjdwNVM1OVZtZW9sRW9ZajlJeUsyVjVYQmJBYXVveFQwMGdvb1dHTWMzZXZ0Q1FlQV9ycUM5ZkF5eWdUcUFPc195Zw?oc=5",
+              "source": "24/7 Wall St.",
+              "published": "2026-08-28 15:41",
+              "ts": 1787931660.0
+            },
+            {
+              "title": "Ondas Shares (ONDS) Rise 3.7% as Weekend Begins; Outlook Signals $256 Million Fourth Quarter",
+              "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNb3VKbXpYZUx5UldpR1RJQWZxQ0I5bTE0Q1l5ak56MWFyb2hCVTBhUzA2Vm1vUGYxQ3FwNGk2UHpCQlFyWkRLdDNPQkpxalp5M2Mxemw3bmw5dy1iUk84OFF5MktjRjJnalhvclh6QWdkdzVjU1dMUnRtbnB1NHVFSGREb2JtRHJVbmJ1TzJfS014dw?oc=5",
+              "source": "TechStock\u00b2",
+              "published": "2026-08-16 07:00",
+              "ts": 1786863600.0
+            },
+            {
+              "title": "Ondas: The Growth Is Real, But So Is The Risk",
+              "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNeG0wZEdyckFxR2lZbmRaRGhObzQ1U1ltZjNmeEZBb0VGMW93XzBKRlYwM2pCOVg0X191a0p4N3RNc0VVRUI0eVI5Vm40bVd0dUdpTUZrcDFVbUNYdDJTbEV3NXNFMGR6V2xaNi1tZndzS0VGVXNEMFNrSFl4ejRBZ3FwaVF4c2ptQ1AyRg?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-26 11:12",
+              "ts": 1787742773.0
+            }
+          ]
         },
         {
           "symbol": "AAL",
@@ -260381,6 +260659,15 @@
           "div_yield": null,
           "w52_high": 18.79,
           "w52_low": 10.09,
+          "sector": "Industrials",
+          "industry": "Airlines",
+          "earnings_date": "2026-10-22",
+          "financial_period": 1782777600,
+          "revenue": 16735000000,
+          "net_income": 71000000,
+          "operating_cashflow": 4374000128,
+          "cash": 8360999936,
+          "debt": 35728998400,
           "trend": {
             "strongBuy": 2,
             "buy": 10,
@@ -262297,7 +262584,44 @@
           },
           "upside_pct": 35.6,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "American Airlines (AAL) Stock May Be A Bargain Following Upgrade Changes",
+              "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPemxtNHBKekMxX3NPQVZxeWhXUks1NFc3eEhyR2IwWEo0ZWV6Wkxqd2d5X3QyX05IYVRPSGsycGhubEw4bFpVVTUxSDA0UmNFWVR5SXpDd25md3F5bWNqb3otay0tczdHRW9PNVF1alE0Q3FMejB6ejRfc3Rfa1FLWWxtR1NzaHVXRkdRa0VJZjYtcUZaUUE0RzkwV0w?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "American Airlines Stock Is Down 6% This Year: Is It Time to Switch to Delta or United?",
+              "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWHFiSi1ubnRQUVQ1T2FNZFFNUTloZ0U3SVNIWUw1a21zNHp6Q2gzUnJTZy1IaVk1bTdPXzFIU0dVWlV2amN4aTVRbmRaRGZUMy1NTFdLWTJzTDdoU3lTVTFiZ19fTUl2b2Z3MUI2TzFSa2pQSHI5Smp6TWpNeUFkaV8zQjFKNENxYmdnYmJZazdROTRTSzJwVU0zNFlZRW1QMzdYOUdCN1lwYU1KRXZ2alVOLXpoOGhUNmpOc0hfU1RLcmNLdkE?oc=5",
+              "source": "24/7 Wall St.",
+              "published": "2026-08-17 07:00",
+              "ts": 1786950000.0
+            },
+            {
+              "title": "Why David Tepper-Founded Appaloosa Is Betting Big on American Airlines Stock",
+              "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOXFTUzhvblZFdTBTcWdGZGV3Yl9hRFNMajRhTWFHTnJZUHNZY1FfTVVUaldINzdWbXR0THR6NVlJSUQzR2FWYXZ4M2k4Y3JWR1hraS0zd0RxVHItdXNxZFJINDJBSmlRZkRiekhHdExSajhrNUtoY3lZWHBkNGJuYmQzVGhQa09YT1ROZXk3a0hQYXZ2VW1vcUJPbUJqeXpkNnYxS0hIWmJpbkZwVDZKd0hYTnBYUzZxNnpNOA?oc=5",
+              "source": "Barchart.com",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "American Airlines Shares Drop 7% as Delta's Adjusted Margin Approaches 10-Fold Difference",
+              "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVUNvUUlhTUFpaExvemJFaUJlY216WExiQW0yVXhCb2Q1b09aeXhUOFRDVWJBSG1KSG4wLXhxOWpwSlE5bmZmdC16NVRYczdEQW5za1FwT0hhQlVSYm41eURzU0ozY0hRT1dMbU5HSGsyS29LcWhCbERNckVoV2NvQUQ5dG9DVE1oOGY2LTFwQ0hQOE9seFlQaDhXbkNlbHg2YzBz?oc=5",
+              "source": "TechStock\u00b2",
+              "published": "2026-08-16 07:00",
+              "ts": 1786863600.0
+            },
+            {
+              "title": "Airline Stocks To Watch And Industry News",
+              "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZ2ppTDltS1hYd2d6YnpwU0kwRkhQQzhYa2dQTHJMMWg4ZkYzM1J4VVBBcms2NThlWkptTV9lRlhpM29MVFR1bGZGa0hrZFhyaWZfSlp3OXVSaVIwZy0tQU13ZDc1OS05aFNsM3ZjelFSdlNGekF1LVM5TEc0RUNoRXhEbnY2XzdGbUEyWXZUZjhROWhpY0JHYWdqR25QeUYyaXVMMlN0bDI?oc=5",
+              "source": "Investor's Business Daily",
+              "published": "2026-08-28 16:09",
+              "ts": 1787933340.0
+            }
+          ]
         },
         {
           "symbol": "SPCX",
@@ -262316,6 +262640,15 @@
           "div_yield": null,
           "w52_high": 225.64,
           "w52_low": 104.83,
+          "sector": "Industrials",
+          "industry": "Aerospace & Defense",
+          "earnings_date": "2026-11-03",
+          "financial_period": 1774915200,
+          "revenue": 0,
+          "net_income": -4276000000,
+          "operating_cashflow": 9900000256,
+          "cash": 100009000960,
+          "debt": 39708000256,
           "trend": {
             "strongBuy": 6,
             "buy": 22,
@@ -263834,7 +264167,44 @@
           },
           "upside_pct": 54.9,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "SpaceX Stock Trades Near $140 While Wall Street's Average Target Sits Above $232. Who's Right?",
+              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVGVydUhfNDZtWjRzSkFvLUp2STdFbFREbkNYVVliSV9DdjdqQW9KUUR0RTdNa0tKN2piUXVMN1VxUzBzazlBNm9TR2NwN1lkemQwQkI5Zm1HWXJRaGdWTVhsQUphZ3U2cVhJSjhBdnFIeS1DRGZFWXBpd0lQMDBZbWtMS0lEZk1zbHZQSDZZLXBHanlmTzNMcA?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-27 09:30",
+              "ts": 1787823000.0
+            },
+            {
+              "title": "Index Funds Will Buy More SpaceX Stock Just As Insiders Are Selling",
+              "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPU3M1X2cxcnBkb3pfWW8xWjdVT3Myb1p1RXduVzBfd0NPcnpJRExFUXBjWFQwcFhMdk1QQkFFSHFXWVBRbk9nVnBsYlJvYW00X2ViRzBrcTBCbG4wdjdFNDZiQlVSMWhNOGROb3NZMFlNR3YxbTBmbUt3M0pqenN1M19yMkhvY3N3M2tmbm1Hd1pCTjFubGRwcGhpaVN0V2M?oc=5",
+              "source": "Morningstar",
+              "published": "2026-08-26 11:03",
+              "ts": 1787742224.0
+            },
+            {
+              "title": "Here's How Much a $1,000 investment in SpaceX Stock Could Be Worth by 2027",
+              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdDF5NHBiUldiWEdxQ3VVTjhpbXFhZ2pSeFotZFJEY3BQMnBtOWllNVpnWnVrcVRoLXB2UkdGdzcwU1hwLUJYSHNKTE4yTUdXWlprVTlWRkVFVGNVQ0ppN2FMSV9oMHl5NndEdkpsNDVSN2JBdG9zbm5aYkc5NUoxckk2U3dCUEx4S1NuaGEtZzAxMW14U0hlSg?oc=5",
+              "source": "The Motley Fool",
+              "published": "2026-08-27 22:45",
+              "ts": 1787870700.0
+            },
+            {
+              "title": "Space Exploration Technologies (SPCX) vs. NVIDIA Corporation (NVDA): SpaceX Beats on Revenue, But AI Spending Steals the Show",
+              "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcmJpRTl1Vl92VC1FcHV3UjVHcXY5Y0V5WElYalJXYXA3TEliY3g0T1B1UTBRdXpCVGN1NFM0Ync5dVFsRURSNElYa2ZkR3BVSzFfRlk2VzFFMjl2NjB1S2MxUERWSnVBV1JxZ3JZd0pGeVN3LWVwdm5MZUZ6WVhrQXBvN0xRcEl4VUpGV1Q0b0lQMk1lQWFORWYyb1ptYnNjcXcwSUhB?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            },
+            {
+              "title": "Prediction: SpaceX Stock Will Be Worth This Much in 1 Year",
+              "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTHVQRzBwRkNvNDdnY0xtbkQ4bTdfTk9Tc2t1b3E2ek9rRC1nOWd0cUVZRjlXdmpJYmc2MU1JWFhObEkzcC1RdzRlYnJvTUxsc3dpZkZEQ2lJZjdDZldzUjY0RUtubl9RdjgzaFl3ZHZuUURBZWV4TDR1QURxQ3dzOTZlbXMxeloyZU4zVk9ZSmJEMnRjcG9R?oc=5",
+              "source": "The Motley Fool",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            }
+          ]
         },
         {
           "symbol": "PATH",
@@ -263853,6 +264223,15 @@
           "div_yield": null,
           "w52_high": 19.84,
           "w52_low": 9.2,
+          "sector": "Technology",
+          "industry": "Software - Infrastructure",
+          "earnings_date": "2026-09-03",
+          "financial_period": 1777507200,
+          "revenue": 418382000,
+          "net_income": 22525000,
+          "operating_cashflow": 384134016,
+          "cash": 1307244032,
+          "debt": 83003000,
           "trend": {
             "strongBuy": 1,
             "buy": 2,
@@ -265827,7 +266206,44 @@
           },
           "upside_pct": -26.0,
           "valuation": "Overvalued",
-          "momentum": "Overbought"
+          "momentum": "Overbought",
+          "company_news": [
+            {
+              "title": "UiPath Stock Rises 44% in 6 Months: Should You Buy, Hold or Sell?",
+              "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXZPcWxCQ3lNTFNsd2M1WUZJakhFSThMdXFqTGREYzdmRFpCU2R5Q2ZOTE10NEptWERDdF9IUG1DbE5DV2pjSno3Q1MyUEFNVGJLTm4zMjBNNmxVX0Z6ZXJHMTlieW5FMF9abjRqM0lYZ1dqRU43aG1wdFRnb2I2TTZHOEp4TERUaHlFVXZOWk9idw?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "UiPath (NYSE:PATH) Stock Price Up 8.2% - Here's Why",
+              "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQS2VBeHFjSHF3YVpmZmRqak41NXp0M29sQ3JHUTU3RGdWR016T0w4elUzbVFadFVNS2FZYXdBcmJkM2FuTnZBZzJZV0RMWkx6UzNZNjR0UTFobk1ibFNvUjMwX2YtOFFSLVMwTHE3bzQ1RDFsTFhpa3NtRU5tUE5KR2lYajhNaEstRWhTXzlVZlNOU0FTUERsdkJhVHFWMTJaVGlyZnFOVQ?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-27 16:03",
+              "ts": 1787846613.0
+            },
+            {
+              "title": "UiPath Inc (PATH) Stock Up 9.4% but GF Value Says Overvalued -- GF Score: 80/100",
+              "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWlU1UnNsWUVmLVpJckFLdk1GaUhLNkdtQ3VNQzRKaW5oQ3N2SEFnVzlMVmtsUVhuZlFMbkROX1ZDR0VlWFhQeThOem1MVmdlNTc4TWhBYm1BMkd1ZEZvZWJZZ3JjYmNGN0dNMjJpalB2T3EzTzBYUzFiM3dpY0JXb1NycmUxVHg0RWhfc3pXVjJveFNxODJ0aVQxM0FyRXJBc2FucnB2cFB0d2JZZHhv?oc=5",
+              "source": "GuruFocus",
+              "published": "2026-08-27 22:39",
+              "ts": 1787870343.0
+            },
+            {
+              "title": "UiPath Stock Short Interest Rises to 33.26%",
+              "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOM1lwbjk4OEhFR19yYjIzV3o4V1FaS3J6T0w1VU43WndZVGt6bUJ6RUg1QmNEY3BKSlFIcnlyNkVyNVR0Tkk5ZHF5Ym9FbUY0Z08xd182aWRYQXdxTDNNclVQTERXR3c1YlFfbmVOdDBCeTZzRldPTTJydjZ1SkVPWGc1WEpKeDdLaTFwdQ?oc=5",
+              "source": "Moomoo",
+              "published": "2026-08-18 13:34",
+              "ts": 1787060062.0
+            },
+            {
+              "title": "UiPath (NYSE: PATH) CEO sells 1.4M shares, still holds 26,491,238",
+              "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPeHFvcEVpdThvQVc4aWluX2gwSG9wM2Zhdm9uMm9GMTJpZ1J1LVNia2xfUzczRkt1VFllUG4yQkY5ZWNrUldaT2xEUzQtb1hUdG92VVdUOWlkTTlqV1dLVEVxUHhNTFV6NjZSMWtkeHdmMEIxRXh1THhsbk51eVdoZDlHdEtORkl4SF9oUkdiWEZmRG82SGZrY0dSVkhUY2dIZGU2Tm5xd3g?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            }
+          ]
         },
         {
           "symbol": "BMNR",
@@ -265846,6 +266262,15 @@
           "div_yield": 0.0004,
           "w52_high": 65.6,
           "w52_low": 12.8,
+          "sector": "Financial Services",
+          "industry": "Capital Markets",
+          "earnings_date": "2026-11-20",
+          "financial_period": 1780185600,
+          "revenue": 46535000,
+          "net_income": -83576000,
+          "operating_cashflow": -293107008,
+          "cash": 340288992,
+          "debt": 1320000,
           "trend": {
             "strongBuy": 0,
             "buy": 3,
@@ -267829,7 +268254,44 @@
           },
           "upside_pct": 33.9,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Bitmine Immersion Technologies (BMNR) Stock Looks Cheap After A 61% Fall",
+              "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdTBpY1kyOXVFV1o4TGNheWFCb1gxaHVIc1p4MnAxaUpIV3F0dzNEUDNfUnlNam9fTEJkdUVwOWVyYk5ZLWtVdU9Vb1h2ZnlNbURHNzAtbFVBY1Zxc3B6Q2ZPXzVrYkVaUk9NdnE1YzBJMWc3S091THZlcUxmQXFHWjI5ZDlFdFk2ZnFmdDJxR3lwR2pCLVpNMU8yM3RjcXdhMEdZTlR3SURZQQ?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "Why BitMine Immersion Technologies Stock Skyrocketed by 26% This Week",
+              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNOTYzT01pelRjQTVtLWdXNWFmbTZaUlVIWGhqekQtQ21BYm9LRW8xa2l4enpKeGtuTXVzbG9iQ3FWTnAwQkFJUEF3R3lqczAyTjdDUExLbmRFdjNKalhCZVAtWVBSS2k0WEZKeFJwRHVuR0Nnem85TGZFS3FWWHhvRUZiV1pDV3ZWaTR0bFRXLUtkR1BYNEZ6cQ?oc=5",
+              "source": "The Motley Fool",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            },
+            {
+              "title": "Top BitMine Immersion Technologies (BMNR) Competitors 2026",
+              "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBPY3lLbEZoNE5tTjJic0loVG9RX1dWVmdnVDlBSFhZaFdHXzFVclgwajdfaFNsVV9VNEtFN0g4RUxsalh1WkFiVTJaQzBwVWttZF9ESTZIM3dDX0lGcnQ5cUR5R3JXcVdDNU1BeWlqM0xRaFpLSndCN01UOWE1QQ?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-29 11:14",
+              "ts": 1788002080.0
+            },
+            {
+              "title": "Bitmine Immersion Technologies Stock Climbs Monday: What's Driving the Action?",
+              "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNUVhNa3FhV2hYM1cyanJCcXY5MENhV0NCVnM3aTlZRGEzQWlUclptUlBidG5aVFoteEJCeUtXM3Q0dWc3TzlnNXduaXNxaXdTc2cyQkx4N1NqSS1CaFdac05mdlZHbUpnVmRHSmV1b0JPY0pMNExKaHd1aklVMmFrTlE4TTFqX3pyeDlaWERqWlV2VzNoNHU1SWpBTGt3NER5aHkwTTRyN1pYWVhOWmx5V3E3cDZKSUlUYkdQMVlFSHNHSkxNWXB6RnJidVlMOUVpU3c?oc=5",
+              "source": "Benzinga",
+              "published": "2026-08-24 13:02",
+              "ts": 1787576565.0
+            },
+            {
+              "title": "Bitmine Immersion Technologies Stock Surges as Aggressive Ethereum Treasury Accumulation and Staking Rewards Fuel Momentum",
+              "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNcFNVakJ3VjVQYktLLUxuTEpvX0hiMFU1Ty1vbTgxZkhLV2N3Z3k5dGdJYTdpajMwMnJJVTVIVV9hR0o5c0tJMTJEVWQwa2Nod0l0RDhnbHRDSnFwbTBWNEhGRC1LUzFQT0FaYVpmdUpJU3BzaTYtRlpoRXdTUDNZMkVUNHJpYVQ1QU9xV003UEk?oc=5",
+              "source": "TIKR.com",
+              "published": "2026-08-23 14:24",
+              "ts": 1787495071.0
+            }
+          ]
         },
         {
           "symbol": "NOK",
@@ -267848,6 +268310,15 @@
           "div_yield": 0.0154,
           "w52_high": 17.45,
           "w52_low": 4.23,
+          "sector": "Technology",
+          "industry": "Communication Equipment",
+          "earnings_date": "2026-10-22",
+          "financial_period": 1782777600,
+          "revenue": 4881000000,
+          "net_income": 2000000,
+          "operating_cashflow": 1134000000,
+          "cash": 5129999872,
+          "debt": 3359000064,
           "trend": {
             "strongBuy": 4,
             "buy": 4,
@@ -270034,7 +270505,44 @@
           },
           "upside_pct": 47.1,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "NOK Stock Quote Price and Forecast",
+              "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1IaTdhdm5SZmtpLWhJTG1qcWVRTEdUeTlqM0ozdkVHbmtqcllScHQ3czFnQnpfMWdZRXNkeU1YZ2s2cXhOOW9LUWM3eVVUVms?oc=5",
+              "source": "CNN",
+              "published": "2026-08-27 20:16",
+              "ts": 1787861818.0
+            },
+            {
+              "title": "Nokia Shares Fall on Report of Major Mainland China Retreat",
+              "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTDBuRWpGZFpDTXYzbndTUHpMeFZIbExrUERibW5nWV9qbmdKNHV3ZEc0djdLSHBMbXNBZHhCbjRGVDh5TE9FSVc1aDhwNXZyaEw1LVlZc1FVMlk3VXRCT1RQYzBPR3BPVk5LRGFNWnFQemhVREQ3NEhqRDJkR3dIRC1QV0dQNUNUOGduZ096NGZ4V2tjZGswWFEwYw?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "Nokia Stock Jumps As AI Bets And Big-Name Backers Pile In",
+              "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRzV3UEZ0WWdLdnZES0xteTl4by1PX1ZSbHY4b2Q1X0FRX0cwLXBIT2x1U1BuSWpRcWxwNGNOeWNPSTJ3NkRLTmRWM3pxenZydktjX1JFUi1jSTlCRExHV1ZlSml6OWpRdm5QZVpfRkhhWDRiMEdhaEdmaW9IWTVFS29od1hvdWMz?oc=5",
+              "source": "StocksToTrade",
+              "published": "2026-08-25 20:48",
+              "ts": 1787690880.0
+            },
+            {
+              "title": "Nokia Stock Rallies As Wall Street And Nvidia Bet On AI Upside",
+              "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNemY2LU41Wkd1aVA1Uk5ZRzhaME0wc1lYUFV5MlhOWG50TlhtWEVjdm94Z3RHc1NTRVJMYXYzcmFaNHlqTmxsU2dvTXpjSjhndkZxX3ZyX0xmUXBRSG0wUjgtcUNlYS1mNTZRb21UYm90NG1kenJyZ3p4YXFoT3MtUjdUNmJhSEVFSlFqUg?oc=5",
+              "source": "timothysykes.com",
+              "published": "2026-08-25 20:47",
+              "ts": 1787690820.0
+            },
+            {
+              "title": "Nokia transfers 3.64 million shares without payment to plan participants",
+              "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObi02SkRYM3NabUtaUVFjenBMWVBFOVdwT2J6dUEwVlF1UndfNVVSQ2lFWXg0QjRXcmVtdHEtSTZta1BJel9BYmhEZ3ZKMmVJQmhkRW5PTFFrREh4aVZpbWZBYWpWN2EzOUo3SzdUcExpaXUxd0YyQ0c5VU5LOXVaU19OM1NRYzBiQ2FzX1EzWGJvQQ?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-27 16:00",
+              "ts": 1787846400.0
+            }
+          ]
         },
         {
           "symbol": "MRVL",
@@ -270053,6 +270561,15 @@
           "div_yield": 0.001,
           "w52_high": 329.88,
           "w52_low": 61.44,
+          "sector": "Technology",
+          "industry": "Semiconductors",
+          "earnings_date": "2026-08-27",
+          "financial_period": 1785456000,
+          "revenue": 2739300000,
+          "net_income": 308000000,
+          "operating_cashflow": 2200300032,
+          "cash": 3932800000,
+          "debt": 4962899968,
           "trend": {
             "strongBuy": 7,
             "buy": 31,
@@ -272095,7 +272612,45 @@
           },
           "upside_pct": 24.3,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Marvell Technology, Inc. Reports Second Quarter of Fiscal Year 2027 Financial Results",
+              "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQMDhNVWVTS042VzhPTnZYZWgwd2kzVW1aVm9NR29YUHZncmt6QWFsbFJIQVFrLTRsQUtjc00yZHo3VXlvcFZQY3R0dGJiVzVSNDl6bllJQldUM185U0o5LWV6UFRmSWhHMWR0STBfazA5eVNBbU4xbUtyY0xzSnphR2piOVozN1lpd0JWRmFjUDV3UzdCY2RoN3V0M0Y0Q18xYUY2SGw0X2t0ME1JOVNwZ0RzcjlMYXBwVmxhSlFvdUR3bnVNMDQwbDlqVEdQMWMtRjFDQ2cyb3dkdDFyczZJbUJEc20xUQ?oc=5",
+              "source": "Marvell Technology",
+              "published": "2026-08-27 20:07",
+              "ts": 1787861242.0
+            },
+            {
+              "title": "Why Marvell Technology Stock Is Rocketing Higher Today",
+              "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWW5ham4zaVdfdVJLTlJnazZxSmxhX0ZxTDhJWk01SjdJUmRzZzhEMGdDOE50SjVYcktEZXpiVlYxaDBROGRFNVZLZzRTbmdhOTRTQkdsdmU1WG02bmVocDVPcWJMajJMVkQtUjNXc3ZJMnhramFkc2dDMUZpc1pKaS12V0lNcmxXVkJBR0dtSDl4Qi16ZGtKZll0M0pzZGpMQlBoNFZ3?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-25 16:14",
+              "ts": 1787674492.0
+            },
+            {
+              "title": "Marvell's stock pops 10% on AI chip deal that lets Google buy up to $12.2 billion in shares",
+              "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01ZjN6RG5qZ2hsZU5Db1FlOVdDNWJsX2dpVHVlMnAwdEpIa1BaV21fZ290eTNhVUdqOEVqSkdlRGZCclRtellnd05GQm9JWlpKRC11X1p6Y21CLUdyUWUwaThFUDFwQ01TWmNDUdIBckFVX3lxTE1mNEJ4WHBveW1zdm5DeGU2X3RTcndUbDdfNW5ZcjVlX1g0dGZERE5YdVJjbG9ZVHZnaDhzSklJcnRkb08wd1Bsd1pLeHZCd0xfbkx2dHJkaXJNVHZyaUZhMWw2V1hZVThYclhzdHJVVVh6Zw?oc=5",
+              "source": "CNBC",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "Marvell\u2019s stock sinks despite earnings beat and strong guidance",
+              "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdWhnaDB6elE0MXItbVBuUGRBb1N4bWJ4bWFNZkxlNmU0U2tBd210UVdaZ1liRlJTc1ZhQkFVbTU1M3ZEWmJ3bHVQSmFPWVJ2aTNFUlhXa3JncEJuazF1TXFkYWYyTXRSS2paSzJ3VzM4RGJ0eXVHRDRYZWZGeW1kWFgxRTVaNHNjZXJOVzJRZkdYc01EVVZVdnZobDVZMGtQ?oc=5",
+              "source": "SiliconANGLE",
+              "published": "2026-08-28 01:11",
+              "ts": 1787879460.0
+            },
+            {
+              "title": "Here\u2019s How Much Traders Expect Marvell Stock to Move After Earnings",
+              "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQenUzSjZoSFNOMUlGRnNxb3RRSlRzTXU4ZGZTd2FmdFFXcUxDQldkZjNGSTBseVJmZV96dE85SHprUGRNSHJNbDNlRVFhQzdyWThTSlA2Zjc4el82SDJsb19jQlY0OEs2UXFHQjZDTFVyaWF5RWU5N21wZXJSODdUM2lGRXBYV2pxdnk5S2hiejJZdnZXYlcxTWpER2kzQXM3V2hiQkRIQzVqZGpMeUV3WTB6UGVUTUE1WEJLaTRR?oc=5",
+              "source": "Investopedia",
+              "published": "2026-08-24 12:30",
+              "ts": 1787574600.0
+            }
+          ],
+          "industry_pe": 54.4
         },
         {
           "symbol": "AMZN",
@@ -272114,6 +272669,15 @@
           "div_yield": null,
           "w52_high": 287.2,
           "w52_low": 196.0,
+          "sector": "Consumer Cyclical",
+          "industry": "Internet Retail",
+          "earnings_date": "2026-10-29",
+          "financial_period": 1782777600,
+          "revenue": 200606000000,
+          "net_income": 62647000000,
+          "operating_cashflow": 161402994688,
+          "cash": 122988003328,
+          "debt": 251635007488,
           "trend": {
             "strongBuy": 15,
             "buy": 43,
@@ -274230,7 +274794,44 @@
           },
           "upside_pct": 22.7,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Amazon.com Inc Stock (AMZN) Moved Up by 3.69% on Aug 28: A Full Analysis",
+              "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRjYyb0Z0MnJNUHFpYW5RT2VXalJNX1pXZVBjRC1zMkdKdzBzMGhDa3BtR29ZcUhLUmNjdU5pcmdKRjZ1X2ZYYWcxV2FXbHdQdG1aWElQaTJieG5LUWVxQnRqZFVaV1lVWlRZQloyNGhDOFRYWVpQNTZXZ09NTE42MVVUakhiRV9Qc1JR?oc=5",
+              "source": "TradingKey",
+              "published": "2026-08-28 15:15",
+              "ts": 1787930120.0
+            },
+            {
+              "title": "Trilogy Capital Inc. Grows Stock Holdings in Amazon.com, Inc. $AMZN",
+              "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVjJQODctSEgzZEQ0NjkwNDJOUjNMaGV5VXhFTm9idlM3cHIxbzVRUVRqNmhmblp4a1VwaGtSSXR1WVpwYmFBdDM3eHFFY1p0WXZ0MldPQnc1R3BCYmFDcEU2LXphQmwwRzhnUlJqREdJR0tOb1BrR010VnZyX09BaDR2QWh0WDlBVWc3RWN3WEVYazA0TVk3VUtlZ3dPVjMtZTdQb0NzNVl3X0EzT3FBWnpzT3FzQ1dOWVl6ekpwMGc?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-16 07:00",
+              "ts": 1786863600.0
+            },
+            {
+              "title": "Amazon (NASDAQ: AMZN) CFO exercises RSUs, sells stock under 10b5-1 plan",
+              "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPcWdkdVFoNEJPSmp0V3hnLTBESjRTSkhkTGtsWm9jM3U3NWFlemJNZDFYSV9LdGRkbFJGN0VnMDdfZmNyNUotNlhGOEczSnp2TUpQRzdjakk1LVFic3EydnktZmlLMHVBZXkyWUJtSGFaNUtRSWZicjZHaWNzc0l1UGlPNUR4SURHbmtRbnl3OTVSU05WRktxVG5YRk1feDRsdWRob1U5R3oyRTM3?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-25 20:38",
+              "ts": 1787690282.0
+            },
+            {
+              "title": "Amazon.com, Inc. $AMZN Stock Position Lowered by Fulcrum Capital LLC",
+              "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOWTk3X3FDN1ZiS3U3T3hSVVNiTzNlVmpWQTNWUGprZk1PNjFTbEx2bzBEd0xUM3EtN3NqTktJTDN6bENTMGZiZXNnRTJEZFo4YXNUYThidnN0VjRjMXlnZXFfenF1T29mSjd5U1d5dk1PX1VkZ1lWTVQ1dFdsVjBCNTZMZjgyYUhyVmkwMndOR2REQnZCU1llcWVTTksxdFEwOEp6V05jd2F3ZmVCeWtrWXlPWmV6NS1hcUVGZ19IaGxWNVk?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-28 08:51",
+              "ts": 1787907084.0
+            },
+            {
+              "title": "How large was Amazon (NASDAQ: AMZN) SVP Zapolsky's preset-plan share sale?",
+              "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNeUJmMUl2NDh0c2lfQjMzZkNSRmxtS0xnZDVaZHh0Zlg3LUJYaHB1WmlqeGI2ZDIwWW4tVElnV3FBS0plTWNTM2tvcURucXdFc3FiSTlHdzZsMlowN05nSEhuYUYwbXJCNnBwakVpZjhaWDRONVJFN01LZTZUWU53b2xLdVl2dnFOMmROalBJWHA1cFU3bURjOTZ2VndqNUlZVGlTRXhyYURNaEV3?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-25 20:45",
+              "ts": 1787690725.0
+            }
+          ]
         },
         {
           "symbol": "PLUG",
@@ -274249,6 +274850,15 @@
           "div_yield": null,
           "w52_high": 4.58,
           "w52_low": 1.41,
+          "sector": "Industrials",
+          "industry": "Electrical Equipment & Parts",
+          "earnings_date": "2026-11-09",
+          "financial_period": 1782777600,
+          "revenue": 178299000,
+          "net_income": -188207000,
+          "operating_cashflow": -482561984,
+          "cash": 172094000,
+          "debt": 1036950976,
           "trend": {
             "strongBuy": 0,
             "buy": 5,
@@ -276307,7 +276917,44 @@
           },
           "upside_pct": 62.2,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Bloom Energy vs. Plug Power: 1 Stock Clearly Wins the AI Revenue Race",
+              "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNLTJwQkRYN2RLd01lQi12SVd2Q0JtZXpwWXZBdnVDRnZKSjZwbXlyTHNQQktVbjJ3dkZvMk92b3FMYVpkeTJoajhNdGk2MUl0TWg0MWhjd0ZBREdSMEJ2STEtaHZRalZOUUl5RWU4NlNaZTRCQlluUHFXNm5xMDJxSkV4Xzgxd0s4YzFURk1QMUxtc2pVWFE?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-24 19:12",
+              "ts": 1787598735.0
+            },
+            {
+              "title": "BlackRock Inc. Buys 31,939,194 Shares of Plug Power, Inc. $PLUG",
+              "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQWRaNjNxN0RUQU44R0ZJZFduT0phcTFYQjZVOFFfc3ZqLTM2NWloR0dhN2pmTjFkVzRRa3NCQktjdGVKZ184NUtiTnY3Tkc0VXQzZXVPNHRQaDhFU3ByNXJHNXg3QTZPaHMxcGJneWtJZHU0ZmVScEljQW9UellVMEhkcjltcEdxa0k2amM4aERIWjAtNUZXWm1qbVFfN3hQZ2YzTTd0Q2xyXzd1anlVZGw5bDBqd1VKZ0E?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-25 07:47",
+              "ts": 1787644027.0
+            },
+            {
+              "title": "Plug Power Inc. stock underperforms Friday when compared to competitors",
+              "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOR0xoZXVNeTBQQjM4c3B0OE5zMUg3Tkc2X3Y0Y2s4b2VzTTVzOXVmTXd4d2dtcjNGSV91OXU1OFZsdGZaSWJfZHEtRkJVM2dHYjFWOVFYbE56TjZubGlWbk1EYkFVS2dCelpBY2ZFdWt3QTFvTEkwZVhNZFppYUpQNzNUMnAtYzg0bFY5aGJkUzdTYUZTVWluT3N6QnVKNEl6eUs3eEphbFhxNDJBQ3hsVFd4RlVPN2tQeEduUHp2XzFUenFoN290Wmpn?oc=5",
+              "source": "MarketWatch",
+              "published": "2026-08-28 21:28",
+              "ts": 1787952480.0
+            },
+            {
+              "title": "Plug Power: Tangible Margin Progress But More Work Ahead - Hold",
+              "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORlh5bXhnZTNxQUlaT3VPTm5Ydl8wTWZfbDYxWDNhTi1uc1NhSDFYLVhFa24tOE5seGtYREgxdDhXMHV1M2pocHhQR0lndlpYN0lWYlhHX1pqSk5NNk1xcV9aajVEVTZTdkdKNDFPUS1ydFlDb1FjMVl0VDVOTlpkS0hVNThiTkVWSjFDcTBaU29YYktTR0QzU2YzY3FfTVFLakFF?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-25 02:45",
+              "ts": 1787625910.0
+            },
+            {
+              "title": "Why PLUG Stock Is Rising Today: UK Hydrogen Project Clears Major Hurdle",
+              "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbVNsMjI0bG5IbE5tV240QXRnSGRSUGVfcVV6Sjl3aDRnMDR5RlBMMG5scFl4TFl2ZEFtYlB4bXFfeWZvSE9DcThWdkF6a3g0MWZUUkdDNXFYamZaWTdrLV9GVEhwRHdZTVVRNk1ESzk4V0ZGellXTVN5WGJMa3l0RkxEZ3F2alp5eV9WR1g3dTdLNDlzcjJIQlJpeTVKNDgxc2pKWWhjZTEtcHlrT0ZLLTU4LVk0bXEtNXRqRHRzQU1GVjZFNnc?oc=5",
+              "source": "Stocktwits",
+              "published": "2026-08-28 18:30",
+              "ts": 1787941826.0
+            }
+          ]
         },
         {
           "symbol": "SOFI",
@@ -276326,6 +276973,15 @@
           "div_yield": null,
           "w52_high": 32.73,
           "w52_low": 14.88,
+          "sector": "Financial Services",
+          "industry": "Credit Services",
+          "earnings_date": "2026-10-27",
+          "financial_period": 1782777600,
+          "revenue": 1205550000,
+          "net_income": 156592000,
+          "operating_cashflow": -8502490112,
+          "cash": 3366502912,
+          "debt": 3415378944,
           "trend": {
             "strongBuy": 3,
             "buy": 5,
@@ -278330,7 +278986,45 @@
           },
           "upside_pct": 10.9,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "BlackRock Inc. Makes New $1.30 Billion Investment in SoFi Technologies, Inc. $SOFI",
+              "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQMnJzZnYtSWMybWxzWFV3aVRma3BNeDZNejJFMXF0bXE0X3h2S1E4MWRlZHN4R3F6MzVEVEVrZnBKSUR5WGFrNWdTWk9Kc1B1Q1hHSkNTaTZ2bTFNb3pneVF3SWFrQUFMTEs2bFBzdnRjbU82U2dGWDB3QmtVQzdjMkdQUXE1MXQtcUpMVUFuRFZTZkFnRmlUak1nci1CcXVoWTVtN0wzM2VJZmIwWTZ0RE9lYXNsZi1KZ0VpTncta2RCOVBXbk93RkJ5eE1WMUQzeGhz?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-21 08:10",
+              "ts": 1787299816.0
+            },
+            {
+              "title": "Sezzle vs. SoFi: Which High-Growth Fintech Stock Is the Better Buy Now?",
+              "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPY1JLc18wNEVNMzE3X25FNzlsQ3dNamR3dmh6VDdnVDRvSUlpQ0twMmlNWS1kS3dHODk5a1dWZmVFclRYSUpHRHFWb2owUlVBLU83WFhNX08wbmJlOFFpVEZuUkdkRnpPbW1jSWNwQVBWWDJOWk5mQTlua2tWM0E1T2JzWnJDbDZ0TGk3VWNETWtDLVRKa0E?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-27 15:51",
+              "ts": 1787845860.0
+            },
+            {
+              "title": "SOFI Stock: Hold Or Buy? Jim Cramer Says It\u2019s \u2018Too Cheap To Ignore Now\u2019",
+              "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPalNNeHFMa2p6bGkyRk1QVzg2MXhKb1dtZVBSN25nblNDYVBUMGFpTjNfY1oyaWVMVkhGQnZIQmFrajlLcWJaajdQMlozb0NyVllDQmtFeWd5amJQcjAxTHFjcmJKTFZsXzdXMnZ0bU1mMXlhQjRpNTdhV0xNdjc4YXdFWTk3dldOc2ZYUzVtZGpHNU0zZFRYZDZIZjRHTmdOU01WcEluM095UGJNbnl0R0R3eWVtUEdLNlJSbFJORzNGQ25h?oc=5",
+              "source": "Stocktwits",
+              "published": "2026-08-27 06:43",
+              "ts": 1787813030.0
+            },
+            {
+              "title": "SoFi Technologies Stock (SOFI) Opinions on Analyst Price Target Upgrades",
+              "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeU4wZnkzeU5vSEVqV3hkQUY4N3NaLTBma05zVzBwTUZkV0xFMXNwajRkU29yZmpZdE5JVURaRy0wRjkwMkxXM1lGcnNZQlc4bzZBS29RZkNtY18tWEFBeDBiei1XQk00QUxQdjVVb0FWQnJ0TEtOa0NQWjFYY0F5S2duNUR4dkZuSTdtRWttTmc1R1hnX1J5R3ZUZkdEX01hdXhVU0s5ckZKU1VpT2c?oc=5",
+              "source": "Quiver Quantitative",
+              "published": "2026-08-23 14:03",
+              "ts": 1787493780.0
+            },
+            {
+              "title": "SoFi (NASDAQ: SOFI) EVP receives 55,731 shares from RSUs",
+              "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZndsWmxiTVhtWG5HMk5xZVE0N2I5b1pRQmRuVEJBbFBoR1lKOTNXSGNvdVFKb3FWUk5MMzAtd01wTGdmejdaOVkyMTA4d182QkMtdlFjZXVYQUw3cTd4SUhRNER6OVJpNGVjQy1XRnE5UFIzNmhob1hSU2JVNXJRN0pjZmtFYk4xREk2Q1VnQ1N2WXZiUEItZ3RiZDU4SVNINmczNV95dzlNLUdtdzZzUGp2RnpaQjQ?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-19 23:32",
+              "ts": 1787182352.0
+            }
+          ],
+          "industry_pe": 25.4
         },
         {
           "symbol": "MARA",
@@ -278349,6 +279043,15 @@
           "div_yield": null,
           "w52_high": 23.45,
           "w52_low": 6.66,
+          "sector": "Financial Services",
+          "industry": "Capital Markets",
+          "earnings_date": "2026-11-04",
+          "financial_period": 1782777600,
+          "revenue": 174881000,
+          "net_income": -609685000,
+          "operating_cashflow": -895051008,
+          "cash": 421273984,
+          "debt": 2465958912,
           "trend": {
             "strongBuy": 3,
             "buy": 5,
@@ -280105,7 +280808,44 @@
           },
           "upside_pct": 68.6,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "MARA Holdings (MARA) Stock Still Looks Expensive As AI Lease Plans Grow",
+              "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTmF2VjBtRzFRMEdMUi1FcXZPWGpqSFQ4QzdodlladzA5YzQ0WVU3MjRIWmtJNEU1Vm5TYmZ2VGhrME1BQ2YxWDJsZm5teWlQU0Zsc1ZWeVlQT1VuV3pWZkhnTmo3NXl2bnFUWUI4M1NXUG1Jc2FDNE5nYjBMS1Rfbl9ZT1NYOW9IWU1hTVdXdGZOUC1qUWY5UHN0Zw?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "MARA Holdings stock surges 15 percent on Trump crypto push",
+              "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOb29TcV9jVVRpNTk1MWNnWlVoVW1iUmN3YldKbWxWdW9SWGw2WUtkSnp1UE93b05qZDgxcHRXNGFWc1dTUU9CaHZSbVVHZWR2TmNYS2o0M2F3blUxUWgtOEdrWDZQX25GNVVUUFFDT0I4OE5YcWlyTDV0QUpzbUZsa3c4LVZ0UGtWbFJ2OTRnY3RyREJzQ2thZ2d5Qkx6UQ?oc=5",
+              "source": "Northeast Times",
+              "published": "2026-08-21 15:12",
+              "ts": 1787325171.0
+            },
+            {
+              "title": "MARA Holdings (NASDAQ: MARA) exec plans 8,376-share sale",
+              "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOY0hCSWxvYVd5U2E5b052WTMycFVEOF9pMkZ3YThKUkI3UVFOX2NWdnNEQ3Z2ZHhWNTBrUUMxTklJTVM5ZEZ3VXFXOHhLekEzZ2FHb1VXbnRTZVJXZDJHcF9rTWVEUmswOVFhY0ZMdjREWDN1T0Frc3ZtUHBxdWM5UnNVSmpVRzhyV1VlSW9SREEwYWM1eURnRF9R?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            },
+            {
+              "title": "MARA Holdings Inc (MARA) Stock Up 5.8% and Still Undervalued -- GF Score: 61/100",
+              "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQcU81Xy1NUHBKNEg0cVZxdU1FV002UGIzclF6dWFNZTR2emNYX05lRUNONkx2TFpMaDE2ZUN1RnpBV0puQ2Itc0prLXJHTGJGNG0tcVlMRWQ3ZjZPb1BabS16aTRDZ2Z2dUl4Y3ZTaUxVVFNMYjBJYjc3dFg0RmVfODJFbWdXVVcxR0xyMlg1YTB4UVpvSFByRktoRkZDNTRiZFdiWnF0Z3EzUjRGTlgw?oc=5",
+              "source": "GuruFocus",
+              "published": "2026-08-25 23:33",
+              "ts": 1787700788.0
+            },
+            {
+              "title": "MARA Holdings Stock Jumps 16% After Major Energy Buyout Accelerates AI Expansion",
+              "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPQXUtakFzMERma3k4U2NCSXJlaTlKUkxlOUJVY0ZYNUlvQUNpa09YT3dQSWZCSjRRRkNSOUtPSFUxWFZzWXlPLUw3VHp2Uk5hV3RBUGdyQW9LVnk3blgxeFhlU09uV1JDN0pndE1WUVk3bFVwQTBsQ2JLMEJ1V0pVZU96UllkVXM?oc=5",
+              "source": "TIKR.com",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            }
+          ]
         },
         {
           "symbol": "RIVN",
@@ -280124,6 +280864,15 @@
           "div_yield": null,
           "w52_high": 22.69,
           "w52_low": 12.39,
+          "sector": "Consumer Cyclical",
+          "industry": "Auto Manufacturers",
+          "earnings_date": "2026-11-03",
+          "financial_period": 1782777600,
+          "revenue": 1658000000,
+          "net_income": -833000000,
+          "operating_cashflow": -1844999936,
+          "cash": 5310000128,
+          "debt": 5352999936,
           "trend": {
             "strongBuy": 5,
             "buy": 7,
@@ -282040,7 +282789,44 @@
           },
           "upside_pct": 19.7,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Rivian Shares Slide After CFO Announces Surprise Departure",
+              "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNN1AzdmpndUpqVjBnM1hldFhoNkNuSER5aVMySVV5LWNVWlg4LUt2UUlqZXdXeFJBV18tQ0EwQnpvNExyaFRqQmoyZlVfeURUcXlYSGwtOXlWaXFJWkVieXpndEl2V1BrUGpvMlVuajlVNEUtMGJkX0dvV0l1d1l2UnVvMFg5SnRXV1JUd3pCRmpZUmVocWw1ZWJ1MU8ybXZGNk9EdUpJNEhFY2JYdG1IM21SVThWQQ?oc=5",
+              "source": "Bloomberg.com",
+              "published": "2026-08-27 20:28",
+              "ts": 1787862480.0
+            },
+            {
+              "title": "What Rising Delivery Forecasts Say About Rivian's Stock Prospects",
+              "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbksyS2lwX1JWaks2eE9LVDRDY01lVDdQVmRNdjBYWERERFVNLUktdURJMVpXN1JURVBpVzNmUkxuSFJkai1ncGY5ZGxSaS1reml6TF9TakhNX3J0TVA1Q2hGVkdfZDJ4M3Q2VXhoVVJuay1VZnFaUi03anA0ZGdrX3BJTmJ5YkwzRFZ1WXNwQVRheVhibF9GTndyb0NZbWlZNzRVR2RMUQ?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-24 12:35",
+              "ts": 1787574900.0
+            },
+            {
+              "title": "Rivian Automotive (NASDAQ:RIVN) Stock Price Up 1.8% - Here's Why",
+              "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMV9aaXl0OXNBS0FPRGxTYnFzVUFSUTRkaEdON0VKQ3FkbDl0QVo2aHVWLVFWS2hRZUZNR3RWemItZ1c3RjI0WFI0a3hKeGgwMjF5ZEJkbUFCQlUyVDBaVHo1QlJkeWhfOGF3OFMtREFGejlFOW1MOHZzQ1dqci1OV3ZCQXEwN2Fwa002NGU0dUhvVXJTX3lBWE1RLVIxWEFmRHlnT01nNUZBVkx2a18w?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-20 07:00",
+              "ts": 1787209200.0
+            },
+            {
+              "title": "Rivian (NASDAQ: RIVN) CFO sells 13K shares in planned trade",
+              "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOR3A4Q0I0SURjaGZrSGh3MmVvQ2lKblltUUdWMFhnaHU1alRfbXQyT2JXR2pyTThGNVBfUG9kR25tRWRISExrV2RhbXYycFJWNGl2VDJteXVETGFqMDBvYWRoSV9ZcVF3WnFEQ1EwRkNzOG1QcGd4RndzODRGc3dIc0lreXRtTThfRlB1VjY4d2VOei1uZVhOS1FYcHNLX21YWmhIUkxQWThpZjJCaHJBMHRvY0dwaFZyaXc?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "Rivian CFO Claire McDonough sells $128,368 in company stock",
+              "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNb252VGpOR3VMY2NFSGlpZjdaODIwVEFFVWRYNGhsbHRpZ0t3Y0pfbEgtY1JlMlRiMDRoT0ZFVGZyVkhicTdQa0VwbkpxNUpfWWRiOTItbDZldV9iVFNSeUZZMWRmaVZ4Y0t6QklDNWZxX0xPQkRoS3J0MkczTFp0RHJGa29GSjVwc2RhbWNiYUc0X1BQbVB4MmFxS3VlRlViU1N4c2h2Q0dldEtsTF91ZXdmV2haQmNMcFJDU3h6aw?oc=5",
+              "source": "Investing.com",
+              "published": "2026-08-22 03:06",
+              "ts": 1787367998.0
+            }
+          ]
         },
         {
           "symbol": "F",
@@ -282059,6 +282845,15 @@
           "div_yield": 0.043,
           "w52_high": 17.78,
           "w52_low": 11.11,
+          "sector": "Consumer Cyclical",
+          "industry": "Auto Manufacturers",
+          "earnings_date": "2026-10-22",
+          "financial_period": 1782777600,
+          "revenue": 44891000000,
+          "net_income": -1327000000,
+          "operating_cashflow": 16947000320,
+          "cash": 22119999488,
+          "debt": 163296002048,
           "trend": {
             "strongBuy": 3,
             "buy": 5,
@@ -283807,7 +284602,44 @@
           },
           "upside_pct": 13.3,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Could Ford Stock Reach $30 by 2030?",
+              "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQVGYyUkF0Tzhic1BmNjJsVnJkM0xycXBEUEtqZ29oclloQ3I1U0dSb2tZcFFPRUlEbVhqSUdIR2x5Y3hycllEVzRwT211Qm93Yk1Wd0tpaWVSaGNJbGd5MVpfUzBybmRHQzk2VzMtUU1PRTFuVHF2aDlwajVKN1hfQl9B?oc=5",
+              "source": "The Motley Fool",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            },
+            {
+              "title": "174,456 Shares in Ford Motor Company $F Acquired by Blue Capital Inc.",
+              "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOYVY3RUh5YUs3VERLcHhoQW5odHlVWlJwWThhTmF3czg2Y3l4RzNfeXU1MGdENWJVMFFiQ1U3ZGxtMklKd196bHQ0eFM3QTlIVFlEaTdjbkxtSkp5Q2VITE9pcjdUQS0xTGxqZ2tqV3NWcmR6WEZObUtteHVVbm9uTjBUZ1E5cTdWbGo0WjVJTnQ2b0JJaEdJbTRwd0txOTh3SXJJZUhJVEE0eVJYTVJVY2kzX0VqMHpGYW9RSFR4MTdVY3NjOFE?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-22 07:41",
+              "ts": 1787384468.0
+            },
+            {
+              "title": "Ford Motor Co. stock underperforms Monday when compared to competitors",
+              "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdnBNdFpPRXFuZGRrY3JvUWNpYm9EOTVZQzBIYXBOYXBoQTYwRjBCZ3VNdjdIN2tnLUxzN1RCNkMyYzA1NjBXZEFtQ2MzRk1OUndHMFMydWRDbktkWjVnQ3NYQzY5ZnhJV2dwaTFEd3Q0VmNxOHlDZDltaUJkaWVhSDhCbTJuWGk1bVhlUU5hZXdZQnJVQWVLMUlCcGZGNnAwSFY3cno4MjFsVklRSFM2b2NRcDRZZGZhb0w3STl5NV9Xa052NXZySg?oc=5",
+              "source": "MarketWatch",
+              "published": "2026-08-17 07:00",
+              "ts": 1786950000.0
+            },
+            {
+              "title": "E20 Capital Ltd Buys Shares of 4,171,987 Ford Motor Company $F",
+              "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNUEZmZHFVR01mbGpWOWl1VFZrN3drS21KODhSaHlPaEtHMzE3dnZzeFBfVUViMHRLRWxmZjVLUmVyTGdrTEJ4SWZ0WW9HU3h4ekpDaHNzMkRnRXA1WWt0emMzM1JwM09SZjBBMWdrM3hJRUNGcEtZN2x2b1dRYlBhRUlERkJfUHdFdENOX2k1azRTSFNpOW9YeGFVZVkxb1FBVi1kTmVSd2o0d1RmOTR4cDdRT3FsclRQdGoxbQ?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-24 08:44",
+              "ts": 1787561065.0
+            },
+            {
+              "title": "Ford Motor Co. stock underperforms Wednesday when compared to competitors despite daily gains",
+              "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQOFRfODZuZGNDbWw2dUI4OGNJYUJ5Vnp2MnAxRXVQUTJuYVpyRXFrRVViVVN0MWFuTFEzdVpWaDE4eFRndmh5QmJZX2VnOWw4RUoyMWFGcjJjNnBwZEZ1TFNEQTBGX1lBcFU4S1FmeW8zdUlHQTd1dlBHTmpNc2FyRTJOeTE2Y1gzTEdTZmY5QnYxd193LU5jSHdKSnRFM1VtQmlOZVlWRGxDRmhxMmNOZ0ZEYkR6dldhZTAwTVlZU3NfT25oc3A2eXp6ZktaU3R3V1EwdTJXaTI0WWJjTmI1ZFZiMU5UYkE?oc=5",
+              "source": "MarketWatch",
+              "published": "2026-08-19 07:00",
+              "ts": 1787122800.0
+            }
+          ]
         },
         {
           "symbol": "BTG",
@@ -283826,6 +284658,15 @@
           "div_yield": 0.0137,
           "w52_high": 6.29,
           "w52_low": 3.57,
+          "sector": "Basic Materials",
+          "industry": "Gold",
+          "earnings_date": "2026-11-04",
+          "financial_period": 1782777600,
+          "revenue": 789354000,
+          "net_income": 417334000,
+          "operating_cashflow": 922692992,
+          "cash": 290032000,
+          "debt": 456086016,
           "trend": {
             "strongBuy": 5,
             "buy": 6,
@@ -285676,7 +286517,44 @@
           },
           "upside_pct": 8.7,
           "valuation": "Fair value",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "B2Gold BTG Stock Jumps As Mali Permit Unlocks Long-Term Growth",
+              "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5uMG9EQzBsbmxLQk5vVVpMaEZ0UXlhLUJIN3phMHhYZlhmSjRFR3JqMl9DYW9YZDByTGdGdjRRcGtZMGt6dGJsR2luRUc5Z2gwR1Y0a2p0T3RXYnNndjZNOUJFY1pzdXJGR0ZtTWNzci10UU4tQUxTbkNR?oc=5",
+              "source": "StocksToTrade",
+              "published": "2026-08-24 19:03",
+              "ts": 1787598180.0
+            },
+            {
+              "title": "AEM vs. BTG: Which Gold Mining Stock Should You Invest in Now?",
+              "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTkZqSlVJakxmY3pvRW4zOUxaRUZ0OHU1WEtVaUc3UDRNVTBQaV9qUkFGaGdNbGRZbzZHaGNwQk11Rk5VT0dKTF9iTXRyT2xVQmtwLVdyVks2SjAyeGpMcGt1VUZFY3B5U3RaQjY2Y1Mwall0YksxNUZRMWNJYlE0XzVlUDVBQmVRdjRtSWRZTjg?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-25 12:14",
+              "ts": 1787660040.0
+            },
+            {
+              "title": "ETFs Investing in B2Gold Corp. Stocks",
+              "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1oZmtPMV9pSFNFaUpGeVB1RktKVS1haWxfQnlsMEd0NkNiUlNDT3praHZjV0xBY3RDdVVENEUzNkpmZmdiQ09kWHBoZ0VuejE0clNqbV9vZHp2ZjhwM0E?oc=5",
+              "source": "TradingView",
+              "published": "2026-08-23 01:23",
+              "ts": 1787448187.0
+            },
+            {
+              "title": "BTG Stock Edges Higher After Mixed Q2 Earnings",
+              "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBzcmVxRGhtSXp2OXZxUy1wRkFndHJnUXJrYWNGREpvVlVncGJRbDNwakFfaTB1emxRVjFFSTR1Qm1MWk9nNEtodUFtNlJJcFhjdEl5QVhxQkVfWGRuZWlEcDJWemJvak1YSXZqUjRGSFdQZldiNUdnb2s3QklOdw?oc=5",
+              "source": "timothysykes.com",
+              "published": "2026-08-28 19:03",
+              "ts": 1787943780.0
+            },
+            {
+              "title": "New Opportunities in Gold Stocks: Pan American Silver, North Arrow Minerals, and B2Gold",
+              "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNUNVVjhyd24xQ1B1VWNQanZrQW9JTjBxWnBjX1V2TWpDc1hsWEVQZHFfZExYQWctdnN6czdvSEhqT1ctSmEtNGs4Q1Q2TmpmOHhlYXEtVDdmLWFxU1Q3bFludUNjU0xUd3A5dWpzRnlaMGlQWnFqRTlrM09neHNlQUdGQlp2R2FWQ3hDaTBuU2tZNnhlaFRMMVo1eVM4c3FRemJxZklacTFTU0dMV09jdUNYZDZpRjA?oc=5",
+              "source": "news.financial",
+              "published": "2026-08-26 05:20",
+              "ts": 1787721600.0
+            }
+          ]
         },
         {
           "symbol": "PURR",
@@ -285695,6 +286573,15 @@
           "div_yield": null,
           "w52_high": 14.14,
           "w52_low": 3.01,
+          "sector": "Financial Services",
+          "industry": "Capital Markets",
+          "earnings_date": "2026-11-16",
+          "financial_period": 1782777600,
+          "revenue": 6334000,
+          "net_income": 421535000,
+          "operating_cashflow": -19147000,
+          "cash": 137916992,
+          "debt": 0,
           "trend": {
             "strongBuy": 1,
             "buy": 2,
@@ -287456,7 +288343,44 @@
           },
           "upside_pct": 12.4,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Hyperliquid Strategies Inc (PURR) Stock Price & News",
+              "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5XWVNHMnlwQ1VmWDkyTW1nNjdfNXBhMlp2UFZhYnpFSmprcTBwZm15TThSNFdQbG4zRlp2VXN3QTlTX0VZX3pGNnc4Yw?oc=5",
+              "source": "Syfe",
+              "published": "2026-08-28 13:37",
+              "ts": 1787924220.0
+            },
+            {
+              "title": "Hyperliquid Strategies (PURR) On Trump Backed U.S. Path But Valuation Still Hard To Read",
+              "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbFZpZ2hOOFJ6OXpfUllmcU8wVHJzLWFPR2hMSXdrb3FSM3pwLW1OWUtRakpacmhTRnRKaVNCejVyMm05Z0FUbmpqd21Lb2ExOHBCdi1XUEM4eC15MWJOQndGQzVLNV80d0hZOUg1cUxKd0VraC1COEtoeHdocURWRXY4Mnp3SXNUQ0ZTYlZrUS1hdUFhOXlnVTJjM0dXQzFZQ1Zsbm1wRGc?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-21 12:08",
+              "ts": 1787314137.0
+            },
+            {
+              "title": "Hyperliquid Strategies CEO on Pres. Trump opening the door to company entering the U.S.",
+              "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNQlVNY0Z6OXJtbVFmLUh5Y3ZzWWN5T3JRUDhlemFUZk1mYXFsdmF6UkxxQUVaVmNrSXFrWm1JMnoxTnF3bmV1b1JkcURKc0VtOXVJU04wcHZ3aGRPdXFCem9zOFpaXzdGT2tFNi1HNEdsRnhMRHVDa19ZU2tIWi1LV0MwY3BXVDVDOTZKeWNtNVJ5ZHRRYkJjaXpDNkVwQ2JnOTJpeXVfZTdma2x4RDBoanB6Q09JTGpGTWQ5WEtXZWk5V0lhZnZJ?oc=5",
+              "source": "CNBC",
+              "published": "2026-08-20 22:07",
+              "ts": 1787263620.0
+            },
+            {
+              "title": "symbol__ Stock Quote Price and Forecast",
+              "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE53Uko5dVBFVmFTRHRSbW84bDlTam5jQ2gzbl9FMTVxQWZDbHJfdFdobE5Gbk15RGNoeTF3dWpWend0aXoyLThuVm5Nb3d1T1NR?oc=5",
+              "source": "CNN",
+              "published": "2026-08-28 17:06",
+              "ts": 1787936763.0
+            },
+            {
+              "title": "Hyperliquid Strategies Stock Trades 52% Above Its 20-Day Average Ahead of Earnings",
+              "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNeUlpVzN4SGtfbW5FQUNFWVdFWXdJblJWZXUzRnFMT1hFb2hxaHQzSV9zWlpnajdUVllaWVZTOTBTVk9QV2NCeFNFMlI2UmJnaV9fTXNEdjJJS1VHUTBGc3Bqbm1IRlNyQWhXOGtLZm5QNmstZl9FeG1kMHlJN1RDOHJOQWRjaDBMYWozU1lxR25kQS1hVjJoNVg0LWhXQlJCWFFTeEhHT283MFM3ajEzdVM3RFpIOEJEei16TGNNSTlLSU5sMFpRQnB0aGI3cFF0OVpkYjFMQQ?oc=5",
+              "source": "TradingView",
+              "published": "2026-08-26 13:06",
+              "ts": 1787749600.0
+            }
+          ]
         },
         {
           "symbol": "VALE",
@@ -287475,6 +288399,15 @@
           "div_yield": 0.078099996,
           "w52_high": 17.94,
           "w52_low": 10.08,
+          "sector": "Basic Materials",
+          "industry": "Other Industrial Metals & Mining",
+          "earnings_date": "2026-10-29",
+          "financial_period": 1782777600,
+          "revenue": 10498000000,
+          "net_income": 1375000000,
+          "operating_cashflow": 50598998016,
+          "cash": 29841999872,
+          "debt": 110007001088,
           "trend": {
             "strongBuy": 3,
             "buy": 7,
@@ -289475,7 +290408,44 @@
           },
           "upside_pct": 11.4,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Why Vale (VALE) Stock Is Up Today",
+              "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBuS2tfM2ZLYUVuNUZGY2VFcmVBcjNRbDhmbFpZSEVmRU55OHZOdS1MbFlwQkF1QjZwNVR0NXBsc0dXaEFHNEhrYzNnRk93SmVwaDB4QkdyUE5Nb29sQTBJa1NHSHBSS2d4QWFPMEtfZkZGWnAwbDlpQkx3?oc=5",
+              "source": "Quiver Quantitative",
+              "published": "2026-08-24 15:35",
+              "ts": 1787585700.0
+            },
+            {
+              "title": "VALE News | VALE SA-SP ADR (NYSE:VALE)",
+              "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5fSmktZU1aSG55LXNybTIzdEEyQlJDRnV1WkxZMlQtNXdDYnJsZmRxRDdYeVNwQUlvODFZN3RFUVRCRkhyd0xfSUxweklJQnhuZ0FUY0ttdXdNY1k?oc=5",
+              "source": "ChartMill",
+              "published": "2026-08-26 02:11",
+              "ts": 1787710318.0
+            },
+            {
+              "title": "Why Vale (VALE) Stock Is Up Today",
+              "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XRmpQSFJNM0cxWG9rTjFiWUVyVXJEazFSZnpkbVI4c25ZRTZsUzZhX2k2SXBiZ2ZjMW1KYnlzeVFwS2dreXAxM1ducXBpTElDd05HRzVibGV3MnVSQ1Z1QVpMcEc2Wm0xZS1IZkE1Ty1HcnVVMmR4bUtPSTJhQQ?oc=5",
+              "source": "Moomoo",
+              "published": "2026-08-24 15:35",
+              "ts": 1787585741.0
+            },
+            {
+              "title": "Vale SA ADR",
+              "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE45SXJaeFJxemt0cDJtVmRjREk5NUlkZEhsSU5SZlR2NnZjTW02VEhxbl9QV0o4c0FJM1JpUUZ2eEtPcDlJeUFxQy1GdVc2eUhyc19XaGVKdl9YMkd0QXJzWDJUQ3hJdw?oc=5",
+              "source": "stonex.com",
+              "published": "2026-08-29 00:26",
+              "ts": 1787963214.0
+            },
+            {
+              "title": "VALE S.A. (VALE) Stock Price & News",
+              "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9CMFR2SlpuSjlkbThNMGRGTTFUbkNsRGw3a0VTUUJfcHRaTFZBMWwtb3lMNWotdlpFUDBuVHkza0VjTHVYU3U5U1Nrdw?oc=5",
+              "source": "Syfe",
+              "published": "2026-08-28 17:08",
+              "ts": 1787936930.0
+            }
+          ]
         },
         {
           "symbol": "PYPL",
@@ -289494,6 +290464,15 @@
           "div_yield": 0.0091,
           "w52_high": 79.215,
           "w52_low": 38.46,
+          "sector": "Financial Services",
+          "industry": "Credit Services",
+          "earnings_date": "2026-10-27",
+          "financial_period": 1782777600,
+          "revenue": 8682000000,
+          "net_income": 1104000000,
+          "operating_cashflow": 7474999808,
+          "cash": 11256000512,
+          "debt": 14220999680,
           "trend": {
             "strongBuy": 3,
             "buy": 4,
@@ -291174,7 +292153,45 @@
           },
           "upside_pct": 12.2,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "PayPal Holdings (PYPL) Is in Talks to Sell Itself. Here\u2019s How Far it\u2019s Fallen",
+              "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaGpkbDNyMGI0YlVsNUh2QjcxemZqLVVjeWo5Y3RaTFRvb0hMRWtlS04tU3FHQ2FHX2IxSzNtU2hnSjY1TjVJRGc4ZVZYdmJPRmxzXzVEb1U1NDhlVnl3Q3FSeUhaejlqRzFrN2VXZENnN0FmM1RpcVZaeE9sZ1AwaU9pMzRnV0JmTjczeXc4cFp6czdTcENJdWJQaXQ?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-26 19:30",
+              "ts": 1787772623.0
+            },
+            {
+              "title": "PayPal Could Be Sold For $70-$80/Share (Rating Upgrade) (NASDAQ:PYPL)",
+              "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOcGtHOHRVanM5VHVMYkxJc3BYTE5CMGJCaV93c01LTEJ3QkY4Mlo5cWpiT3VlQmJBd0sybXZfSTlUSTI3SXRrdXFVR1g2RmZKXzZFZXBMRmdfdERzT3JINFFMeV9QQ0RwME4xNFFQV1FzYkYyZUdsZDBiRUMwQU9ZVEJSbDdIUVIxMkhpUF9QUHQ3cGJTc1E?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-17 07:00",
+              "ts": 1786950000.0
+            },
+            {
+              "title": "PYPL Stock On Track For Second Month Of Gains: PayPal\u2019s Venmo Expands College Tuition Payments",
+              "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPSmtkMndXcXdMektkS2gwX2xkUExlaE14MURLeUQ0YU1uVmNnTGd6eVNNblJvRU9rbW5DMXRSV3NVVGFCakRVSmstWG1hdDRBdlFaUWpQZVFDRnBjZy1xT0RhZG5UM3dncHk4aEZCOFU1T2MyMzBqbTJZTDQ5MkdwQm5FeHVQZWtXaW1IeVNKbVFUMVJwSzhkSzFZTl9waWN4MzF1WU12cVoyd2t5RjRJeS1kc2hvUWJEQTl0UWlkUWtOTWlTUWw5N1RseW44TXVKVmZaQnVEYVlKV3VLNkZHLTZmQTAtTnFP?oc=5",
+              "source": "TradingView",
+              "published": "2026-08-20 05:07",
+              "ts": 1787202475.0
+            },
+            {
+              "title": "PayPal Holdings Inc (PYPL) Stock Down 12.7% -- Now Undervalued? GF Score: 94/100",
+              "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTktzTjRBMDUxeDk1X0Fld25nX25QbW9hR3VCX1g5OEtjMzNzMUtLMXB1VVRJV3NoVzdtdTRTc29Gc1UzaWNJYzJTNFNWbGJuVVVDOWpBaEl5TUFvOUFMS1dMalRBazVFM2lXWF9BS3NUa2hJTG00QTd2eWFfWFhteDFiU21GMnZaVmVVN005YzhZbDlIcmFwRElRRmRxREk0aUpnU3licnUtQmhrYUE?oc=5",
+              "source": "GuruFocus",
+              "published": "2026-08-28 22:02",
+              "ts": 1787954532.0
+            },
+            {
+              "title": "Palogic Value Management L.P. Takes Position in PayPal Holdings, Inc. $PYPL",
+              "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdTNFSklvRkN2RzhZR2hDdkF6cnRubjZkMXRoQ2dZWmhsODN3aFpSLWIyNmRWNXJzMzJTNW05c3B4cW0tUjRWdk1BcXh5QmsyamM4cVpkemkteXFaYjhtdFJmcUxmVy1xclZjS216dzlUV0hNN3JsSjkteWJTUVg5c1ZjbERLeE1fbnJnV0plbi1JV1oxOU5QckVvX29TYUJzTHhpLUxTNzFiaUdxeG5UOW5VRllMc1oySlVCRENPdUNEc3RHVktMbVhDRQ?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-27 10:56",
+              "ts": 1787828189.0
+            }
+          ],
+          "industry_pe": 25.4
         },
         {
           "symbol": "SMR",
@@ -291193,6 +292210,15 @@
           "div_yield": null,
           "w52_high": 57.42,
           "w52_low": 7.21,
+          "sector": "Industrials",
+          "industry": "Specialty Industrial Machinery",
+          "earnings_date": "2026-11-05",
+          "financial_period": 1782777600,
+          "revenue": 75000,
+          "net_income": -47539000,
+          "operating_cashflow": -776363008,
+          "cash": 1072147968,
+          "debt": 6692000,
           "trend": {
             "strongBuy": 1,
             "buy": 5,
@@ -293077,7 +294103,44 @@
           },
           "upside_pct": 36.0,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "NuScale Power (SMR) Shares Moved, So What Is Behind the Attention?",
+              "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPbEZuNkxFZ082Q0FRQlJDMTBWbnVFRzhYR2hncDVULUE4bzR4R3FhTzh5cDExQnFOVHpFazVMMmpSSHpaenZ2LTB4RkYzRXJjdGs3YkxXcER1MmRNWl9VVkxSVmoyTTI1aGt5Qm9VWEd0Vi03Unl5TnNNN1FNOTdDQTNnVlVmUmd3RDdDSEg4RDdINlZwMl81RWJ5bw?oc=5",
+              "source": "Yahoo Finance",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            },
+            {
+              "title": "I Love NuScale Stock for 1 Reason, and It's Not What You Think",
+              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRGVZREhESzFIa0xHcUJIVUQ1cHZPc0g4S1RQZXFYeWZtSVVyTmZvbF9ES1hDdnN4TjhPTVlfY1FOMHlyaGU0dUhlWldJendjZ09HZEM1YnpaTWRscnNDdV9BSFQ0a1Y2WWdZUENmaUVsT0dIWm1Sc0MzeThkTVQ5aDBvQ0MxakxKbmhFN3NWWEdkeTB5a3k4ZA?oc=5",
+              "source": "The Motley Fool",
+              "published": "2026-08-23 18:54",
+              "ts": 1787511240.0
+            },
+            {
+              "title": "NuScale Power Stock Collapsed, And It Is Now Closer To Commercialization",
+              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNWHdiWWpETGlYWEZTVUctSE1faXFDYWtCYTRaVnhMSDEwNHNBZm9VWmJGTDYwTTFSMnJXSXhNUzkzVVliazc3RGg1TTY3UzgxTzJHWWxqc1VqTldndEg4RThwVnFVb0hVbkEyMkRlZm1FYVczeExrOEZOVEtnTTdlS1ZFU25FSmc5TjNhU05lMlFQZ3lOUWpDZA?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-23 03:11",
+              "ts": 1787454710.0
+            },
+            {
+              "title": "NuScale Power Falls 6% With Q2 Revenue Drop to $75,000 and a New $750M Share Sale",
+              "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORndkd0ZPOVUzbEdWbENPVnRxSXVxWVNXYmtXQWFvN1JyNGxtcDBzcUJuN0Rrb2dHNUJlWnRfLWZzVklnbkNSeTFCcmpNdHRhbE9pR3BsNHNRUmVxOU5XeVI2SmdlT09tcUtiZzNqbFlWY2lrOUJjenRzcXQyOHFNX0cwRGZ6Q3dRNHZxU0c2ZXJKdjU1ck9CNFV0MFRwX1psbnV4aG03YTNVdTFzVFhQaTV4LVp2LWM1XzRsbUlB?oc=5",
+              "source": "24/7 Wall St.",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "NuScale Power Is Launching AI Tools for Nuclear Power. How to Play SMR Stock Here.",
+              "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQcFRRRmppN0pLY1FQUE9kWnJvWFNPWmtxdVZscjBtMzYtdUlJS1lGbU50TFBFdGNFdTRFcEFJbEtVV3dscVRucjJfb21sSklOaE9ialBreHIxLVV1QWxSbndsMDVTWW9tTzItTi01R3NsQXh1bzU5ZndPS2VaXy0tNXN0ak83UlNlVk9pVVZxb1ZWeGlOQ1NKbkFybnhvSmhZMzZuMVZlRFdhcGhncjR3T0tOWlFITWxwallSNUVTSXNnQQ?oc=5",
+              "source": "Barchart.com",
+              "published": "2026-08-27 19:54",
+              "ts": 1787860469.0
+            }
+          ]
         },
         {
           "symbol": "RIG",
@@ -293096,6 +294159,15 @@
           "div_yield": null,
           "w52_high": 7.66,
           "w52_low": 2.93,
+          "sector": "Energy",
+          "industry": "Oil & Gas Drilling",
+          "earnings_date": "2026-10-28",
+          "financial_period": 1782777600,
+          "revenue": 966000000,
+          "net_income": 170000000,
+          "operating_cashflow": 995000000,
+          "cash": 509000000,
+          "debt": 5119000064,
           "trend": {
             "strongBuy": 1,
             "buy": 5,
@@ -295308,7 +296380,44 @@
           },
           "upside_pct": 13.6,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Transocean RIG Stock Climbs As Backlog And Earnings Beat Fuel Momentum",
+              "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNXQtNXZqclRkWE9wUHRycDJMQk5PVnh1TGNISnlwSVZVVVp6d0dsUDhSaVR4VTFfS3NVRG10R09rczdVT19FaTh6cTVjM2ZHYjFTNnFrMEpobWJFaDV4MjNmd09CWE5QUjd4RWx3ZE0xS2tSN1NYdlNJRUI2Y3RlQi1VVlI?oc=5",
+              "source": "StocksToTrade",
+              "published": "2026-08-27 19:05",
+              "ts": 1787857500.0
+            },
+            {
+              "title": "Transocean RIG Stock Climbs As Backlog And Earnings Strengthen",
+              "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPX3JvOUdBSW11azVpZTNDall0Q29mTTY0eXpOT3lydm9qc1dhQmk4SVdJV0h5UzVrQTJZaThOSVlGZGVER1kzX3JkRFRkOHVyRGtPS0xXN1JhNTRZMDFIbjlXM1puU1AxelRUSUNyTTZsNEdvMmVBSXhlZlU0RkNENVNmQnd4Vk5L?oc=5",
+              "source": "timothysykes.com",
+              "published": "2026-08-27 19:03",
+              "ts": 1787857380.0
+            },
+            {
+              "title": "Transocean wins $300 million award; options could keep its ship in India into 2031",
+              "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOWjV0U25ZNnloMXpxRVRJWTR1S21qMW1LeG5SeldJUGcwLU1ZWUhxMGhVeUl4eXJQZHhMU3p0WldjaGlNQ2lTenlTRHlNbnd3emhNQ1ZrajJYaTVkTDhsendMTnlxcFg2NEU3LXNDYTVJZF9yeFNpbzV5TjBCdkxoV1RKMnpXWTlvcGNxaHFpRGcwNjFtcXdBQXNwUXpXRlVlQmJ5UmRicllBQW5WaUhVRWVMTkcxNU5WTG1z?oc=5",
+              "source": "Stock Titan",
+              "published": "2026-08-20 10:14",
+              "ts": 1787220840.0
+            },
+            {
+              "title": "Transocean Announces Two-Year Award for Dhirubhai Deepwater KG2 with ONGC in India",
+              "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOT01XRDlzUEQ0bkJEcGdtWGI3MHVxbExuVF9mbWN6ajhNdDR6ZlFPNjdlTy1xc0N1UUJBNjVmTnBaQk1oYU1ramMzTTVIMnFuU18tT2JJZHhHbFNQY2NjYTA5aWpnTUpVUGg5LUNEdE8wSnZzQWhtcGhQSHFySjZfRG5tZkplNjZ6dU9MbkR3OTQ2aENuN0VFSkVOOXlRalphbVRlOWRkMUN2bGJxQy1RaENhTUhHUQ?oc=5",
+              "source": "Quiver Quantitative",
+              "published": "2026-08-20 10:20",
+              "ts": 1787221200.0
+            },
+            {
+              "title": "Transocean Secures $300 Million Deepwater Drilling Deal with India's ONGC",
+              "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8xTUlzNU43QUFqck1CY05XTE1PWFN1VWttRXVPQk1nQ3AzSHkzMUI5Ni1pdkxWcExYdG10eldmVEcwTkNUeG01YnhSMGRIamdEMWVSSlR3MkRrNURiYWNIeWxnSFpPaExYaUlIVFlRd1Zjb0VjVkE?oc=5",
+              "source": "finance.biggo.com",
+              "published": "2026-08-20 07:00",
+              "ts": 1787209200.0
+            }
+          ]
         },
         {
           "symbol": "BAC",
@@ -295327,6 +296436,15 @@
           "div_yield": 0.0209,
           "w52_high": 65.23,
           "w52_low": 46.12,
+          "sector": "Financial Services",
+          "industry": "Banks - Diversified",
+          "earnings_date": "2026-10-14",
+          "financial_period": null,
+          "revenue": null,
+          "net_income": null,
+          "operating_cashflow": 94742003712,
+          "cash": 868142022656,
+          "debt": 788985020416,
           "trend": {
             "strongBuy": 5,
             "buy": 15,
@@ -297077,7 +298195,44 @@
           },
           "upside_pct": 10.4,
           "valuation": "Undervalued",
-          "momentum": "Neutral"
+          "momentum": "Neutral",
+          "company_news": [
+            {
+              "title": "Bank of America Offers Good Alternative To Treasuries: 6.6% Yielding Preferred Shares",
+              "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQSXE3eFJqSC1kUzVyOGM5MXNJcmc4YTFocU00Qm1XT056OVQtMUF6bDlQb3IyR21PLTFQTzZGSjRDMFFWNmJ0TG1fYlNQR3YxdlF1NHBSQzF5RTlXUU5ENFJhN2tpeEJ4b1JHQTNQX2lFVFYtNW5WMWpCb2NSTy1Ja05Lb0U4S3llbm1LUVl0dDkyYm5KZlJ3Qmp0cjFUeEFheVZwRk9zU19ESUxaM3ljelVJRnJYMVJ3MkRpMVVGMEJBZWc?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-24 03:15",
+              "ts": 1787541342.0
+            },
+            {
+              "title": "Bank of America Corporation $BAC Stock Holdings Lifted by Sunpointe LLC",
+              "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQb014ck9wRjBwTkhPS2t1c3JWWXpSVHp2anBLMTJMNjRoLWlCR3BPUVJ1Z0g1S3ZtQTJUd1FlOFhNVFc0ZkJDVWNKeDEtSEszTDZEdlFFMnNmamNVeC13OTd5dXdLS2VJb2F5Vks5T0pKWnF5Rkp5cEVzZU1BTGZNWHNjMzFOQUw3Ri1vQk5zQ0ZvUnE3RDNSdU9pdHVSX256RG9ucmZzY0IyXzFsTndLV0FfMmZLbnBKU1pwQ1M0SVVHWEZLZWV6MXRxRQ?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-19 09:19",
+              "ts": 1787131194.0
+            },
+            {
+              "title": "40,609,919 Shares in Bank of America Corporation $BAC Bought by Bank of New York Mellon Corp",
+              "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQSHVnVUhOOENHTDhjdkY3bHZSSFFYNXBOVlQtQTRMR0tjdU5OSzRkMlZXNWVuc1d4SGhENjBiczdmN281eGpDZEQwMm9RSXU5OFBIbGg5VGE1TEFLYzVJbXFNRWYxbGp4QktFTDgzS1Z3X2ROX0lMcy1iaXZoQ3FraFRHSUlGZkEzZTJ5MXI0MW05dTByZ1VETHQ3U1hJNFI2MkppQzBaajVuamJjMG1XN0plcFNYbVpJdXVXRkNWNjhhMUlHNTRoWU1xOFZCaGs4UFpHUGZVaUJMQTBwRnZ2czFDOVc?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-21 07:50",
+              "ts": 1787298604.0
+            },
+            {
+              "title": "Investors expect no landing scenario in coming 12 months: BofA's August survey (BAC:NYSE)",
+              "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxON0xrbEZwbEpfTjVkMlF0ZDQyV1RLQ1NMcXhzMVVLQzA4RlphQjFGWTNzUjdYdmo4c0J0NjFKMEl1QWVyM2cyUXdyNEF2ZW81d0ZpMk9WSl9rX1REUUtDV1hranc3RXZaNFRrazNiRUdhaDdBVDRveTE5MzlkekZ4bTRkSEhHNnFTQWpzYkQ0cXM5MFBCVnRneVo3ZVU0NEdYZFMzOWZEeDZaRkk?oc=5",
+              "source": "Seeking Alpha",
+              "published": "2026-08-18 07:00",
+              "ts": 1787036400.0
+            },
+            {
+              "title": "259,433 Shares in Bank of America Corporation $BAC Purchased by Rice Hall James & Associates LLC",
+              "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPWUtNaE1oOVduSWhZZ3FrOVMzSHpQQ2lJNmZ2eW9OaHhEN0N4clJsZGNfeWdmZ2VjLTVMSXVkQVVENFVJV3lJdWJIQ3lkN3BISkxXanM3d1g3dGpSMWVKb29CZWNQN0owdkNjdUtxdWxYMzNSbXBmeVlJUGM1TEhrMTg2aHZJYkNoQWFDcGlWQ2s4X2dvdkQ0ZWtLR0NJUi1xUTh0bVF3ejRYa0R6MmZxLWktX2dtQzh3N0M2SHhlTm5DajFGZFFQYUo5YThVU2pNb3NrX1V6bFprQ1JZODhIY2VjRzRCRlVR?oc=5",
+              "source": "MarketBeat",
+              "published": "2026-08-21 07:00",
+              "ts": 1787295600.0
+            }
+          ]
         }
       ],
       "IN": [
@@ -297751,6 +298906,15 @@
         "div_yield": 0.0044,
         "w52_high": 236.54,
         "w52_low": 164.07,
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "earnings_date": "2026-11-17",
+        "financial_period": 1785456000,
+        "revenue": 96221000000,
+        "net_income": 59688000000,
+        "operating_cashflow": 134359998464,
+        "cash": 62469001216,
+        "debt": 38860001280,
         "trend": {
           "strongBuy": 9,
           "buy": 49,
@@ -299827,7 +300991,45 @@
         },
         "upside_pct": 40.6,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027",
+            "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcjZPeVV6eC01Z2tWOHlyVEhmMG9uZDgyaXdvVTV3MVVMWGdKVVhJdlNiRHBvejd0UnlSNFJfTFA4dXAxUk9fVi1RQ2h2VU1kd2FkSUoydEJheDVMNWRnYUdMa2RFcG8zcTROTl9ZX1lJQ0tRU1VZR2pkQjFRdEtkM0tpUUlOcXhsYTFGcGY5RHFQYWZyNkh6LXVCSmN0Y1J3WWc?oc=5",
+            "source": "NVIDIA Newsroom",
+            "published": "2026-08-26 20:25",
+            "ts": 1787775918.0
+          },
+          {
+            "title": "Jim Cramer Explained What Turned The Tide For NVIDIA Corporation (NASDAQ:NVDA)\u2019s Stock",
+            "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQ0hJUzNUMER3V0VCRHZwN0o0Q2ZkVjJLWmhoalNMbmNyWUpUOVI0bV8xbF9DUmFfV1IyS195UHFOS2s1SkdzLWdaNHF2ZUpjU2xwN3ZFU2MtNEpWRTNfY2dNSk1EVW9oUjdJVU5VOWxkbGN5MHA3YktpOV9TQlpQekw4MHg3a1BCMlcwMWxMaVVSUXlZNXBpT2NDSXE3dw?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-29 03:33",
+            "ts": 1787974380.0
+          },
+          {
+            "title": "Nvidia Adds $442 Billion in Second Biggest Ever Stock Surge",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNS1NENk9rRTlfX3NnOGZGNWgwV2E0Y3pQRlVtZmI0MUk5bXJWSGtlcWdRQXVzaDlpa1p0WlFsNFlVTVM0a01FdGFUVlNSR3RrUm1kdVRRYU83cGNIczJUb3ZpMUo5WmE0d0Z5MFpZSlJ4aWlpbmhXMUtYZVJrMDNUd3BWOEVMckVoNGs2NzJDbGlRWlJfd1RzcWdfaTlBa3FhdXVTZG9qRXpqU0lsV1E?oc=5",
+            "source": "Bloomberg.com",
+            "published": "2026-08-27 20:28",
+            "ts": 1787862510.0
+          },
+          {
+            "title": "Going Into Earnings, Is Nvidia Stock a Buy, a Sell, or Fairly Valued?",
+            "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb0VOQm9kVnMtUWdwakFBUWNBU25nU3Z1ZzJfcjE0c1FIRndqRXJiV3VKNGV1S1VhTzc2aGdfaXBmZENTR00wdmlWa1RLR2hmNVlQTW5vMmtLa1JSSU5wMzE4SEk3ei1JX2FFN0k3eFFRNzRJX1RXQ2NsMC04TU9RTDVvd3Y5NE1vTE8yWlI2ODZHMkpQQXJvLXBGWDFyUjQ?oc=5",
+            "source": "Morningstar",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "Why Nvidia Is A Broken Stock (NASDAQ:NVDA)",
+            "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5oeW1QWU1mSndvWUpGOHRPS2kwczRNWDE4SGNieU81UmhLM3R1dDVBRExxQjJraTdjTzFBSjZvcTdtWUVXdHpOOXFTVXFXanRJdzRDYXJLMTVuNVMycWJVclNIRDc2RWtDTC1LU0d2MmFCN0xGVXpWUA?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-24 17:10",
+            "ts": 1787591439.0
+          }
+        ],
+        "industry_pe": 54.4
       },
       {
         "symbol": "PCG",
@@ -299846,6 +301048,15 @@
         "div_yield": 0.0111,
         "w52_high": 19.16,
         "w52_low": 14.34,
+        "sector": "Utilities",
+        "industry": "Utilities - Regulated Electric",
+        "earnings_date": "2026-10-22",
+        "financial_period": 1782777600,
+        "revenue": 5902000000,
+        "net_income": 733000000,
+        "operating_cashflow": 8146999808,
+        "cash": 972000000,
+        "debt": 64703000576,
         "trend": {
           "strongBuy": 3,
           "buy": 11,
@@ -301594,7 +302805,44 @@
         },
         "upside_pct": 36.9,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "PCG Stock Quote Price and Forecast",
+            "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE13MzZWVmkybUxqaXpyakI2bjJRR0FiX0NFUmFJUVpseW1lU2ZBWnhwb0Y3cXBpV2RIeXFWdm5Tb19HZTBxZEtOUzJmaURSYlk?oc=5",
+            "source": "CNN",
+            "published": "2026-08-28 14:18",
+            "ts": 1787926684.0
+          },
+          {
+            "title": "Pacific Gas & Electric (PCG) Short Interest & Short Float | Updated Aug 2026 $PCG",
+            "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0tcG1jR3FNdUczblJGbU96el9LUmF4akd5ampERlI5WEtYZ0hPOHlvVWduWXZDT01iTG9LV0xnbUx2WGhMM0hWQ21SdDZSTVVlZDZ0RlRWdzFPa3F4NHVPV3kteXpPb3h5eUE?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-25 07:00",
+            "ts": 1787641200.0
+          },
+          {
+            "title": "PCG Stock Slides As Heavy Volume Triggers Key Break",
+            "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZXN2UEdRY1pKeFg2ME5YcUtJM2FBb3lRdTZYSWpDUjU5NGszejBsUTZKQ1gxSjk0Q3ZXY0lnWUppd19kTFFuNDVscGR2LVc0QXlDU2RmcWU5MEtkbGhFV05OTkpGVHhjQmQ5a3BzOFJ5TnlMZUFlUWw5bUdvcnhyTDhtZC0?oc=5",
+            "source": "timothysykes.com",
+            "published": "2026-08-28 19:02",
+            "ts": 1787943752.0
+          },
+          {
+            "title": "PG&E Corp (NYSE: PCG) grants phantom stock to Chief People Officer",
+            "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON0hYSVRrWmNTMWVvcHljQ05BWDlCSlZqdUFvMG54OEhzNXVBVTZ4X3EyYkNudFFOOGNCb3FhczZOZFZ0OEZheWQ2aV8zWW5wdUtzd0QwOEJWbDB4TkZNeE13SHJ5QnMzYkotUGN0VVdnNUJZSlZHUS1xM2hFN1FWVW50VVRuemJ2SmJicGQ3UkhZZ0VPdk43MjN3WFRWekNUSUc4RA?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-24 20:16",
+            "ts": 1787602606.0
+          },
+          {
+            "title": "After weeks of pushback, Newsom drops his utility wildfire cost plan",
+            "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONmQ4MmlxOHJxanFySVZpTWRnbDAwNUphQzVWT28tbGFUR2FLN1hoMzFPb1d5ZG1qU0dBWE5hcDMyV2lJMndPbTQzUTlTTmNXWVd6ZWppcmZzMVBQdlpQZGVxMWoyalozQkZyNmFVb1VuX1VObDRGVG1CblZBbnRZTzNZS2pSdw?oc=5",
+            "source": "CalMatters",
+            "published": "2026-08-29 21:40",
+            "ts": 1788039638.0
+          }
+        ]
       },
       {
         "symbol": "INTC",
@@ -301613,6 +302861,15 @@
         "div_yield": null,
         "w52_high": 142.35,
         "w52_low": 23.68,
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "earnings_date": "2026-10-22",
+        "financial_period": 1782777600,
+        "revenue": 16128000000,
+        "net_income": -11033000000,
+        "operating_cashflow": 14936000512,
+        "cash": 29727000576,
+        "debt": 50537000960,
         "trend": {
           "strongBuy": 2,
           "buy": 12,
@@ -303361,7 +304618,45 @@
         },
         "upside_pct": 28.4,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Is Intel (INTC) Stock Above Fair Value Or Still Below It?",
+            "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMmJYYkp1LXplYmljS0phTWlIalhqRFFzZW5DalVOLVF4V0lXWWphdXZzMVJZUWxsU20xTUNCX1N3U2s1ZXFlWFdlTDBWOVhMQWNGY1B5VThxekp1WFhxZXB4N3IwRDY5QzJiTlpWdHY2bXV0dmhVOHdFT2hBQ3F3cFU1LWtVNm1Vb0kxZXJ2eXBZODNMR2hZ?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-26 22:17",
+            "ts": 1787782672.0
+          },
+          {
+            "title": "Intel Stock Has Plunged 32% \u2014 What Investors Need to Know Beyond Dilution",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPY2o2bFdvVi1XRXVuMksxeUN2bC1TbGVnYU9EcXJqZmhpcmtfWHRRTGEwNlBZaXRXSmFKWTluWXc3Zm1jX0Q0NUNWcHFqZG1DSF8wZVJicUxrTm9rQnBqclF3eFhBRDZ5UU9nblZDOEtRT3ptNHkxcGhpdFZkSXMyQ24tdEEzYkY1WFY0NEhxTDZQSzF0NG0wcnU4by1JRGtUcTFwUk1tZHM0VzhLUTdMOUlTeE8?oc=5",
+            "source": "Barchart.com",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "Intel Corporation Stock (INTC) Opinions on Pelosi's Recent Purchases",
+            "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZEpab3F4S2lJbExNVVZWZTctYks1MkwyYV9xSXR1QmJNbXhNV2xFMDhQR1FET21DdXZiVDZwTmZMS2NQV2VRSEo1UmQzRXdyekl2WUNZbm91Q3NOZ1Nvank5VXd5S01BVzM3RDZLOHVjd1BIQldaNjY4Y2ZtcE9jcTdfNHE2Wi1TT3VHYmNaM3EyZVUtUUF2NlVkR1ZNV2FfTm9GNzVoaGdRdWM?oc=5",
+            "source": "Quiver Quantitative",
+            "published": "2026-08-25 14:04",
+            "ts": 1787666640.0
+          },
+          {
+            "title": "Why Intel Stock Is Falling Today",
+            "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOa2tGSXJjYlRfUWFxUER6eV9RZXl3X1VYRUk3emd5RHY0b1ByTmxKY3Q1bGl0NEJVWjl0aTVqbUdxQ1NVYkpYQ3ZNSWNBWlVLZzNjRE5RSGFTMTZjaEpQQUpEWi1RRHVBRE55WXB5LWJTQ0dVVVQ5aXBZZ2FEejM3ZQ?oc=5",
+            "source": "The Motley Fool",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "'Insiders Only Buy for One Reason': Intel's CEO Just Bet $10 Million on His Company's Stock. It's Now Even Cheaper to Get In.",
+            "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPOHpCbnlzU3lRLXZnM3p4Ylo2WXZsNHRITFE5WHNjeFR1MVdodW0zSktweGVyR25VcUdNTGxyU1IwZUV2RE85TEE0bXZKdEROclJOXzZsS2dWWktSZW0tTkU1eF9IbzV6WlRMWEN3UlY1b2RGTmdYMURrZURiQWRQT3A2dF8tQV9UVGc4bmlsYjEwdFRPUGtqOV9sX0k3cFI5dnJxbGYtb2ZnV2NaekhicWdwaURiMTNMZW00d3puNGJSaFFsRnpGdjhGMmRPSzZlUzlIRXNUYmtGanNSTXZwZjZrVEI3T1Z1dzRtbjRaaUdHdw?oc=5",
+            "source": "24/7 Wall St.",
+            "published": "2026-08-28 14:08",
+            "ts": 1787926080.0
+          }
+        ],
+        "industry_pe": 54.4
       },
       {
         "symbol": "NU",
@@ -303380,6 +304675,15 @@
         "div_yield": null,
         "w52_high": 18.98,
         "w52_low": 11.2,
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "earnings_date": "2026-11-12",
+        "financial_period": 1774915200,
+        "revenue": 4967967000,
+        "net_income": 872056000,
+        "operating_cashflow": -10304786432,
+        "cash": 15170837504,
+        "debt": 5896687104,
         "trend": {
           "strongBuy": 5,
           "buy": 13,
@@ -305288,7 +306592,44 @@
         },
         "upside_pct": 31.3,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Why Nu Holdings (NU) Stock Is Up Today",
+            "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQVFkTFduZnNheEc0YkZRLXpNY2ozdWk3a1J4cEctRXRKRDhPa2VxclY1RGYwN1IxQVVhYUVrTlhNTFQzREgxXzQtcmxFQm12WlROWnVjR1JNNjBzZGxNZWpXRWZzWk5wbU0yT2hlT3IzLUFlZVY2TkV2UDdrZ3NOeHlxTDA?oc=5",
+            "source": "Moomoo",
+            "published": "2026-08-21 15:34",
+            "ts": 1787326448.0
+          },
+          {
+            "title": "Nu Holdings (NYSE: NU) reports insider share trade",
+            "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNT0o0VWlGdnlnNk82QUtFcGVsT0J0OGM4dExKWlZpek9VSnJEVU5yM3J1dUExSDZ1eDV0cXNMckdyZUtjbzQ1ank1d3Q3QzBBREhqUnVjcnN6N3ZrSEVpMUNaXzJraHNjd0plSkxlLXJDSlN5MzktM29BNVcweGRYRW81eE1QTDhpdGVnXzJMdmJIM1hJTGJDbUI1UXFaWFhSUzZ3LXRUbmw4ZHM?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-26 20:09",
+            "ts": 1787774984.0
+          },
+          {
+            "title": "This Insider Has Just Sold Shares In Nu Holdings",
+            "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQOFVkRE1QRWZHTXd4U1dmWEotM3ZQSlc2N0tSeVo5UVhiZ2tEUEhzLV83M2Z3NVBVLUtPUjlndEoteVZJN3FoQzVHeHV1U0tWRmpfZVNkbVdYOGMtMVlsQ2ZTbjgxejNOaGVIMFIwTmpTNXE0R296Tkg5cUxkSWFWYXRUMV9YbWhVUGx5S3lsaVhIdjFrN1VaTnk1NDlwOV83S3F2LUJ0UmM2dW9CV0Y2SNIBtgFBVV95cUxNbEVvclVOTlIzekRUNHFYVHA4eU13NkVsVnRrazZlcloxMzJQc2xUV2lucWZqb3BSSG12REpZSmhPQ2RQbEVUQl9GOHhoMmItVHRUaWQzTGhvLVRReGZLeU51eXlNTXdyXzlyUkRRYWlNX1hCYlFKcnhPX2JucURYSUxvb3Jfb19SbHpFMkNscGNYOVYwVmNPa0ZVYUFxb0JTVnJ6ZWN0MW5WLWQ4eVpVaHh5M0V4dw?oc=5",
+            "source": "simplywall.st",
+            "published": "2026-08-22 12:18",
+            "ts": 1787401106.0
+          },
+          {
+            "title": "NU (NU) Stock Forecast and Price Target 2026 $NU",
+            "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE96NTRPOHpfWXV0Q3RZWHRkSnI1WjFOSF9aR2E0cEs1SGFKSnBqQk9KWVp4bmpEQThucXdYUDVrQlduV1RCLWI3TEJ4YXRfeFVJV3d0RVppMXgtNDJmV2ZSUg?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-25 07:00",
+            "ts": 1787641200.0
+          },
+          {
+            "title": "Nu Holdings Still Has A Massive Growth Runway (NYSE:NU)",
+            "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSFI5WERPdEtod25IallnLWpNS3Fqc2F5MXFWX1dYWWN0VDV1aTlfTjAyaVltQW1yMkFfRnNlZmRYTlJLWlpHLW50VmhrVzBBNHZnNkhielJIalhKQloxZmN4NDIzd1FVV3cwajhoaEVfaFVWcG4zTDNOQVp0WlNxa1dJYlMxUFdSelpweTRXbw?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          }
+        ]
       },
       {
         "symbol": "IREN",
@@ -305307,6 +306648,15 @@
         "div_yield": null,
         "w52_high": 76.87,
         "w52_low": 25.31,
+        "sector": "Financial Services",
+        "industry": "Capital Markets",
+        "earnings_date": "2026-11-05",
+        "financial_period": 1782777600,
+        "revenue": 137200000,
+        "net_income": -684000000,
+        "operating_cashflow": 2100400000,
+        "cash": 6084700160,
+        "debt": 7839600128,
         "trend": {
           "strongBuy": 1,
           "buy": 12,
@@ -307221,7 +308571,44 @@
         },
         "upside_pct": 126.2,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Earnings Preview: IREN Limited (IREN) Q4 Earnings Expected to Decline",
+            "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTUlDOXRfMWFibXdOUTJaVXlXSjNBMnk5YUQ5eVN4a0FmbC1tdDhITUI5QlZQaXRib1BxU19ka1AxZWlBS0FMTzc1UWg0YW5VSnp2dkdXZ3NpNGpUb2dzaE5MWXpMbzhhdXBrdjlIcnhuc2Vyb3VPRGZHdUZ6SlRNaWd0R05YZTdtVTZyVGpQS1c4Sjc2M3lyRjhZSWhKeUFl?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-20 07:00",
+            "ts": 1787209200.0
+          },
+          {
+            "title": "IREN Stock Forecast | $2.8bn AI Contracts, Higher Target",
+            "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5FOER6b2ZFLWJXbXphVzN4U3BGN19vS1hJa0dHakJNVmh4Z2diVmFoWmNxWUd1NkxCSUxrdlZVcVVxS1VPRTdnTzVBRWp0dnFwR2x0R2lDTUpQNml6VXJ6RWRJZHNmbGZKS1ZOTjVnang?oc=5",
+            "source": "Capital.com",
+            "published": "2026-08-26 08:20",
+            "ts": 1787732457.0
+          },
+          {
+            "title": "Iren Stock Drops After Earnings. Why This Analyst Says It\u2019s Time to Buy.",
+            "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWkh2WmROS1FrbjJrcmRHb3ZtOXJZaEQ5el95WHFKY19jTnFKZkk1V2xmWUxuaElCel9KTDAtRXBqWko4LUp3SjhYVmhCd1Eyb01sZmFkRkN5SXVUNEQ3cTVqVEdkdk04RlhnMDNTVzVvNXV2MlF6cXZybHNFZVo0MDhVdzR4YmJiWHc?oc=5",
+            "source": "Barron's",
+            "published": "2026-08-28 18:19",
+            "ts": 1787941140.0
+          },
+          {
+            "title": "2 Major Catalysts Are Lifting IREN Stock. How to Play It Here.",
+            "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdDhMVzl5V0hWenhXOHpFdThSeDEzUVJXN2xWcUQxUzlxMGlOUk5heGlFZ0E2eFNPRHVfdWt5ck9Ed2lqVU1lcWNzNzJua0RyZTZuLVBvdTZGSkp6Q25QZVM0WmQ4MEpfY3lTNk94U09wcHdGX3o4d2RwS0dlWVZ2emFVSHI1VzVYb0ZPM1o0UFlYdXFGTHIxdnhXbEZueUVCVXJYSmpERQ?oc=5",
+            "source": "Barchart.com",
+            "published": "2026-08-16 07:00",
+            "ts": 1786863600.0
+          },
+          {
+            "title": "IREN Slides 6% as Traders De-Risk Before Q4 Earnings, Core Scientific Declines 4%",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNd2tZM2luSFJmNGY2UFZ1aHFWdXEtT2UwT1ZxVmJSZzB6anotU1lDQ1BaN1lvRTZJLUtiUHNacjhVT3JKZmNzOTBsZUdFS2YyVHhaS0RiT3UwV1llVHNaRG5WeHJad2lQQW5WRnptcnNfbGJESjZFRDMyME9wdGtQMTVjUEYwdDMtR0Y1ZHk0cm9uOFc4VGFRWFFtNDc2TkdWN3hVbzJfY0pzbVNYUVE2bElqU0xHTHE4ODhkMzk1Zw?oc=5",
+            "source": "24/7 Wall St.",
+            "published": "2026-08-26 18:09",
+            "ts": 1787767740.0
+          }
+        ]
       },
       {
         "symbol": "ONDS",
@@ -307240,6 +308627,15 @@
         "div_yield": null,
         "w52_high": 15.28,
         "w52_low": 4.9,
+        "sector": "Technology",
+        "industry": "Communication Equipment",
+        "earnings_date": "2026-11-12",
+        "financial_period": 1782777600,
+        "revenue": 83772000,
+        "net_income": -88587000,
+        "operating_cashflow": -161062000,
+        "cash": 1384493056,
+        "debt": 41096000,
         "trend": {
           "strongBuy": 2,
           "buy": 7,
@@ -309254,7 +310650,44 @@
         },
         "upside_pct": 145.8,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Ondas vs. Red Cat: Which Drone Stock Is the Better Pick Now?",
+            "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMHNqZFJfOGxlNEZDZTdjLWZmdWN0YklLODRUbmhfSFpXTE5xMENOSDBpelZVeFlyLXF6YmlZRDhBTDE1OXFyVEp0b29CYlgtTDVFM0ItWHQ5Nl9Pa3ZucHpPRHlraUd6ZnktT3dJcVFqcUZQLUZoR191aFR5SkJCUHdHQmJDZ1E3bW9NTVduczc?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          },
+          {
+            "title": "Ondas Inc Stock Short Interest Falls to 40.65%",
+            "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT29DVXJha3lkWl94UnEwWWlQMnRBRWp1ODVVd19BNjhWenVZaUhIcmEwQlpkazQ0Q0gzamlvaVB0TmptaFMxVl9ZbFNJSTl1QXZhTG1YN3FySmlGMGdkbUphS25Dd09kX1pRVnRMZTNkTzlRWWxUdUE1Wl96Z3o0YzF4ZG80eXAz?oc=5",
+            "source": "Quiver Quantitative",
+            "published": "2026-08-26 13:38",
+            "ts": 1787751480.0
+          },
+          {
+            "title": "Drone Stocks Drop While Broad Market Rises: Unusual Machines Sinks 9%, Ondas Falls 6%, Red Cat Slides 5%",
+            "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNU3JDTkI3NlVjRnBzb0Jtd0NBeDNGak1td3VWV2hZbXktb0M1UXBIdERGaE9Ranh1VGlEZ2xZMGtuUHFPWmVodjR5aEt4UGxsUk8tN3B5TXZ1eGJYRlZHYUxkdHk4UUtrcFNpVk9zZDh3UHFPME0wVG9jSzRwNUJLZmFjS1hUdTV0UVZmOG40OXBYbWVFT2IyMjdwNVM1OVZtZW9sRW9ZajlJeUsyVjVYQmJBYXVveFQwMGdvb1dHTWMzZXZ0Q1FlQV9ycUM5ZkF5eWdUcUFPc195Zw?oc=5",
+            "source": "24/7 Wall St.",
+            "published": "2026-08-28 15:41",
+            "ts": 1787931660.0
+          },
+          {
+            "title": "Ondas Shares (ONDS) Rise 3.7% as Weekend Begins; Outlook Signals $256 Million Fourth Quarter",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNb3VKbXpYZUx5UldpR1RJQWZxQ0I5bTE0Q1l5ak56MWFyb2hCVTBhUzA2Vm1vUGYxQ3FwNGk2UHpCQlFyWkRLdDNPQkpxalp5M2Mxemw3bmw5dy1iUk84OFF5MktjRjJnalhvclh6QWdkdzVjU1dMUnRtbnB1NHVFSGREb2JtRHJVbmJ1TzJfS014dw?oc=5",
+            "source": "TechStock\u00b2",
+            "published": "2026-08-16 07:00",
+            "ts": 1786863600.0
+          },
+          {
+            "title": "Ondas: The Growth Is Real, But So Is The Risk",
+            "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNeG0wZEdyckFxR2lZbmRaRGhObzQ1U1ltZjNmeEZBb0VGMW93XzBKRlYwM2pCOVg0X191a0p4N3RNc0VVRUI0eVI5Vm40bVd0dUdpTUZrcDFVbUNYdDJTbEV3NXNFMGR6V2xaNi1tZndzS0VGVXNEMFNrSFl4ejRBZ3FwaVF4c2ptQ1AyRg?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-26 11:12",
+            "ts": 1787742773.0
+          }
+        ]
       },
       {
         "symbol": "AAL",
@@ -309273,6 +310706,15 @@
         "div_yield": null,
         "w52_high": 18.79,
         "w52_low": 10.09,
+        "sector": "Industrials",
+        "industry": "Airlines",
+        "earnings_date": "2026-10-22",
+        "financial_period": 1782777600,
+        "revenue": 16735000000,
+        "net_income": 71000000,
+        "operating_cashflow": 4374000128,
+        "cash": 8360999936,
+        "debt": 35728998400,
         "trend": {
           "strongBuy": 2,
           "buy": 10,
@@ -311189,7 +312631,44 @@
         },
         "upside_pct": 35.6,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "American Airlines (AAL) Stock May Be A Bargain Following Upgrade Changes",
+            "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPemxtNHBKekMxX3NPQVZxeWhXUks1NFc3eEhyR2IwWEo0ZWV6Wkxqd2d5X3QyX05IYVRPSGsycGhubEw4bFpVVTUxSDA0UmNFWVR5SXpDd25md3F5bWNqb3otay0tczdHRW9PNVF1alE0Q3FMejB6ejRfc3Rfa1FLWWxtR1NzaHVXRkdRa0VJZjYtcUZaUUE0RzkwV0w?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "American Airlines Stock Is Down 6% This Year: Is It Time to Switch to Delta or United?",
+            "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWHFiSi1ubnRQUVQ1T2FNZFFNUTloZ0U3SVNIWUw1a21zNHp6Q2gzUnJTZy1IaVk1bTdPXzFIU0dVWlV2amN4aTVRbmRaRGZUMy1NTFdLWTJzTDdoU3lTVTFiZ19fTUl2b2Z3MUI2TzFSa2pQSHI5Smp6TWpNeUFkaV8zQjFKNENxYmdnYmJZazdROTRTSzJwVU0zNFlZRW1QMzdYOUdCN1lwYU1KRXZ2alVOLXpoOGhUNmpOc0hfU1RLcmNLdkE?oc=5",
+            "source": "24/7 Wall St.",
+            "published": "2026-08-17 07:00",
+            "ts": 1786950000.0
+          },
+          {
+            "title": "Why David Tepper-Founded Appaloosa Is Betting Big on American Airlines Stock",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOXFTUzhvblZFdTBTcWdGZGV3Yl9hRFNMajRhTWFHTnJZUHNZY1FfTVVUaldINzdWbXR0THR6NVlJSUQzR2FWYXZ4M2k4Y3JWR1hraS0zd0RxVHItdXNxZFJINDJBSmlRZkRiekhHdExSajhrNUtoY3lZWHBkNGJuYmQzVGhQa09YT1ROZXk3a0hQYXZ2VW1vcUJPbUJqeXpkNnYxS0hIWmJpbkZwVDZKd0hYTnBYUzZxNnpNOA?oc=5",
+            "source": "Barchart.com",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "American Airlines Shares Drop 7% as Delta's Adjusted Margin Approaches 10-Fold Difference",
+            "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVUNvUUlhTUFpaExvemJFaUJlY216WExiQW0yVXhCb2Q1b09aeXhUOFRDVWJBSG1KSG4wLXhxOWpwSlE5bmZmdC16NVRYczdEQW5za1FwT0hhQlVSYm41eURzU0ozY0hRT1dMbU5HSGsyS29LcWhCbERNckVoV2NvQUQ5dG9DVE1oOGY2LTFwQ0hQOE9seFlQaDhXbkNlbHg2YzBz?oc=5",
+            "source": "TechStock\u00b2",
+            "published": "2026-08-16 07:00",
+            "ts": 1786863600.0
+          },
+          {
+            "title": "Airline Stocks To Watch And Industry News",
+            "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZ2ppTDltS1hYd2d6YnpwU0kwRkhQQzhYa2dQTHJMMWg4ZkYzM1J4VVBBcms2NThlWkptTV9lRlhpM29MVFR1bGZGa0hrZFhyaWZfSlp3OXVSaVIwZy0tQU13ZDc1OS05aFNsM3ZjelFSdlNGekF1LVM5TEc0RUNoRXhEbnY2XzdGbUEyWXZUZjhROWhpY0JHYWdqR25QeUYyaXVMMlN0bDI?oc=5",
+            "source": "Investor's Business Daily",
+            "published": "2026-08-28 16:09",
+            "ts": 1787933340.0
+          }
+        ]
       },
       {
         "symbol": "SPCX",
@@ -311208,6 +312687,15 @@
         "div_yield": null,
         "w52_high": 225.64,
         "w52_low": 104.83,
+        "sector": "Industrials",
+        "industry": "Aerospace & Defense",
+        "earnings_date": "2026-11-03",
+        "financial_period": 1774915200,
+        "revenue": 0,
+        "net_income": -4276000000,
+        "operating_cashflow": 9900000256,
+        "cash": 100009000960,
+        "debt": 39708000256,
         "trend": {
           "strongBuy": 6,
           "buy": 22,
@@ -312726,7 +314214,44 @@
         },
         "upside_pct": 54.9,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "SpaceX Stock Trades Near $140 While Wall Street's Average Target Sits Above $232. Who's Right?",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVGVydUhfNDZtWjRzSkFvLUp2STdFbFREbkNYVVliSV9DdjdqQW9KUUR0RTdNa0tKN2piUXVMN1VxUzBzazlBNm9TR2NwN1lkemQwQkI5Zm1HWXJRaGdWTVhsQUphZ3U2cVhJSjhBdnFIeS1DRGZFWXBpd0lQMDBZbWtMS0lEZk1zbHZQSDZZLXBHanlmTzNMcA?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-27 09:30",
+            "ts": 1787823000.0
+          },
+          {
+            "title": "Index Funds Will Buy More SpaceX Stock Just As Insiders Are Selling",
+            "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPU3M1X2cxcnBkb3pfWW8xWjdVT3Myb1p1RXduVzBfd0NPcnpJRExFUXBjWFQwcFhMdk1QQkFFSHFXWVBRbk9nVnBsYlJvYW00X2ViRzBrcTBCbG4wdjdFNDZiQlVSMWhNOGROb3NZMFlNR3YxbTBmbUt3M0pqenN1M19yMkhvY3N3M2tmbm1Hd1pCTjFubGRwcGhpaVN0V2M?oc=5",
+            "source": "Morningstar",
+            "published": "2026-08-26 11:03",
+            "ts": 1787742224.0
+          },
+          {
+            "title": "Here's How Much a $1,000 investment in SpaceX Stock Could Be Worth by 2027",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdDF5NHBiUldiWEdxQ3VVTjhpbXFhZ2pSeFotZFJEY3BQMnBtOWllNVpnWnVrcVRoLXB2UkdGdzcwU1hwLUJYSHNKTE4yTUdXWlprVTlWRkVFVGNVQ0ppN2FMSV9oMHl5NndEdkpsNDVSN2JBdG9zbm5aYkc5NUoxckk2U3dCUEx4S1NuaGEtZzAxMW14U0hlSg?oc=5",
+            "source": "The Motley Fool",
+            "published": "2026-08-27 22:45",
+            "ts": 1787870700.0
+          },
+          {
+            "title": "Space Exploration Technologies (SPCX) vs. NVIDIA Corporation (NVDA): SpaceX Beats on Revenue, But AI Spending Steals the Show",
+            "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcmJpRTl1Vl92VC1FcHV3UjVHcXY5Y0V5WElYalJXYXA3TEliY3g0T1B1UTBRdXpCVGN1NFM0Ync5dVFsRURSNElYa2ZkR3BVSzFfRlk2VzFFMjl2NjB1S2MxUERWSnVBV1JxZ3JZd0pGeVN3LWVwdm5MZUZ6WVhrQXBvN0xRcEl4VUpGV1Q0b0lQMk1lQWFORWYyb1ptYnNjcXcwSUhB?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          },
+          {
+            "title": "Prediction: SpaceX Stock Will Be Worth This Much in 1 Year",
+            "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTHVQRzBwRkNvNDdnY0xtbkQ4bTdfTk9Tc2t1b3E2ek9rRC1nOWd0cUVZRjlXdmpJYmc2MU1JWFhObEkzcC1RdzRlYnJvTUxsc3dpZkZEQ2lJZjdDZldzUjY0RUtubl9RdjgzaFl3ZHZuUURBZWV4TDR1QURxQ3dzOTZlbXMxeloyZU4zVk9ZSmJEMnRjcG9R?oc=5",
+            "source": "The Motley Fool",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          }
+        ]
       },
       {
         "symbol": "PATH",
@@ -312745,6 +314270,15 @@
         "div_yield": null,
         "w52_high": 19.84,
         "w52_low": 9.2,
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "earnings_date": "2026-09-03",
+        "financial_period": 1777507200,
+        "revenue": 418382000,
+        "net_income": 22525000,
+        "operating_cashflow": 384134016,
+        "cash": 1307244032,
+        "debt": 83003000,
         "trend": {
           "strongBuy": 1,
           "buy": 2,
@@ -314719,7 +316253,44 @@
         },
         "upside_pct": -26.0,
         "valuation": "Overvalued",
-        "momentum": "Overbought"
+        "momentum": "Overbought",
+        "company_news": [
+          {
+            "title": "UiPath Stock Rises 44% in 6 Months: Should You Buy, Hold or Sell?",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXZPcWxCQ3lNTFNsd2M1WUZJakhFSThMdXFqTGREYzdmRFpCU2R5Q2ZOTE10NEptWERDdF9IUG1DbE5DV2pjSno3Q1MyUEFNVGJLTm4zMjBNNmxVX0Z6ZXJHMTlieW5FMF9abjRqM0lYZ1dqRU43aG1wdFRnb2I2TTZHOEp4TERUaHlFVXZOWk9idw?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "UiPath (NYSE:PATH) Stock Price Up 8.2% - Here's Why",
+            "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQS2VBeHFjSHF3YVpmZmRqak41NXp0M29sQ3JHUTU3RGdWR016T0w4elUzbVFadFVNS2FZYXdBcmJkM2FuTnZBZzJZV0RMWkx6UzNZNjR0UTFobk1ibFNvUjMwX2YtOFFSLVMwTHE3bzQ1RDFsTFhpa3NtRU5tUE5KR2lYajhNaEstRWhTXzlVZlNOU0FTUERsdkJhVHFWMTJaVGlyZnFOVQ?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-27 16:03",
+            "ts": 1787846613.0
+          },
+          {
+            "title": "UiPath Inc (PATH) Stock Up 9.4% but GF Value Says Overvalued -- GF Score: 80/100",
+            "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWlU1UnNsWUVmLVpJckFLdk1GaUhLNkdtQ3VNQzRKaW5oQ3N2SEFnVzlMVmtsUVhuZlFMbkROX1ZDR0VlWFhQeThOem1MVmdlNTc4TWhBYm1BMkd1ZEZvZWJZZ3JjYmNGN0dNMjJpalB2T3EzTzBYUzFiM3dpY0JXb1NycmUxVHg0RWhfc3pXVjJveFNxODJ0aVQxM0FyRXJBc2FucnB2cFB0d2JZZHhv?oc=5",
+            "source": "GuruFocus",
+            "published": "2026-08-27 22:39",
+            "ts": 1787870343.0
+          },
+          {
+            "title": "UiPath Stock Short Interest Rises to 33.26%",
+            "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOM1lwbjk4OEhFR19yYjIzV3o4V1FaS3J6T0w1VU43WndZVGt6bUJ6RUg1QmNEY3BKSlFIcnlyNkVyNVR0Tkk5ZHF5Ym9FbUY0Z08xd182aWRYQXdxTDNNclVQTERXR3c1YlFfbmVOdDBCeTZzRldPTTJydjZ1SkVPWGc1WEpKeDdLaTFwdQ?oc=5",
+            "source": "Moomoo",
+            "published": "2026-08-18 13:34",
+            "ts": 1787060062.0
+          },
+          {
+            "title": "UiPath (NYSE: PATH) CEO sells 1.4M shares, still holds 26,491,238",
+            "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPeHFvcEVpdThvQVc4aWluX2gwSG9wM2Zhdm9uMm9GMTJpZ1J1LVNia2xfUzczRkt1VFllUG4yQkY5ZWNrUldaT2xEUzQtb1hUdG92VVdUOWlkTTlqV1dLVEVxUHhNTFV6NjZSMWtkeHdmMEIxRXh1THhsbk51eVdoZDlHdEtORkl4SF9oUkdiWEZmRG82SGZrY0dSVkhUY2dIZGU2Tm5xd3g?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          }
+        ]
       },
       {
         "symbol": "BMNR",
@@ -314738,6 +316309,15 @@
         "div_yield": 0.0004,
         "w52_high": 65.6,
         "w52_low": 12.8,
+        "sector": "Financial Services",
+        "industry": "Capital Markets",
+        "earnings_date": "2026-11-20",
+        "financial_period": 1780185600,
+        "revenue": 46535000,
+        "net_income": -83576000,
+        "operating_cashflow": -293107008,
+        "cash": 340288992,
+        "debt": 1320000,
         "trend": {
           "strongBuy": 0,
           "buy": 3,
@@ -316721,7 +318301,44 @@
         },
         "upside_pct": 33.9,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Bitmine Immersion Technologies (BMNR) Stock Looks Cheap After A 61% Fall",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdTBpY1kyOXVFV1o4TGNheWFCb1gxaHVIc1p4MnAxaUpIV3F0dzNEUDNfUnlNam9fTEJkdUVwOWVyYk5ZLWtVdU9Vb1h2ZnlNbURHNzAtbFVBY1Zxc3B6Q2ZPXzVrYkVaUk9NdnE1YzBJMWc3S091THZlcUxmQXFHWjI5ZDlFdFk2ZnFmdDJxR3lwR2pCLVpNMU8yM3RjcXdhMEdZTlR3SURZQQ?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "Why BitMine Immersion Technologies Stock Skyrocketed by 26% This Week",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNOTYzT01pelRjQTVtLWdXNWFmbTZaUlVIWGhqekQtQ21BYm9LRW8xa2l4enpKeGtuTXVzbG9iQ3FWTnAwQkFJUEF3R3lqczAyTjdDUExLbmRFdjNKalhCZVAtWVBSS2k0WEZKeFJwRHVuR0Nnem85TGZFS3FWWHhvRUZiV1pDV3ZWaTR0bFRXLUtkR1BYNEZ6cQ?oc=5",
+            "source": "The Motley Fool",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          },
+          {
+            "title": "Top BitMine Immersion Technologies (BMNR) Competitors 2026",
+            "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBPY3lLbEZoNE5tTjJic0loVG9RX1dWVmdnVDlBSFhZaFdHXzFVclgwajdfaFNsVV9VNEtFN0g4RUxsalh1WkFiVTJaQzBwVWttZF9ESTZIM3dDX0lGcnQ5cUR5R3JXcVdDNU1BeWlqM0xRaFpLSndCN01UOWE1QQ?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-29 11:14",
+            "ts": 1788002080.0
+          },
+          {
+            "title": "Bitmine Immersion Technologies Stock Climbs Monday: What's Driving the Action?",
+            "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNUVhNa3FhV2hYM1cyanJCcXY5MENhV0NCVnM3aTlZRGEzQWlUclptUlBidG5aVFoteEJCeUtXM3Q0dWc3TzlnNXduaXNxaXdTc2cyQkx4N1NqSS1CaFdac05mdlZHbUpnVmRHSmV1b0JPY0pMNExKaHd1aklVMmFrTlE4TTFqX3pyeDlaWERqWlV2VzNoNHU1SWpBTGt3NER5aHkwTTRyN1pYWVhOWmx5V3E3cDZKSUlUYkdQMVlFSHNHSkxNWXB6RnJidVlMOUVpU3c?oc=5",
+            "source": "Benzinga",
+            "published": "2026-08-24 13:02",
+            "ts": 1787576565.0
+          },
+          {
+            "title": "Bitmine Immersion Technologies Stock Surges as Aggressive Ethereum Treasury Accumulation and Staking Rewards Fuel Momentum",
+            "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNcFNVakJ3VjVQYktLLUxuTEpvX0hiMFU1Ty1vbTgxZkhLV2N3Z3k5dGdJYTdpajMwMnJJVTVIVV9hR0o5c0tJMTJEVWQwa2Nod0l0RDhnbHRDSnFwbTBWNEhGRC1LUzFQT0FaYVpmdUpJU3BzaTYtRlpoRXdTUDNZMkVUNHJpYVQ1QU9xV003UEk?oc=5",
+            "source": "TIKR.com",
+            "published": "2026-08-23 14:24",
+            "ts": 1787495071.0
+          }
+        ]
       },
       {
         "symbol": "NOK",
@@ -316740,6 +318357,15 @@
         "div_yield": 0.0154,
         "w52_high": 17.45,
         "w52_low": 4.23,
+        "sector": "Technology",
+        "industry": "Communication Equipment",
+        "earnings_date": "2026-10-22",
+        "financial_period": 1782777600,
+        "revenue": 4881000000,
+        "net_income": 2000000,
+        "operating_cashflow": 1134000000,
+        "cash": 5129999872,
+        "debt": 3359000064,
         "trend": {
           "strongBuy": 4,
           "buy": 4,
@@ -318926,7 +320552,44 @@
         },
         "upside_pct": 47.1,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "NOK Stock Quote Price and Forecast",
+            "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1IaTdhdm5SZmtpLWhJTG1qcWVRTEdUeTlqM0ozdkVHbmtqcllScHQ3czFnQnpfMWdZRXNkeU1YZ2s2cXhOOW9LUWM3eVVUVms?oc=5",
+            "source": "CNN",
+            "published": "2026-08-27 20:16",
+            "ts": 1787861818.0
+          },
+          {
+            "title": "Nokia Shares Fall on Report of Major Mainland China Retreat",
+            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTDBuRWpGZFpDTXYzbndTUHpMeFZIbExrUERibW5nWV9qbmdKNHV3ZEc0djdLSHBMbXNBZHhCbjRGVDh5TE9FSVc1aDhwNXZyaEw1LVlZc1FVMlk3VXRCT1RQYzBPR3BPVk5LRGFNWnFQemhVREQ3NEhqRDJkR3dIRC1QV0dQNUNUOGduZ096NGZ4V2tjZGswWFEwYw?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "Nokia Stock Jumps As AI Bets And Big-Name Backers Pile In",
+            "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRzV3UEZ0WWdLdnZES0xteTl4by1PX1ZSbHY4b2Q1X0FRX0cwLXBIT2x1U1BuSWpRcWxwNGNOeWNPSTJ3NkRLTmRWM3pxenZydktjX1JFUi1jSTlCRExHV1ZlSml6OWpRdm5QZVpfRkhhWDRiMEdhaEdmaW9IWTVFS29od1hvdWMz?oc=5",
+            "source": "StocksToTrade",
+            "published": "2026-08-25 20:48",
+            "ts": 1787690880.0
+          },
+          {
+            "title": "Nokia Stock Rallies As Wall Street And Nvidia Bet On AI Upside",
+            "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNemY2LU41Wkd1aVA1Uk5ZRzhaME0wc1lYUFV5MlhOWG50TlhtWEVjdm94Z3RHc1NTRVJMYXYzcmFaNHlqTmxsU2dvTXpjSjhndkZxX3ZyX0xmUXBRSG0wUjgtcUNlYS1mNTZRb21UYm90NG1kenJyZ3p4YXFoT3MtUjdUNmJhSEVFSlFqUg?oc=5",
+            "source": "timothysykes.com",
+            "published": "2026-08-25 20:47",
+            "ts": 1787690820.0
+          },
+          {
+            "title": "Nokia transfers 3.64 million shares without payment to plan participants",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObi02SkRYM3NabUtaUVFjenBMWVBFOVdwT2J6dUEwVlF1UndfNVVSQ2lFWXg0QjRXcmVtdHEtSTZta1BJel9BYmhEZ3ZKMmVJQmhkRW5PTFFrREh4aVZpbWZBYWpWN2EzOUo3SzdUcExpaXUxd0YyQ0c5VU5LOXVaU19OM1NRYzBiQ2FzX1EzWGJvQQ?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-27 16:00",
+            "ts": 1787846400.0
+          }
+        ]
       },
       {
         "symbol": "MRVL",
@@ -318945,6 +320608,15 @@
         "div_yield": 0.001,
         "w52_high": 329.88,
         "w52_low": 61.44,
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "earnings_date": "2026-08-27",
+        "financial_period": 1785456000,
+        "revenue": 2739300000,
+        "net_income": 308000000,
+        "operating_cashflow": 2200300032,
+        "cash": 3932800000,
+        "debt": 4962899968,
         "trend": {
           "strongBuy": 7,
           "buy": 31,
@@ -320987,7 +322659,45 @@
         },
         "upside_pct": 24.3,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Marvell Technology, Inc. Reports Second Quarter of Fiscal Year 2027 Financial Results",
+            "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQMDhNVWVTS042VzhPTnZYZWgwd2kzVW1aVm9NR29YUHZncmt6QWFsbFJIQVFrLTRsQUtjc00yZHo3VXlvcFZQY3R0dGJiVzVSNDl6bllJQldUM185U0o5LWV6UFRmSWhHMWR0STBfazA5eVNBbU4xbUtyY0xzSnphR2piOVozN1lpd0JWRmFjUDV3UzdCY2RoN3V0M0Y0Q18xYUY2SGw0X2t0ME1JOVNwZ0RzcjlMYXBwVmxhSlFvdUR3bnVNMDQwbDlqVEdQMWMtRjFDQ2cyb3dkdDFyczZJbUJEc20xUQ?oc=5",
+            "source": "Marvell Technology",
+            "published": "2026-08-27 20:07",
+            "ts": 1787861242.0
+          },
+          {
+            "title": "Why Marvell Technology Stock Is Rocketing Higher Today",
+            "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWW5ham4zaVdfdVJLTlJnazZxSmxhX0ZxTDhJWk01SjdJUmRzZzhEMGdDOE50SjVYcktEZXpiVlYxaDBROGRFNVZLZzRTbmdhOTRTQkdsdmU1WG02bmVocDVPcWJMajJMVkQtUjNXc3ZJMnhramFkc2dDMUZpc1pKaS12V0lNcmxXVkJBR0dtSDl4Qi16ZGtKZll0M0pzZGpMQlBoNFZ3?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-25 16:14",
+            "ts": 1787674492.0
+          },
+          {
+            "title": "Marvell's stock pops 10% on AI chip deal that lets Google buy up to $12.2 billion in shares",
+            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01ZjN6RG5qZ2hsZU5Db1FlOVdDNWJsX2dpVHVlMnAwdEpIa1BaV21fZ290eTNhVUdqOEVqSkdlRGZCclRtellnd05GQm9JWlpKRC11X1p6Y21CLUdyUWUwaThFUDFwQ01TWmNDUdIBckFVX3lxTE1mNEJ4WHBveW1zdm5DeGU2X3RTcndUbDdfNW5ZcjVlX1g0dGZERE5YdVJjbG9ZVHZnaDhzSklJcnRkb08wd1Bsd1pLeHZCd0xfbkx2dHJkaXJNVHZyaUZhMWw2V1hZVThYclhzdHJVVVh6Zw?oc=5",
+            "source": "CNBC",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "Marvell\u2019s stock sinks despite earnings beat and strong guidance",
+            "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdWhnaDB6elE0MXItbVBuUGRBb1N4bWJ4bWFNZkxlNmU0U2tBd210UVdaZ1liRlJTc1ZhQkFVbTU1M3ZEWmJ3bHVQSmFPWVJ2aTNFUlhXa3JncEJuazF1TXFkYWYyTXRSS2paSzJ3VzM4RGJ0eXVHRDRYZWZGeW1kWFgxRTVaNHNjZXJOVzJRZkdYc01EVVZVdnZobDVZMGtQ?oc=5",
+            "source": "SiliconANGLE",
+            "published": "2026-08-28 01:11",
+            "ts": 1787879460.0
+          },
+          {
+            "title": "Here\u2019s How Much Traders Expect Marvell Stock to Move After Earnings",
+            "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQenUzSjZoSFNOMUlGRnNxb3RRSlRzTXU4ZGZTd2FmdFFXcUxDQldkZjNGSTBseVJmZV96dE85SHprUGRNSHJNbDNlRVFhQzdyWThTSlA2Zjc4el82SDJsb19jQlY0OEs2UXFHQjZDTFVyaWF5RWU5N21wZXJSODdUM2lGRXBYV2pxdnk5S2hiejJZdnZXYlcxTWpER2kzQXM3V2hiQkRIQzVqZGpMeUV3WTB6UGVUTUE1WEJLaTRR?oc=5",
+            "source": "Investopedia",
+            "published": "2026-08-24 12:30",
+            "ts": 1787574600.0
+          }
+        ],
+        "industry_pe": 54.4
       },
       {
         "symbol": "AMZN",
@@ -321006,6 +322716,15 @@
         "div_yield": null,
         "w52_high": 287.2,
         "w52_low": 196.0,
+        "sector": "Consumer Cyclical",
+        "industry": "Internet Retail",
+        "earnings_date": "2026-10-29",
+        "financial_period": 1782777600,
+        "revenue": 200606000000,
+        "net_income": 62647000000,
+        "operating_cashflow": 161402994688,
+        "cash": 122988003328,
+        "debt": 251635007488,
         "trend": {
           "strongBuy": 15,
           "buy": 43,
@@ -323122,7 +324841,44 @@
         },
         "upside_pct": 22.7,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Amazon.com Inc Stock (AMZN) Moved Up by 3.69% on Aug 28: A Full Analysis",
+            "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRjYyb0Z0MnJNUHFpYW5RT2VXalJNX1pXZVBjRC1zMkdKdzBzMGhDa3BtR29ZcUhLUmNjdU5pcmdKRjZ1X2ZYYWcxV2FXbHdQdG1aWElQaTJieG5LUWVxQnRqZFVaV1lVWlRZQloyNGhDOFRYWVpQNTZXZ09NTE42MVVUakhiRV9Qc1JR?oc=5",
+            "source": "TradingKey",
+            "published": "2026-08-28 15:15",
+            "ts": 1787930120.0
+          },
+          {
+            "title": "Trilogy Capital Inc. Grows Stock Holdings in Amazon.com, Inc. $AMZN",
+            "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVjJQODctSEgzZEQ0NjkwNDJOUjNMaGV5VXhFTm9idlM3cHIxbzVRUVRqNmhmblp4a1VwaGtSSXR1WVpwYmFBdDM3eHFFY1p0WXZ0MldPQnc1R3BCYmFDcEU2LXphQmwwRzhnUlJqREdJR0tOb1BrR010VnZyX09BaDR2QWh0WDlBVWc3RWN3WEVYazA0TVk3VUtlZ3dPVjMtZTdQb0NzNVl3X0EzT3FBWnpzT3FzQ1dOWVl6ekpwMGc?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-16 07:00",
+            "ts": 1786863600.0
+          },
+          {
+            "title": "Amazon (NASDAQ: AMZN) CFO exercises RSUs, sells stock under 10b5-1 plan",
+            "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPcWdkdVFoNEJPSmp0V3hnLTBESjRTSkhkTGtsWm9jM3U3NWFlemJNZDFYSV9LdGRkbFJGN0VnMDdfZmNyNUotNlhGOEczSnp2TUpQRzdjakk1LVFic3EydnktZmlLMHVBZXkyWUJtSGFaNUtRSWZicjZHaWNzc0l1UGlPNUR4SURHbmtRbnl3OTVSU05WRktxVG5YRk1feDRsdWRob1U5R3oyRTM3?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-25 20:38",
+            "ts": 1787690282.0
+          },
+          {
+            "title": "Amazon.com, Inc. $AMZN Stock Position Lowered by Fulcrum Capital LLC",
+            "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOWTk3X3FDN1ZiS3U3T3hSVVNiTzNlVmpWQTNWUGprZk1PNjFTbEx2bzBEd0xUM3EtN3NqTktJTDN6bENTMGZiZXNnRTJEZFo4YXNUYThidnN0VjRjMXlnZXFfenF1T29mSjd5U1d5dk1PX1VkZ1lWTVQ1dFdsVjBCNTZMZjgyYUhyVmkwMndOR2REQnZCU1llcWVTTksxdFEwOEp6V05jd2F3ZmVCeWtrWXlPWmV6NS1hcUVGZ19IaGxWNVk?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-28 08:51",
+            "ts": 1787907084.0
+          },
+          {
+            "title": "How large was Amazon (NASDAQ: AMZN) SVP Zapolsky's preset-plan share sale?",
+            "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNeUJmMUl2NDh0c2lfQjMzZkNSRmxtS0xnZDVaZHh0Zlg3LUJYaHB1WmlqeGI2ZDIwWW4tVElnV3FBS0plTWNTM2tvcURucXdFc3FiSTlHdzZsMlowN05nSEhuYUYwbXJCNnBwakVpZjhaWDRONVJFN01LZTZUWU53b2xLdVl2dnFOMmROalBJWHA1cFU3bURjOTZ2VndqNUlZVGlTRXhyYURNaEV3?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-25 20:45",
+            "ts": 1787690725.0
+          }
+        ]
       },
       {
         "symbol": "PLUG",
@@ -323141,6 +324897,15 @@
         "div_yield": null,
         "w52_high": 4.58,
         "w52_low": 1.41,
+        "sector": "Industrials",
+        "industry": "Electrical Equipment & Parts",
+        "earnings_date": "2026-11-09",
+        "financial_period": 1782777600,
+        "revenue": 178299000,
+        "net_income": -188207000,
+        "operating_cashflow": -482561984,
+        "cash": 172094000,
+        "debt": 1036950976,
         "trend": {
           "strongBuy": 0,
           "buy": 5,
@@ -325199,7 +326964,44 @@
         },
         "upside_pct": 62.2,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Bloom Energy vs. Plug Power: 1 Stock Clearly Wins the AI Revenue Race",
+            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNLTJwQkRYN2RLd01lQi12SVd2Q0JtZXpwWXZBdnVDRnZKSjZwbXlyTHNQQktVbjJ3dkZvMk92b3FMYVpkeTJoajhNdGk2MUl0TWg0MWhjd0ZBREdSMEJ2STEtaHZRalZOUUl5RWU4NlNaZTRCQlluUHFXNm5xMDJxSkV4Xzgxd0s4YzFURk1QMUxtc2pVWFE?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-24 19:12",
+            "ts": 1787598735.0
+          },
+          {
+            "title": "BlackRock Inc. Buys 31,939,194 Shares of Plug Power, Inc. $PLUG",
+            "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQWRaNjNxN0RUQU44R0ZJZFduT0phcTFYQjZVOFFfc3ZqLTM2NWloR0dhN2pmTjFkVzRRa3NCQktjdGVKZ184NUtiTnY3Tkc0VXQzZXVPNHRQaDhFU3ByNXJHNXg3QTZPaHMxcGJneWtJZHU0ZmVScEljQW9UellVMEhkcjltcEdxa0k2amM4aERIWjAtNUZXWm1qbVFfN3hQZ2YzTTd0Q2xyXzd1anlVZGw5bDBqd1VKZ0E?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-25 07:47",
+            "ts": 1787644027.0
+          },
+          {
+            "title": "Plug Power Inc. stock underperforms Friday when compared to competitors",
+            "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOR0xoZXVNeTBQQjM4c3B0OE5zMUg3Tkc2X3Y0Y2s4b2VzTTVzOXVmTXd4d2dtcjNGSV91OXU1OFZsdGZaSWJfZHEtRkJVM2dHYjFWOVFYbE56TjZubGlWbk1EYkFVS2dCelpBY2ZFdWt3QTFvTEkwZVhNZFppYUpQNzNUMnAtYzg0bFY5aGJkUzdTYUZTVWluT3N6QnVKNEl6eUs3eEphbFhxNDJBQ3hsVFd4RlVPN2tQeEduUHp2XzFUenFoN290Wmpn?oc=5",
+            "source": "MarketWatch",
+            "published": "2026-08-28 21:28",
+            "ts": 1787952480.0
+          },
+          {
+            "title": "Plug Power: Tangible Margin Progress But More Work Ahead - Hold",
+            "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORlh5bXhnZTNxQUlaT3VPTm5Ydl8wTWZfbDYxWDNhTi1uc1NhSDFYLVhFa24tOE5seGtYREgxdDhXMHV1M2pocHhQR0lndlpYN0lWYlhHX1pqSk5NNk1xcV9aajVEVTZTdkdKNDFPUS1ydFlDb1FjMVl0VDVOTlpkS0hVNThiTkVWSjFDcTBaU29YYktTR0QzU2YzY3FfTVFLakFF?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-25 02:45",
+            "ts": 1787625910.0
+          },
+          {
+            "title": "Why PLUG Stock Is Rising Today: UK Hydrogen Project Clears Major Hurdle",
+            "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbVNsMjI0bG5IbE5tV240QXRnSGRSUGVfcVV6Sjl3aDRnMDR5RlBMMG5scFl4TFl2ZEFtYlB4bXFfeWZvSE9DcThWdkF6a3g0MWZUUkdDNXFYamZaWTdrLV9GVEhwRHdZTVVRNk1ESzk4V0ZGellXTVN5WGJMa3l0RkxEZ3F2alp5eV9WR1g3dTdLNDlzcjJIQlJpeTVKNDgxc2pKWWhjZTEtcHlrT0ZLLTU4LVk0bXEtNXRqRHRzQU1GVjZFNnc?oc=5",
+            "source": "Stocktwits",
+            "published": "2026-08-28 18:30",
+            "ts": 1787941826.0
+          }
+        ]
       },
       {
         "symbol": "SOFI",
@@ -325218,6 +327020,15 @@
         "div_yield": null,
         "w52_high": 32.73,
         "w52_low": 14.88,
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "earnings_date": "2026-10-27",
+        "financial_period": 1782777600,
+        "revenue": 1205550000,
+        "net_income": 156592000,
+        "operating_cashflow": -8502490112,
+        "cash": 3366502912,
+        "debt": 3415378944,
         "trend": {
           "strongBuy": 3,
           "buy": 5,
@@ -327222,7 +329033,45 @@
         },
         "upside_pct": 10.9,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "BlackRock Inc. Makes New $1.30 Billion Investment in SoFi Technologies, Inc. $SOFI",
+            "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQMnJzZnYtSWMybWxzWFV3aVRma3BNeDZNejJFMXF0bXE0X3h2S1E4MWRlZHN4R3F6MzVEVEVrZnBKSUR5WGFrNWdTWk9Kc1B1Q1hHSkNTaTZ2bTFNb3pneVF3SWFrQUFMTEs2bFBzdnRjbU82U2dGWDB3QmtVQzdjMkdQUXE1MXQtcUpMVUFuRFZTZkFnRmlUak1nci1CcXVoWTVtN0wzM2VJZmIwWTZ0RE9lYXNsZi1KZ0VpTncta2RCOVBXbk93RkJ5eE1WMUQzeGhz?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-21 08:10",
+            "ts": 1787299816.0
+          },
+          {
+            "title": "Sezzle vs. SoFi: Which High-Growth Fintech Stock Is the Better Buy Now?",
+            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPY1JLc18wNEVNMzE3X25FNzlsQ3dNamR3dmh6VDdnVDRvSUlpQ0twMmlNWS1kS3dHODk5a1dWZmVFclRYSUpHRHFWb2owUlVBLU83WFhNX08wbmJlOFFpVEZuUkdkRnpPbW1jSWNwQVBWWDJOWk5mQTlua2tWM0E1T2JzWnJDbDZ0TGk3VWNETWtDLVRKa0E?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-27 15:51",
+            "ts": 1787845860.0
+          },
+          {
+            "title": "SOFI Stock: Hold Or Buy? Jim Cramer Says It\u2019s \u2018Too Cheap To Ignore Now\u2019",
+            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPalNNeHFMa2p6bGkyRk1QVzg2MXhKb1dtZVBSN25nblNDYVBUMGFpTjNfY1oyaWVMVkhGQnZIQmFrajlLcWJaajdQMlozb0NyVllDQmtFeWd5amJQcjAxTHFjcmJKTFZsXzdXMnZ0bU1mMXlhQjRpNTdhV0xNdjc4YXdFWTk3dldOc2ZYUzVtZGpHNU0zZFRYZDZIZjRHTmdOU01WcEluM095UGJNbnl0R0R3eWVtUEdLNlJSbFJORzNGQ25h?oc=5",
+            "source": "Stocktwits",
+            "published": "2026-08-27 06:43",
+            "ts": 1787813030.0
+          },
+          {
+            "title": "SoFi Technologies Stock (SOFI) Opinions on Analyst Price Target Upgrades",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeU4wZnkzeU5vSEVqV3hkQUY4N3NaLTBma05zVzBwTUZkV0xFMXNwajRkU29yZmpZdE5JVURaRy0wRjkwMkxXM1lGcnNZQlc4bzZBS29RZkNtY18tWEFBeDBiei1XQk00QUxQdjVVb0FWQnJ0TEtOa0NQWjFYY0F5S2duNUR4dkZuSTdtRWttTmc1R1hnX1J5R3ZUZkdEX01hdXhVU0s5ckZKU1VpT2c?oc=5",
+            "source": "Quiver Quantitative",
+            "published": "2026-08-23 14:03",
+            "ts": 1787493780.0
+          },
+          {
+            "title": "SoFi (NASDAQ: SOFI) EVP receives 55,731 shares from RSUs",
+            "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZndsWmxiTVhtWG5HMk5xZVE0N2I5b1pRQmRuVEJBbFBoR1lKOTNXSGNvdVFKb3FWUk5MMzAtd01wTGdmejdaOVkyMTA4d182QkMtdlFjZXVYQUw3cTd4SUhRNER6OVJpNGVjQy1XRnE5UFIzNmhob1hSU2JVNXJRN0pjZmtFYk4xREk2Q1VnQ1N2WXZiUEItZ3RiZDU4SVNINmczNV95dzlNLUdtdzZzUGp2RnpaQjQ?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-19 23:32",
+            "ts": 1787182352.0
+          }
+        ],
+        "industry_pe": 25.4
       },
       {
         "symbol": "MARA",
@@ -327241,6 +329090,15 @@
         "div_yield": null,
         "w52_high": 23.45,
         "w52_low": 6.66,
+        "sector": "Financial Services",
+        "industry": "Capital Markets",
+        "earnings_date": "2026-11-04",
+        "financial_period": 1782777600,
+        "revenue": 174881000,
+        "net_income": -609685000,
+        "operating_cashflow": -895051008,
+        "cash": 421273984,
+        "debt": 2465958912,
         "trend": {
           "strongBuy": 3,
           "buy": 5,
@@ -328997,7 +330855,44 @@
         },
         "upside_pct": 68.6,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "MARA Holdings (MARA) Stock Still Looks Expensive As AI Lease Plans Grow",
+            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTmF2VjBtRzFRMEdMUi1FcXZPWGpqSFQ4QzdodlladzA5YzQ0WVU3MjRIWmtJNEU1Vm5TYmZ2VGhrME1BQ2YxWDJsZm5teWlQU0Zsc1ZWeVlQT1VuV3pWZkhnTmo3NXl2bnFUWUI4M1NXUG1Jc2FDNE5nYjBMS1Rfbl9ZT1NYOW9IWU1hTVdXdGZOUC1qUWY5UHN0Zw?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "MARA Holdings stock surges 15 percent on Trump crypto push",
+            "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOb29TcV9jVVRpNTk1MWNnWlVoVW1iUmN3YldKbWxWdW9SWGw2WUtkSnp1UE93b05qZDgxcHRXNGFWc1dTUU9CaHZSbVVHZWR2TmNYS2o0M2F3blUxUWgtOEdrWDZQX25GNVVUUFFDT0I4OE5YcWlyTDV0QUpzbUZsa3c4LVZ0UGtWbFJ2OTRnY3RyREJzQ2thZ2d5Qkx6UQ?oc=5",
+            "source": "Northeast Times",
+            "published": "2026-08-21 15:12",
+            "ts": 1787325171.0
+          },
+          {
+            "title": "MARA Holdings (NASDAQ: MARA) exec plans 8,376-share sale",
+            "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOY0hCSWxvYVd5U2E5b052WTMycFVEOF9pMkZ3YThKUkI3UVFOX2NWdnNEQ3Z2ZHhWNTBrUUMxTklJTVM5ZEZ3VXFXOHhLekEzZ2FHb1VXbnRTZVJXZDJHcF9rTWVEUmswOVFhY0ZMdjREWDN1T0Frc3ZtUHBxdWM5UnNVSmpVRzhyV1VlSW9SREEwYWM1eURnRF9R?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          },
+          {
+            "title": "MARA Holdings Inc (MARA) Stock Up 5.8% and Still Undervalued -- GF Score: 61/100",
+            "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQcU81Xy1NUHBKNEg0cVZxdU1FV002UGIzclF6dWFNZTR2emNYX05lRUNONkx2TFpMaDE2ZUN1RnpBV0puQ2Itc0prLXJHTGJGNG0tcVlMRWQ3ZjZPb1BabS16aTRDZ2Z2dUl4Y3ZTaUxVVFNMYjBJYjc3dFg0RmVfODJFbWdXVVcxR0xyMlg1YTB4UVpvSFByRktoRkZDNTRiZFdiWnF0Z3EzUjRGTlgw?oc=5",
+            "source": "GuruFocus",
+            "published": "2026-08-25 23:33",
+            "ts": 1787700788.0
+          },
+          {
+            "title": "MARA Holdings Stock Jumps 16% After Major Energy Buyout Accelerates AI Expansion",
+            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPQXUtakFzMERma3k4U2NCSXJlaTlKUkxlOUJVY0ZYNUlvQUNpa09YT3dQSWZCSjRRRkNSOUtPSFUxWFZzWXlPLUw3VHp2Uk5hV3RBUGdyQW9LVnk3blgxeFhlU09uV1JDN0pndE1WUVk3bFVwQTBsQ2JLMEJ1V0pVZU96UllkVXM?oc=5",
+            "source": "TIKR.com",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          }
+        ]
       },
       {
         "symbol": "RIVN",
@@ -329016,6 +330911,15 @@
         "div_yield": null,
         "w52_high": 22.69,
         "w52_low": 12.39,
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "earnings_date": "2026-11-03",
+        "financial_period": 1782777600,
+        "revenue": 1658000000,
+        "net_income": -833000000,
+        "operating_cashflow": -1844999936,
+        "cash": 5310000128,
+        "debt": 5352999936,
         "trend": {
           "strongBuy": 5,
           "buy": 7,
@@ -330932,7 +332836,44 @@
         },
         "upside_pct": 19.7,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Rivian Shares Slide After CFO Announces Surprise Departure",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNN1AzdmpndUpqVjBnM1hldFhoNkNuSER5aVMySVV5LWNVWlg4LUt2UUlqZXdXeFJBV18tQ0EwQnpvNExyaFRqQmoyZlVfeURUcXlYSGwtOXlWaXFJWkVieXpndEl2V1BrUGpvMlVuajlVNEUtMGJkX0dvV0l1d1l2UnVvMFg5SnRXV1JUd3pCRmpZUmVocWw1ZWJ1MU8ybXZGNk9EdUpJNEhFY2JYdG1IM21SVThWQQ?oc=5",
+            "source": "Bloomberg.com",
+            "published": "2026-08-27 20:28",
+            "ts": 1787862480.0
+          },
+          {
+            "title": "What Rising Delivery Forecasts Say About Rivian's Stock Prospects",
+            "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbksyS2lwX1JWaks2eE9LVDRDY01lVDdQVmRNdjBYWERERFVNLUktdURJMVpXN1JURVBpVzNmUkxuSFJkai1ncGY5ZGxSaS1reml6TF9TakhNX3J0TVA1Q2hGVkdfZDJ4M3Q2VXhoVVJuay1VZnFaUi03anA0ZGdrX3BJTmJ5YkwzRFZ1WXNwQVRheVhibF9GTndyb0NZbWlZNzRVR2RMUQ?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-24 12:35",
+            "ts": 1787574900.0
+          },
+          {
+            "title": "Rivian Automotive (NASDAQ:RIVN) Stock Price Up 1.8% - Here's Why",
+            "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMV9aaXl0OXNBS0FPRGxTYnFzVUFSUTRkaEdON0VKQ3FkbDl0QVo2aHVWLVFWS2hRZUZNR3RWemItZ1c3RjI0WFI0a3hKeGgwMjF5ZEJkbUFCQlUyVDBaVHo1QlJkeWhfOGF3OFMtREFGejlFOW1MOHZzQ1dqci1OV3ZCQXEwN2Fwa002NGU0dUhvVXJTX3lBWE1RLVIxWEFmRHlnT01nNUZBVkx2a18w?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-20 07:00",
+            "ts": 1787209200.0
+          },
+          {
+            "title": "Rivian (NASDAQ: RIVN) CFO sells 13K shares in planned trade",
+            "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOR3A4Q0I0SURjaGZrSGh3MmVvQ2lKblltUUdWMFhnaHU1alRfbXQyT2JXR2pyTThGNVBfUG9kR25tRWRISExrV2RhbXYycFJWNGl2VDJteXVETGFqMDBvYWRoSV9ZcVF3WnFEQ1EwRkNzOG1QcGd4RndzODRGc3dIc0lreXRtTThfRlB1VjY4d2VOei1uZVhOS1FYcHNLX21YWmhIUkxQWThpZjJCaHJBMHRvY0dwaFZyaXc?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "Rivian CFO Claire McDonough sells $128,368 in company stock",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNb252VGpOR3VMY2NFSGlpZjdaODIwVEFFVWRYNGhsbHRpZ0t3Y0pfbEgtY1JlMlRiMDRoT0ZFVGZyVkhicTdQa0VwbkpxNUpfWWRiOTItbDZldV9iVFNSeUZZMWRmaVZ4Y0t6QklDNWZxX0xPQkRoS3J0MkczTFp0RHJGa29GSjVwc2RhbWNiYUc0X1BQbVB4MmFxS3VlRlViU1N4c2h2Q0dldEtsTF91ZXdmV2haQmNMcFJDU3h6aw?oc=5",
+            "source": "Investing.com",
+            "published": "2026-08-22 03:06",
+            "ts": 1787367998.0
+          }
+        ]
       },
       {
         "symbol": "F",
@@ -330951,6 +332892,15 @@
         "div_yield": 0.043,
         "w52_high": 17.78,
         "w52_low": 11.11,
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "earnings_date": "2026-10-22",
+        "financial_period": 1782777600,
+        "revenue": 44891000000,
+        "net_income": -1327000000,
+        "operating_cashflow": 16947000320,
+        "cash": 22119999488,
+        "debt": 163296002048,
         "trend": {
           "strongBuy": 3,
           "buy": 5,
@@ -332699,7 +334649,44 @@
         },
         "upside_pct": 13.3,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Could Ford Stock Reach $30 by 2030?",
+            "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQVGYyUkF0Tzhic1BmNjJsVnJkM0xycXBEUEtqZ29oclloQ3I1U0dSb2tZcFFPRUlEbVhqSUdIR2x5Y3hycllEVzRwT211Qm93Yk1Wd0tpaWVSaGNJbGd5MVpfUzBybmRHQzk2VzMtUU1PRTFuVHF2aDlwajVKN1hfQl9B?oc=5",
+            "source": "The Motley Fool",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          },
+          {
+            "title": "174,456 Shares in Ford Motor Company $F Acquired by Blue Capital Inc.",
+            "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOYVY3RUh5YUs3VERLcHhoQW5odHlVWlJwWThhTmF3czg2Y3l4RzNfeXU1MGdENWJVMFFiQ1U3ZGxtMklKd196bHQ0eFM3QTlIVFlEaTdjbkxtSkp5Q2VITE9pcjdUQS0xTGxqZ2tqV3NWcmR6WEZObUtteHVVbm9uTjBUZ1E5cTdWbGo0WjVJTnQ2b0JJaEdJbTRwd0txOTh3SXJJZUhJVEE0eVJYTVJVY2kzX0VqMHpGYW9RSFR4MTdVY3NjOFE?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-22 07:41",
+            "ts": 1787384468.0
+          },
+          {
+            "title": "Ford Motor Co. stock underperforms Monday when compared to competitors",
+            "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdnBNdFpPRXFuZGRrY3JvUWNpYm9EOTVZQzBIYXBOYXBoQTYwRjBCZ3VNdjdIN2tnLUxzN1RCNkMyYzA1NjBXZEFtQ2MzRk1OUndHMFMydWRDbktkWjVnQ3NYQzY5ZnhJV2dwaTFEd3Q0VmNxOHlDZDltaUJkaWVhSDhCbTJuWGk1bVhlUU5hZXdZQnJVQWVLMUlCcGZGNnAwSFY3cno4MjFsVklRSFM2b2NRcDRZZGZhb0w3STl5NV9Xa052NXZySg?oc=5",
+            "source": "MarketWatch",
+            "published": "2026-08-17 07:00",
+            "ts": 1786950000.0
+          },
+          {
+            "title": "E20 Capital Ltd Buys Shares of 4,171,987 Ford Motor Company $F",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNUEZmZHFVR01mbGpWOWl1VFZrN3drS21KODhSaHlPaEtHMzE3dnZzeFBfVUViMHRLRWxmZjVLUmVyTGdrTEJ4SWZ0WW9HU3h4ekpDaHNzMkRnRXA1WWt0emMzM1JwM09SZjBBMWdrM3hJRUNGcEtZN2x2b1dRYlBhRUlERkJfUHdFdENOX2k1azRTSFNpOW9YeGFVZVkxb1FBVi1kTmVSd2o0d1RmOTR4cDdRT3FsclRQdGoxbQ?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-24 08:44",
+            "ts": 1787561065.0
+          },
+          {
+            "title": "Ford Motor Co. stock underperforms Wednesday when compared to competitors despite daily gains",
+            "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQOFRfODZuZGNDbWw2dUI4OGNJYUJ5Vnp2MnAxRXVQUTJuYVpyRXFrRVViVVN0MWFuTFEzdVpWaDE4eFRndmh5QmJZX2VnOWw4RUoyMWFGcjJjNnBwZEZ1TFNEQTBGX1lBcFU4S1FmeW8zdUlHQTd1dlBHTmpNc2FyRTJOeTE2Y1gzTEdTZmY5QnYxd193LU5jSHdKSnRFM1VtQmlOZVlWRGxDRmhxMmNOZ0ZEYkR6dldhZTAwTVlZU3NfT25oc3A2eXp6ZktaU3R3V1EwdTJXaTI0WWJjTmI1ZFZiMU5UYkE?oc=5",
+            "source": "MarketWatch",
+            "published": "2026-08-19 07:00",
+            "ts": 1787122800.0
+          }
+        ]
       },
       {
         "symbol": "BTG",
@@ -332718,6 +334705,15 @@
         "div_yield": 0.0137,
         "w52_high": 6.29,
         "w52_low": 3.57,
+        "sector": "Basic Materials",
+        "industry": "Gold",
+        "earnings_date": "2026-11-04",
+        "financial_period": 1782777600,
+        "revenue": 789354000,
+        "net_income": 417334000,
+        "operating_cashflow": 922692992,
+        "cash": 290032000,
+        "debt": 456086016,
         "trend": {
           "strongBuy": 5,
           "buy": 6,
@@ -334568,7 +336564,44 @@
         },
         "upside_pct": 8.7,
         "valuation": "Fair value",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "B2Gold BTG Stock Jumps As Mali Permit Unlocks Long-Term Growth",
+            "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5uMG9EQzBsbmxLQk5vVVpMaEZ0UXlhLUJIN3phMHhYZlhmSjRFR3JqMl9DYW9YZDByTGdGdjRRcGtZMGt6dGJsR2luRUc5Z2gwR1Y0a2p0T3RXYnNndjZNOUJFY1pzdXJGR0ZtTWNzci10UU4tQUxTbkNR?oc=5",
+            "source": "StocksToTrade",
+            "published": "2026-08-24 19:03",
+            "ts": 1787598180.0
+          },
+          {
+            "title": "AEM vs. BTG: Which Gold Mining Stock Should You Invest in Now?",
+            "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTkZqSlVJakxmY3pvRW4zOUxaRUZ0OHU1WEtVaUc3UDRNVTBQaV9qUkFGaGdNbGRZbzZHaGNwQk11Rk5VT0dKTF9iTXRyT2xVQmtwLVdyVks2SjAyeGpMcGt1VUZFY3B5U3RaQjY2Y1Mwall0YksxNUZRMWNJYlE0XzVlUDVBQmVRdjRtSWRZTjg?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-25 12:14",
+            "ts": 1787660040.0
+          },
+          {
+            "title": "ETFs Investing in B2Gold Corp. Stocks",
+            "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1oZmtPMV9pSFNFaUpGeVB1RktKVS1haWxfQnlsMEd0NkNiUlNDT3praHZjV0xBY3RDdVVENEUzNkpmZmdiQ09kWHBoZ0VuejE0clNqbV9vZHp2ZjhwM0E?oc=5",
+            "source": "TradingView",
+            "published": "2026-08-23 01:23",
+            "ts": 1787448187.0
+          },
+          {
+            "title": "BTG Stock Edges Higher After Mixed Q2 Earnings",
+            "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBzcmVxRGhtSXp2OXZxUy1wRkFndHJnUXJrYWNGREpvVlVncGJRbDNwakFfaTB1emxRVjFFSTR1Qm1MWk9nNEtodUFtNlJJcFhjdEl5QVhxQkVfWGRuZWlEcDJWemJvak1YSXZqUjRGSFdQZldiNUdnb2s3QklOdw?oc=5",
+            "source": "timothysykes.com",
+            "published": "2026-08-28 19:03",
+            "ts": 1787943780.0
+          },
+          {
+            "title": "New Opportunities in Gold Stocks: Pan American Silver, North Arrow Minerals, and B2Gold",
+            "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNUNVVjhyd24xQ1B1VWNQanZrQW9JTjBxWnBjX1V2TWpDc1hsWEVQZHFfZExYQWctdnN6czdvSEhqT1ctSmEtNGs4Q1Q2TmpmOHhlYXEtVDdmLWFxU1Q3bFludUNjU0xUd3A5dWpzRnlaMGlQWnFqRTlrM09neHNlQUdGQlp2R2FWQ3hDaTBuU2tZNnhlaFRMMVo1eVM4c3FRemJxZklacTFTU0dMV09jdUNYZDZpRjA?oc=5",
+            "source": "news.financial",
+            "published": "2026-08-26 05:20",
+            "ts": 1787721600.0
+          }
+        ]
       },
       {
         "symbol": "PURR",
@@ -334587,6 +336620,15 @@
         "div_yield": null,
         "w52_high": 14.14,
         "w52_low": 3.01,
+        "sector": "Financial Services",
+        "industry": "Capital Markets",
+        "earnings_date": "2026-11-16",
+        "financial_period": 1782777600,
+        "revenue": 6334000,
+        "net_income": 421535000,
+        "operating_cashflow": -19147000,
+        "cash": 137916992,
+        "debt": 0,
         "trend": {
           "strongBuy": 1,
           "buy": 2,
@@ -336348,7 +338390,44 @@
         },
         "upside_pct": 12.4,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Hyperliquid Strategies Inc (PURR) Stock Price & News",
+            "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5XWVNHMnlwQ1VmWDkyTW1nNjdfNXBhMlp2UFZhYnpFSmprcTBwZm15TThSNFdQbG4zRlp2VXN3QTlTX0VZX3pGNnc4Yw?oc=5",
+            "source": "Syfe",
+            "published": "2026-08-28 13:37",
+            "ts": 1787924220.0
+          },
+          {
+            "title": "Hyperliquid Strategies (PURR) On Trump Backed U.S. Path But Valuation Still Hard To Read",
+            "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbFZpZ2hOOFJ6OXpfUllmcU8wVHJzLWFPR2hMSXdrb3FSM3pwLW1OWUtRakpacmhTRnRKaVNCejVyMm05Z0FUbmpqd21Lb2ExOHBCdi1XUEM4eC15MWJOQndGQzVLNV80d0hZOUg1cUxKd0VraC1COEtoeHdocURWRXY4Mnp3SXNUQ0ZTYlZrUS1hdUFhOXlnVTJjM0dXQzFZQ1Zsbm1wRGc?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-21 12:08",
+            "ts": 1787314137.0
+          },
+          {
+            "title": "Hyperliquid Strategies CEO on Pres. Trump opening the door to company entering the U.S.",
+            "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNQlVNY0Z6OXJtbVFmLUh5Y3ZzWWN5T3JRUDhlemFUZk1mYXFsdmF6UkxxQUVaVmNrSXFrWm1JMnoxTnF3bmV1b1JkcURKc0VtOXVJU04wcHZ3aGRPdXFCem9zOFpaXzdGT2tFNi1HNEdsRnhMRHVDa19ZU2tIWi1LV0MwY3BXVDVDOTZKeWNtNVJ5ZHRRYkJjaXpDNkVwQ2JnOTJpeXVfZTdma2x4RDBoanB6Q09JTGpGTWQ5WEtXZWk5V0lhZnZJ?oc=5",
+            "source": "CNBC",
+            "published": "2026-08-20 22:07",
+            "ts": 1787263620.0
+          },
+          {
+            "title": "symbol__ Stock Quote Price and Forecast",
+            "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE53Uko5dVBFVmFTRHRSbW84bDlTam5jQ2gzbl9FMTVxQWZDbHJfdFdobE5Gbk15RGNoeTF3dWpWend0aXoyLThuVm5Nb3d1T1NR?oc=5",
+            "source": "CNN",
+            "published": "2026-08-28 17:06",
+            "ts": 1787936763.0
+          },
+          {
+            "title": "Hyperliquid Strategies Stock Trades 52% Above Its 20-Day Average Ahead of Earnings",
+            "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNeUlpVzN4SGtfbW5FQUNFWVdFWXdJblJWZXUzRnFMT1hFb2hxaHQzSV9zWlpnajdUVllaWVZTOTBTVk9QV2NCeFNFMlI2UmJnaV9fTXNEdjJJS1VHUTBGc3Bqbm1IRlNyQWhXOGtLZm5QNmstZl9FeG1kMHlJN1RDOHJOQWRjaDBMYWozU1lxR25kQS1hVjJoNVg0LWhXQlJCWFFTeEhHT283MFM3ajEzdVM3RFpIOEJEei16TGNNSTlLSU5sMFpRQnB0aGI3cFF0OVpkYjFMQQ?oc=5",
+            "source": "TradingView",
+            "published": "2026-08-26 13:06",
+            "ts": 1787749600.0
+          }
+        ]
       },
       {
         "symbol": "VALE",
@@ -336367,6 +338446,15 @@
         "div_yield": 0.078099996,
         "w52_high": 17.94,
         "w52_low": 10.08,
+        "sector": "Basic Materials",
+        "industry": "Other Industrial Metals & Mining",
+        "earnings_date": "2026-10-29",
+        "financial_period": 1782777600,
+        "revenue": 10498000000,
+        "net_income": 1375000000,
+        "operating_cashflow": 50598998016,
+        "cash": 29841999872,
+        "debt": 110007001088,
         "trend": {
           "strongBuy": 3,
           "buy": 7,
@@ -338367,7 +340455,44 @@
         },
         "upside_pct": 11.4,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Why Vale (VALE) Stock Is Up Today",
+            "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBuS2tfM2ZLYUVuNUZGY2VFcmVBcjNRbDhmbFpZSEVmRU55OHZOdS1MbFlwQkF1QjZwNVR0NXBsc0dXaEFHNEhrYzNnRk93SmVwaDB4QkdyUE5Nb29sQTBJa1NHSHBSS2d4QWFPMEtfZkZGWnAwbDlpQkx3?oc=5",
+            "source": "Quiver Quantitative",
+            "published": "2026-08-24 15:35",
+            "ts": 1787585700.0
+          },
+          {
+            "title": "VALE News | VALE SA-SP ADR (NYSE:VALE)",
+            "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5fSmktZU1aSG55LXNybTIzdEEyQlJDRnV1WkxZMlQtNXdDYnJsZmRxRDdYeVNwQUlvODFZN3RFUVRCRkhyd0xfSUxweklJQnhuZ0FUY0ttdXdNY1k?oc=5",
+            "source": "ChartMill",
+            "published": "2026-08-26 02:11",
+            "ts": 1787710318.0
+          },
+          {
+            "title": "Why Vale (VALE) Stock Is Up Today",
+            "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XRmpQSFJNM0cxWG9rTjFiWUVyVXJEazFSZnpkbVI4c25ZRTZsUzZhX2k2SXBiZ2ZjMW1KYnlzeVFwS2dreXAxM1ducXBpTElDd05HRzVibGV3MnVSQ1Z1QVpMcEc2Wm0xZS1IZkE1Ty1HcnVVMmR4bUtPSTJhQQ?oc=5",
+            "source": "Moomoo",
+            "published": "2026-08-24 15:35",
+            "ts": 1787585741.0
+          },
+          {
+            "title": "Vale SA ADR",
+            "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE45SXJaeFJxemt0cDJtVmRjREk5NUlkZEhsSU5SZlR2NnZjTW02VEhxbl9QV0o4c0FJM1JpUUZ2eEtPcDlJeUFxQy1GdVc2eUhyc19XaGVKdl9YMkd0QXJzWDJUQ3hJdw?oc=5",
+            "source": "stonex.com",
+            "published": "2026-08-29 00:26",
+            "ts": 1787963214.0
+          },
+          {
+            "title": "VALE S.A. (VALE) Stock Price & News",
+            "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9CMFR2SlpuSjlkbThNMGRGTTFUbkNsRGw3a0VTUUJfcHRaTFZBMWwtb3lMNWotdlpFUDBuVHkza0VjTHVYU3U5U1Nrdw?oc=5",
+            "source": "Syfe",
+            "published": "2026-08-28 17:08",
+            "ts": 1787936930.0
+          }
+        ]
       },
       {
         "symbol": "PYPL",
@@ -338386,6 +340511,15 @@
         "div_yield": 0.0091,
         "w52_high": 79.215,
         "w52_low": 38.46,
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "earnings_date": "2026-10-27",
+        "financial_period": 1782777600,
+        "revenue": 8682000000,
+        "net_income": 1104000000,
+        "operating_cashflow": 7474999808,
+        "cash": 11256000512,
+        "debt": 14220999680,
         "trend": {
           "strongBuy": 3,
           "buy": 4,
@@ -340066,7 +342200,45 @@
         },
         "upside_pct": 12.2,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "PayPal Holdings (PYPL) Is in Talks to Sell Itself. Here\u2019s How Far it\u2019s Fallen",
+            "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaGpkbDNyMGI0YlVsNUh2QjcxemZqLVVjeWo5Y3RaTFRvb0hMRWtlS04tU3FHQ2FHX2IxSzNtU2hnSjY1TjVJRGc4ZVZYdmJPRmxzXzVEb1U1NDhlVnl3Q3FSeUhaejlqRzFrN2VXZENnN0FmM1RpcVZaeE9sZ1AwaU9pMzRnV0JmTjczeXc4cFp6czdTcENJdWJQaXQ?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-26 19:30",
+            "ts": 1787772623.0
+          },
+          {
+            "title": "PayPal Could Be Sold For $70-$80/Share (Rating Upgrade) (NASDAQ:PYPL)",
+            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOcGtHOHRVanM5VHVMYkxJc3BYTE5CMGJCaV93c01LTEJ3QkY4Mlo5cWpiT3VlQmJBd0sybXZfSTlUSTI3SXRrdXFVR1g2RmZKXzZFZXBMRmdfdERzT3JINFFMeV9QQ0RwME4xNFFQV1FzYkYyZUdsZDBiRUMwQU9ZVEJSbDdIUVIxMkhpUF9QUHQ3cGJTc1E?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-17 07:00",
+            "ts": 1786950000.0
+          },
+          {
+            "title": "PYPL Stock On Track For Second Month Of Gains: PayPal\u2019s Venmo Expands College Tuition Payments",
+            "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPSmtkMndXcXdMektkS2gwX2xkUExlaE14MURLeUQ0YU1uVmNnTGd6eVNNblJvRU9rbW5DMXRSV3NVVGFCakRVSmstWG1hdDRBdlFaUWpQZVFDRnBjZy1xT0RhZG5UM3dncHk4aEZCOFU1T2MyMzBqbTJZTDQ5MkdwQm5FeHVQZWtXaW1IeVNKbVFUMVJwSzhkSzFZTl9waWN4MzF1WU12cVoyd2t5RjRJeS1kc2hvUWJEQTl0UWlkUWtOTWlTUWw5N1RseW44TXVKVmZaQnVEYVlKV3VLNkZHLTZmQTAtTnFP?oc=5",
+            "source": "TradingView",
+            "published": "2026-08-20 05:07",
+            "ts": 1787202475.0
+          },
+          {
+            "title": "PayPal Holdings Inc (PYPL) Stock Down 12.7% -- Now Undervalued? GF Score: 94/100",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTktzTjRBMDUxeDk1X0Fld25nX25QbW9hR3VCX1g5OEtjMzNzMUtLMXB1VVRJV3NoVzdtdTRTc29Gc1UzaWNJYzJTNFNWbGJuVVVDOWpBaEl5TUFvOUFMS1dMalRBazVFM2lXWF9BS3NUa2hJTG00QTd2eWFfWFhteDFiU21GMnZaVmVVN005YzhZbDlIcmFwRElRRmRxREk0aUpnU3licnUtQmhrYUE?oc=5",
+            "source": "GuruFocus",
+            "published": "2026-08-28 22:02",
+            "ts": 1787954532.0
+          },
+          {
+            "title": "Palogic Value Management L.P. Takes Position in PayPal Holdings, Inc. $PYPL",
+            "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdTNFSklvRkN2RzhZR2hDdkF6cnRubjZkMXRoQ2dZWmhsODN3aFpSLWIyNmRWNXJzMzJTNW05c3B4cW0tUjRWdk1BcXh5QmsyamM4cVpkemkteXFaYjhtdFJmcUxmVy1xclZjS216dzlUV0hNN3JsSjkteWJTUVg5c1ZjbERLeE1fbnJnV0plbi1JV1oxOU5QckVvX29TYUJzTHhpLUxTNzFiaUdxeG5UOW5VRllMc1oySlVCRENPdUNEc3RHVktMbVhDRQ?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-27 10:56",
+            "ts": 1787828189.0
+          }
+        ],
+        "industry_pe": 25.4
       },
       {
         "symbol": "SMR",
@@ -340085,6 +342257,15 @@
         "div_yield": null,
         "w52_high": 57.42,
         "w52_low": 7.21,
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "earnings_date": "2026-11-05",
+        "financial_period": 1782777600,
+        "revenue": 75000,
+        "net_income": -47539000,
+        "operating_cashflow": -776363008,
+        "cash": 1072147968,
+        "debt": 6692000,
         "trend": {
           "strongBuy": 1,
           "buy": 5,
@@ -341969,7 +344150,44 @@
         },
         "upside_pct": 36.0,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "NuScale Power (SMR) Shares Moved, So What Is Behind the Attention?",
+            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPbEZuNkxFZ082Q0FRQlJDMTBWbnVFRzhYR2hncDVULUE4bzR4R3FhTzh5cDExQnFOVHpFazVMMmpSSHpaenZ2LTB4RkYzRXJjdGs3YkxXcER1MmRNWl9VVkxSVmoyTTI1aGt5Qm9VWEd0Vi03Unl5TnNNN1FNOTdDQTNnVlVmUmd3RDdDSEg4RDdINlZwMl81RWJ5bw?oc=5",
+            "source": "Yahoo Finance",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          },
+          {
+            "title": "I Love NuScale Stock for 1 Reason, and It's Not What You Think",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRGVZREhESzFIa0xHcUJIVUQ1cHZPc0g4S1RQZXFYeWZtSVVyTmZvbF9ES1hDdnN4TjhPTVlfY1FOMHlyaGU0dUhlWldJendjZ09HZEM1YnpaTWRscnNDdV9BSFQ0a1Y2WWdZUENmaUVsT0dIWm1Sc0MzeThkTVQ5aDBvQ0MxakxKbmhFN3NWWEdkeTB5a3k4ZA?oc=5",
+            "source": "The Motley Fool",
+            "published": "2026-08-23 18:54",
+            "ts": 1787511240.0
+          },
+          {
+            "title": "NuScale Power Stock Collapsed, And It Is Now Closer To Commercialization",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNWHdiWWpETGlYWEZTVUctSE1faXFDYWtCYTRaVnhMSDEwNHNBZm9VWmJGTDYwTTFSMnJXSXhNUzkzVVliazc3RGg1TTY3UzgxTzJHWWxqc1VqTldndEg4RThwVnFVb0hVbkEyMkRlZm1FYVczeExrOEZOVEtnTTdlS1ZFU25FSmc5TjNhU05lMlFQZ3lOUWpDZA?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-23 03:11",
+            "ts": 1787454710.0
+          },
+          {
+            "title": "NuScale Power Falls 6% With Q2 Revenue Drop to $75,000 and a New $750M Share Sale",
+            "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORndkd0ZPOVUzbEdWbENPVnRxSXVxWVNXYmtXQWFvN1JyNGxtcDBzcUJuN0Rrb2dHNUJlWnRfLWZzVklnbkNSeTFCcmpNdHRhbE9pR3BsNHNRUmVxOU5XeVI2SmdlT09tcUtiZzNqbFlWY2lrOUJjenRzcXQyOHFNX0cwRGZ6Q3dRNHZxU0c2ZXJKdjU1ck9CNFV0MFRwX1psbnV4aG03YTNVdTFzVFhQaTV4LVp2LWM1XzRsbUlB?oc=5",
+            "source": "24/7 Wall St.",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "NuScale Power Is Launching AI Tools for Nuclear Power. How to Play SMR Stock Here.",
+            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQcFRRRmppN0pLY1FQUE9kWnJvWFNPWmtxdVZscjBtMzYtdUlJS1lGbU50TFBFdGNFdTRFcEFJbEtVV3dscVRucjJfb21sSklOaE9ialBreHIxLVV1QWxSbndsMDVTWW9tTzItTi01R3NsQXh1bzU5ZndPS2VaXy0tNXN0ak83UlNlVk9pVVZxb1ZWeGlOQ1NKbkFybnhvSmhZMzZuMVZlRFdhcGhncjR3T0tOWlFITWxwallSNUVTSXNnQQ?oc=5",
+            "source": "Barchart.com",
+            "published": "2026-08-27 19:54",
+            "ts": 1787860469.0
+          }
+        ]
       },
       {
         "symbol": "RIG",
@@ -341988,6 +344206,15 @@
         "div_yield": null,
         "w52_high": 7.66,
         "w52_low": 2.93,
+        "sector": "Energy",
+        "industry": "Oil & Gas Drilling",
+        "earnings_date": "2026-10-28",
+        "financial_period": 1782777600,
+        "revenue": 966000000,
+        "net_income": 170000000,
+        "operating_cashflow": 995000000,
+        "cash": 509000000,
+        "debt": 5119000064,
         "trend": {
           "strongBuy": 1,
           "buy": 5,
@@ -344200,7 +346427,44 @@
         },
         "upside_pct": 13.6,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Transocean RIG Stock Climbs As Backlog And Earnings Beat Fuel Momentum",
+            "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNXQtNXZqclRkWE9wUHRycDJMQk5PVnh1TGNISnlwSVZVVVp6d0dsUDhSaVR4VTFfS3NVRG10R09rczdVT19FaTh6cTVjM2ZHYjFTNnFrMEpobWJFaDV4MjNmd09CWE5QUjd4RWx3ZE0xS2tSN1NYdlNJRUI2Y3RlQi1VVlI?oc=5",
+            "source": "StocksToTrade",
+            "published": "2026-08-27 19:05",
+            "ts": 1787857500.0
+          },
+          {
+            "title": "Transocean RIG Stock Climbs As Backlog And Earnings Strengthen",
+            "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPX3JvOUdBSW11azVpZTNDall0Q29mTTY0eXpOT3lydm9qc1dhQmk4SVdJV0h5UzVrQTJZaThOSVlGZGVER1kzX3JkRFRkOHVyRGtPS0xXN1JhNTRZMDFIbjlXM1puU1AxelRUSUNyTTZsNEdvMmVBSXhlZlU0RkNENVNmQnd4Vk5L?oc=5",
+            "source": "timothysykes.com",
+            "published": "2026-08-27 19:03",
+            "ts": 1787857380.0
+          },
+          {
+            "title": "Transocean wins $300 million award; options could keep its ship in India into 2031",
+            "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOWjV0U25ZNnloMXpxRVRJWTR1S21qMW1LeG5SeldJUGcwLU1ZWUhxMGhVeUl4eXJQZHhMU3p0WldjaGlNQ2lTenlTRHlNbnd3emhNQ1ZrajJYaTVkTDhsendMTnlxcFg2NEU3LXNDYTVJZF9yeFNpbzV5TjBCdkxoV1RKMnpXWTlvcGNxaHFpRGcwNjFtcXdBQXNwUXpXRlVlQmJ5UmRicllBQW5WaUhVRWVMTkcxNU5WTG1z?oc=5",
+            "source": "Stock Titan",
+            "published": "2026-08-20 10:14",
+            "ts": 1787220840.0
+          },
+          {
+            "title": "Transocean Announces Two-Year Award for Dhirubhai Deepwater KG2 with ONGC in India",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOT01XRDlzUEQ0bkJEcGdtWGI3MHVxbExuVF9mbWN6ajhNdDR6ZlFPNjdlTy1xc0N1UUJBNjVmTnBaQk1oYU1ramMzTTVIMnFuU18tT2JJZHhHbFNQY2NjYTA5aWpnTUpVUGg5LUNEdE8wSnZzQWhtcGhQSHFySjZfRG5tZkplNjZ6dU9MbkR3OTQ2aENuN0VFSkVOOXlRalphbVRlOWRkMUN2bGJxQy1RaENhTUhHUQ?oc=5",
+            "source": "Quiver Quantitative",
+            "published": "2026-08-20 10:20",
+            "ts": 1787221200.0
+          },
+          {
+            "title": "Transocean Secures $300 Million Deepwater Drilling Deal with India's ONGC",
+            "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8xTUlzNU43QUFqck1CY05XTE1PWFN1VWttRXVPQk1nQ3AzSHkzMUI5Ni1pdkxWcExYdG10eldmVEcwTkNUeG01YnhSMGRIamdEMWVSSlR3MkRrNURiYWNIeWxnSFpPaExYaUlIVFlRd1Zjb0VjVkE?oc=5",
+            "source": "finance.biggo.com",
+            "published": "2026-08-20 07:00",
+            "ts": 1787209200.0
+          }
+        ]
       },
       {
         "symbol": "BAC",
@@ -344219,6 +346483,15 @@
         "div_yield": 0.0209,
         "w52_high": 65.23,
         "w52_low": 46.12,
+        "sector": "Financial Services",
+        "industry": "Banks - Diversified",
+        "earnings_date": "2026-10-14",
+        "financial_period": null,
+        "revenue": null,
+        "net_income": null,
+        "operating_cashflow": 94742003712,
+        "cash": 868142022656,
+        "debt": 788985020416,
         "trend": {
           "strongBuy": 5,
           "buy": 15,
@@ -345969,7 +348242,44 @@
         },
         "upside_pct": 10.4,
         "valuation": "Undervalued",
-        "momentum": "Neutral"
+        "momentum": "Neutral",
+        "company_news": [
+          {
+            "title": "Bank of America Offers Good Alternative To Treasuries: 6.6% Yielding Preferred Shares",
+            "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQSXE3eFJqSC1kUzVyOGM5MXNJcmc4YTFocU00Qm1XT056OVQtMUF6bDlQb3IyR21PLTFQTzZGSjRDMFFWNmJ0TG1fYlNQR3YxdlF1NHBSQzF5RTlXUU5ENFJhN2tpeEJ4b1JHQTNQX2lFVFYtNW5WMWpCb2NSTy1Ja05Lb0U4S3llbm1LUVl0dDkyYm5KZlJ3Qmp0cjFUeEFheVZwRk9zU19ESUxaM3ljelVJRnJYMVJ3MkRpMVVGMEJBZWc?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-24 03:15",
+            "ts": 1787541342.0
+          },
+          {
+            "title": "Bank of America Corporation $BAC Stock Holdings Lifted by Sunpointe LLC",
+            "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQb014ck9wRjBwTkhPS2t1c3JWWXpSVHp2anBLMTJMNjRoLWlCR3BPUVJ1Z0g1S3ZtQTJUd1FlOFhNVFc0ZkJDVWNKeDEtSEszTDZEdlFFMnNmamNVeC13OTd5dXdLS2VJb2F5Vks5T0pKWnF5Rkp5cEVzZU1BTGZNWHNjMzFOQUw3Ri1vQk5zQ0ZvUnE3RDNSdU9pdHVSX256RG9ucmZzY0IyXzFsTndLV0FfMmZLbnBKU1pwQ1M0SVVHWEZLZWV6MXRxRQ?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-19 09:19",
+            "ts": 1787131194.0
+          },
+          {
+            "title": "40,609,919 Shares in Bank of America Corporation $BAC Bought by Bank of New York Mellon Corp",
+            "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQSHVnVUhOOENHTDhjdkY3bHZSSFFYNXBOVlQtQTRMR0tjdU5OSzRkMlZXNWVuc1d4SGhENjBiczdmN281eGpDZEQwMm9RSXU5OFBIbGg5VGE1TEFLYzVJbXFNRWYxbGp4QktFTDgzS1Z3X2ROX0lMcy1iaXZoQ3FraFRHSUlGZkEzZTJ5MXI0MW05dTByZ1VETHQ3U1hJNFI2MkppQzBaajVuamJjMG1XN0plcFNYbVpJdXVXRkNWNjhhMUlHNTRoWU1xOFZCaGs4UFpHUGZVaUJMQTBwRnZ2czFDOVc?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-21 07:50",
+            "ts": 1787298604.0
+          },
+          {
+            "title": "Investors expect no landing scenario in coming 12 months: BofA's August survey (BAC:NYSE)",
+            "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxON0xrbEZwbEpfTjVkMlF0ZDQyV1RLQ1NMcXhzMVVLQzA4RlphQjFGWTNzUjdYdmo4c0J0NjFKMEl1QWVyM2cyUXdyNEF2ZW81d0ZpMk9WSl9rX1REUUtDV1hranc3RXZaNFRrazNiRUdhaDdBVDRveTE5MzlkekZ4bTRkSEhHNnFTQWpzYkQ0cXM5MFBCVnRneVo3ZVU0NEdYZFMzOWZEeDZaRkk?oc=5",
+            "source": "Seeking Alpha",
+            "published": "2026-08-18 07:00",
+            "ts": 1787036400.0
+          },
+          {
+            "title": "259,433 Shares in Bank of America Corporation $BAC Purchased by Rice Hall James & Associates LLC",
+            "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPWUtNaE1oOVduSWhZZ3FrOVMzSHpQQ2lJNmZ2eW9OaHhEN0N4clJsZGNfeWdmZ2VjLTVMSXVkQVVENFVJV3lJdWJIQ3lkN3BISkxXanM3d1g3dGpSMWVKb29CZWNQN0owdkNjdUtxdWxYMzNSbXBmeVlJUGM1TEhrMTg2aHZJYkNoQWFDcGlWQ2s4X2dvdkQ0ZWtLR0NJUi1xUTh0bVF3ejRYa0R6MmZxLWktX2dtQzh3N0M2SHhlTm5DajFGZFFQYUo5YThVU2pNb3NrX1V6bFprQ1JZODhIY2VjRzRCRlVR?oc=5",
+            "source": "MarketBeat",
+            "published": "2026-08-21 07:00",
+            "ts": 1787295600.0
+          }
+        ]
       }
     ]
   }

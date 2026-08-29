@@ -274,7 +274,9 @@ def fetch_analyst(sym: str, s, crumb: str) -> dict:
 
     try:
         u = (f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{sym}"
-             f"?modules=financialData,recommendationTrend,upgradeDowngradeHistory,summaryDetail&crumb={crumb}")
+         f"?modules=financialData,recommendationTrend,upgradeDowngradeHistory,summaryDetail,"
+         f"assetProfile,calendarEvents,incomeStatementHistoryQuarterly,"
+         f"cashflowStatementHistoryQuarterly,balanceSheetHistoryQuarterly&crumb={crumb}")
         r = s.get(u, timeout=15)
         if r.status_code != 200:
             return {}
@@ -283,6 +285,11 @@ def fetch_analyst(sym: str, s, crumb: str) -> dict:
         return {}
     fd = res.get("financialData", {})
     sd = res.get("summaryDetail", {})
+    profile = res.get("assetProfile", {})
+    earnings = res.get("calendarEvents", {}).get("earnings", {}).get("earningsDate") or []
+    income = (res.get("incomeStatementHistoryQuarterly", {}).get("incomeStatementHistory") or [{}])[0]
+    cashflow = (res.get("cashflowStatementHistoryQuarterly", {}).get("cashflowStatements") or [{}])[0]
+    balance = (res.get("balanceSheetHistoryQuarterly", {}).get("balanceSheetStatements") or [{}])[0]
     trend = (res.get("recommendationTrend", {}).get("trend") or [{}])[0]
     hist = []
     for x in (res.get("upgradeDowngradeHistory", {}).get("history") or [])[:12]:
@@ -306,6 +313,18 @@ def fetch_analyst(sym: str, s, crumb: str) -> dict:
         "div_yield": num(sd.get("dividendYield")),
         "w52_high": num(sd.get("fiftyTwoWeekHigh")),
         "w52_low": num(sd.get("fiftyTwoWeekLow")),
+        "sector": profile.get("sector"),
+        "industry": profile.get("industry"),
+        "earnings_date": (earnings[0].get("fmt") if earnings and isinstance(earnings[0], dict) else ""),
+        "financial_period": num(income.get("endDate")),
+        "revenue": num(income.get("totalRevenue")),
+        "net_income": num(income.get("netIncome")),
+        "operating_cashflow": (num(cashflow.get("totalCashFromOperatingActivities"))
+                   or num(fd.get("operatingCashflow"))),
+        "cash": (num(balance.get("cash"))
+           or num(balance.get("cashAndCashEquivalentsShortTermInvestments"))
+           or num(fd.get("totalCash"))),
+        "debt": num(balance.get("longTermDebt")) or num(fd.get("totalDebt")),
         "trend": {k: trend.get(k, 0) for k in ("strongBuy", "buy", "hold", "sell", "strongSell")},
         "history": hist,
     }
@@ -491,7 +510,18 @@ def fetch_markets(max_active: int = 25) -> dict:
       if rsi is not None:
         item["momentum"] = ("Oversold" if rsi < 30
                   else "Overbought" if rsi > 70 else "Neutral")
+      item["company_news"] = _google_news(f'{item["name"]} stock', 14, 5)
       time.sleep(0.06)
+
+    industry_pes: dict[str, list[float]] = {}
+    for item in by_country["US"]:
+      industry, pe = item.get("industry"), item.get("pe")
+      if industry and isinstance(pe, (int, float)) and pe > 0:
+        industry_pes.setdefault(industry, []).append(pe)
+    for item in by_country["US"]:
+      peers = industry_pes.get(item.get("industry"), [])
+      if len(peers) >= 2:
+        item["industry_pe"] = round(sum(peers) / len(peers), 1)
 
     markets["most_active_by_country"] = by_country
     markets["most_active"] = by_country["US"]  # backward compat
@@ -1035,6 +1065,8 @@ INDEX_HTML = r"""<!DOCTYPE html>
     <div id="rate-breakdown"></div>
     <h3>Recent analyst rating changes</h3>
     <div style="overflow:auto; max-height:40vh;"><table id="t-ratehist"></table></div>
+    <h3>Latest company news</h3>
+    <div class="news" id="company-news"></div>
   </div>
 
   <div class="section" id="s-actions">
@@ -1393,7 +1425,11 @@ function openRatings(sym) {
   document.getElementById('rate-name').textContent = `${it.name} (${it.symbol})`;
   const cur = it.currency || '';
   const fN = v => v==null ? '—' : Number(v).toLocaleString('en-US',{maximumFractionDigits:2});
+  const fUsd = v => v==null ? '—' : fmtUsd(v);
+  const period = it.financial_period ? new Date(Number(it.financial_period)*1000).toISOString().slice(0,10) : '—';
   const kpis = [
+    ['Sector', it.sector || '—'],
+    ['Industry', it.industry || '—'],
     ['Consensus', it.rating ? it.rating.replace(/_/g,' ') : '—'],
     ['Mean (1=Buy…5=Sell)', it.mean!=null ? Number(it.mean).toFixed(2) : '—'],
     ['Avg Target', it.target!=null ? fN(it.target)+' '+cur : '—'],
@@ -1401,11 +1437,19 @@ function openRatings(sym) {
     ['Price', it.price!=null ? fN(it.price)+' '+cur : '—'],
     ['P/E (TTM)', it.pe!=null ? Number(it.pe).toFixed(1) : '—'],
     ['Fwd P/E', it.pe_fwd!=null ? Number(it.pe_fwd).toFixed(1) : '—'],
+    ['Peer Industry P/E', it.industry_pe!=null ? Number(it.industry_pe).toFixed(1) : '—'],
+    ['Next Earnings', it.earnings_date || '—'],
     ['Valuation', it.valuation ? it.valuation + (it.upside_pct!=null?` (${it.upside_pct>=0?'+':''}${it.upside_pct}% to target)`:'') : '—'],
     ['Momentum', it.momentum ? it.momentum + (it.rsi!=null?` (RSI ${it.rsi})`:'') : '—'],
     ['52-wk Range', (it.w52_low!=null&&it.w52_high!=null) ? `${fN(it.w52_low)}–${fN(it.w52_high)}` : '—'],
     ['Market Cap', it.market_cap!=null ? fmtUsd(it.market_cap) : '—'],
     ['Div Yield', it.div_yield!=null ? (it.div_yield*100).toFixed(2)+'%' : '—'],
+    ['Latest Quarter', period],
+    ['Quarter Revenue', fUsd(it.revenue)],
+    ['Quarter Net Income', fUsd(it.net_income)],
+    ['Operating Cash Flow', fUsd(it.operating_cashflow)],
+    ['Cash', fUsd(it.cash)],
+    ['Long-term Debt', fUsd(it.debt)],
   ];
   document.getElementById('rate-kpis').innerHTML = kpis.map(([l,v])=>
     `<div class="kpi"><div class="n">${esc(String(v))}</div><div class="l">${esc(l)}</div></div>`).join('');
@@ -1431,6 +1475,11 @@ function openRatings(sym) {
     {label:'From', key:'from', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
     {label:'To', key:'to', fmt:v=>`<b>${esc(v||'')}</b>`},
   ], it.history || []);
+  const companyNews = it.company_news || [];
+  document.getElementById('company-news').innerHTML = companyNews.length ? companyNews.map(n =>
+    `<div class="newsitem"><a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.title)}</a>`
+    + `<div class="newsmeta">${esc(n.source||'')}${n.published?' · '+esc(n.published):''}</div></div>`
+  ).join('') : '<div class="muted">No recent company news found.</div>';
   window.scrollTo(0,0);
 }
 

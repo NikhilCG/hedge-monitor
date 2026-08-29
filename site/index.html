@@ -78,7 +78,6 @@
   </div>
 </header>
 <div class="wrap">
-  <div class="cards" id="cards"></div>
   <div class="tabs">
     <button class="tab active" data-t="actions">Latest Actions (Buy / Sell)</button>
     <button class="tab" data-t="news">News (by date)</button>
@@ -470,20 +469,6 @@ document.getElementById('back-stock').onclick = () => {
   document.getElementById('s-common').classList.add('active');
 };
 
-function renderCards() {
-  const totalBuys = DATA.funds.reduce((s,f)=>s+f.buys,0);
-  const totalSells = DATA.funds.reduce((s,f)=>s+f.sells,0);
-  const aum = DATA.funds.reduce((s,f)=>s+(f.total_value||0),0);
-  const cards = [
-    ['Funds', DATA.funds.length], ['Total Buys', fmtNum(totalBuys)],
-    ['Total Sells', fmtNum(totalSells)], ['Common Holdings', fmtNum(DATA.common.length)],
-    ['Live Prices', fmtNum(DATA.quotes_count||0)], ['News Articles', fmtNum(DATA.news_feed_count||0)],
-    ['Combined AUM', fmtUsd(aum)],
-  ];
-  document.getElementById('cards').innerHTML = cards.map(([l,n]) =>
-    `<div class="card"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
-}
-
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
@@ -516,7 +501,7 @@ async function loadData(initial) {
       `${d.funds.length} funds · updated ${d.generated}${priced}`;
     if (initial) { populateSources(); populateAnalysts(); }
     populateCountries();
-    renderCards(); renderActions(); renderCommon(); renderFunds(); renderNews();
+    renderActions(); renderCommon(); renderFunds(); renderNews();
     renderSignals(); renderAnalysts();
   } catch (e) {
     document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;

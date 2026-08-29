@@ -845,6 +845,13 @@ function renderActions() {
 
 function renderCommon() {
   const q = document.getElementById('q-common').value.toLowerCase();
+  const country = document.getElementById('f-country').value;
+  if (country && country !== 'US') {
+    document.getElementById('t-common').innerHTML = '';
+    document.getElementById('c-common').textContent =
+      `Shared-holdings needs 13F disclosure — only 🇺🇸 US. ${FLAGS[country]||''} ${country} managers are news-only.`;
+    return;
+  }
   let rows = DATA.common.filter(c =>
     (c.name+' '+(c.ticker||'')+' '+c.funds.join(' ')).toLowerCase().includes(q));
   const n = makeTable(document.getElementById('t-common'), [
@@ -1060,7 +1067,7 @@ document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
 document.getElementById('q-news').addEventListener('input',renderNews);
 document.getElementById('f-source').addEventListener('change',renderNews);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderNews(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 document.getElementById('only-bbg').addEventListener('click',(e)=>{

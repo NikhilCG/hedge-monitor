@@ -274,7 +274,7 @@ def fetch_analyst(sym: str, s, crumb: str) -> dict:
 
     try:
         u = (f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{sym}"
-             f"?modules=financialData,recommendationTrend,upgradeDowngradeHistory&crumb={crumb}")
+             f"?modules=financialData,recommendationTrend,upgradeDowngradeHistory,summaryDetail&crumb={crumb}")
         r = s.get(u, timeout=15)
         if r.status_code != 200:
             return {}
@@ -282,6 +282,7 @@ def fetch_analyst(sym: str, s, crumb: str) -> dict:
     except Exception:  # noqa: BLE001
         return {}
     fd = res.get("financialData", {})
+    sd = res.get("summaryDetail", {})
     trend = (res.get("recommendationTrend", {}).get("trend") or [{}])[0]
     hist = []
     for x in (res.get("upgradeDowngradeHistory", {}).get("history") or [])[:12]:
@@ -299,9 +300,44 @@ def fetch_analyst(sym: str, s, crumb: str) -> dict:
         "mean": num(fd.get("recommendationMean")),
         "target": num(fd.get("targetMeanPrice")),
         "analysts": num(fd.get("numberOfAnalystOpinions")),
+        "pe": num(sd.get("trailingPE")),
+        "pe_fwd": num(sd.get("forwardPE")),
+        "market_cap": num(sd.get("marketCap")),
+        "div_yield": num(sd.get("dividendYield")),
+        "w52_high": num(sd.get("fiftyTwoWeekHigh")),
+        "w52_low": num(sd.get("fiftyTwoWeekLow")),
         "trend": {k: trend.get(k, 0) for k in ("strongBuy", "buy", "hold", "sell", "strongSell")},
         "history": hist,
     }
+
+
+def _rsi(closes: list[float], period: int = 14) -> float | None:
+    if len(closes) < period + 1:
+        return None
+    deltas = [closes[i] - closes[i - 1] for i in range(1, len(closes))]
+    seed = deltas[:period]
+    avg_gain = sum(d for d in seed if d > 0) / period
+    avg_loss = sum(-d for d in seed if d < 0) / period
+    for d in deltas[period:]:
+        avg_gain = (avg_gain * (period - 1) + max(d, 0)) / period
+        avg_loss = (avg_loss * (period - 1) + max(-d, 0)) / period
+    if avg_loss == 0:
+        return 100.0
+    rs = avg_gain / avg_loss
+    return round(100 - 100 / (1 + rs), 1)
+
+
+def _history(sym: str, rng: str = "6mo") -> list[tuple[int, float]]:
+    try:
+        r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
+                         params={"range": rng, "interval": "1d"},
+                         headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        res = r.json()["chart"]["result"][0]
+        ts = res.get("timestamp") or []
+        closes = res["indicators"]["quote"][0].get("close") or []
+    except Exception:  # noqa: BLE001
+        return []
+    return [(int(t), c) for t, c in zip(ts, closes) if c is not None]
 
 
 def _quote_full(sym: str) -> dict | None:
@@ -372,11 +408,28 @@ def fetch_markets(max_active: int = 25) -> dict:
 
     # Enrich each most-active stock with analyst recommendations (crumb-authed).
     sess, crumb = _yahoo_session()
-    if crumb:
-        for lst in by_country.values():
-            for item in lst:
+    for lst in by_country.values():
+        for item in lst:
+            if crumb:
                 item.update(fetch_analyst(item["symbol"], sess, crumb))
-                time.sleep(0.08)
+            pts = _history(item["symbol"])
+            closes = [c for _, c in pts]
+            if closes:
+                item["rsi"] = _rsi(closes)
+                step = max(1, len(pts) // 90)
+                ser = pts[::step]
+                item["chart"] = {"t": [t for t, _ in ser], "c": [round(c, 2) for _, c in ser]}
+            price, target = item.get("price"), item.get("target")
+            if price and target:
+                up = (target - price) / price * 100.0
+                item["upside_pct"] = round(up, 1)
+                item["valuation"] = ("Undervalued" if up >= 10
+                                     else "Overvalued" if up <= -10 else "Fair value")
+            rsi = item.get("rsi")
+            if rsi is not None:
+                item["momentum"] = ("Oversold" if rsi < 30
+                                    else "Overbought" if rsi > 70 else "Neutral")
+            time.sleep(0.06)
 
     markets["most_active_by_country"] = by_country
     markets["most_active"] = by_country["US"]  # backward compat
@@ -894,6 +947,8 @@ INDEX_HTML = r"""<!DOCTYPE html>
     <button class="backbtn" id="back-ratings">← Markets</button>
     <h2 id="rate-name"></h2>
     <div class="kpis" id="rate-kpis"></div>
+    <h3>Price (6 months)</h3>
+    <div id="rate-chart"></div>
     <h3>Recommendation breakdown</h3>
     <div id="rate-breakdown"></div>
     <h3>Recent analyst rating changes</h3>
@@ -1169,6 +1224,8 @@ function renderMarkets() {
     {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
     {label:'Analyst Rating', key:'rating', fmt:ratingCell},
     {label:'Avg Target', key:'target', num:true, fmt:v=>v==null?'\u2014':Number(v).toLocaleString('en-US',{maximumFractionDigits:2})},
+    {label:'P/E', key:'pe', num:true, fmt:v=>v==null?'\u2014':Number(v).toFixed(1)},
+    {label:'Valuation', key:'valuation', fmt:v=>{if(!v)return '<span class="muted">\u2014</span>';const c=v==='Undervalued'?'pos':(v==='Overvalued'?'neg':'muted');return `<span class="${c}">${esc(v)}</span>`;}},
   ], mac);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const cols = [
@@ -1182,6 +1239,18 @@ function renderMarkets() {
   makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
 }
 
+function sparkSVG(closes, w=760, h=200) {
+  if (!closes || closes.length < 2) return '<div class="muted">No chart data available.</div>';
+  const min=Math.min(...closes), max=Math.max(...closes), rng=(max-min)||1, n=closes.length;
+  const x=i=>(i/(n-1))*w, y=c=>h-10-((c-min)/rng)*(h-20);
+  const line=closes.map((c,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(c).toFixed(1)).join(' ');
+  const up=closes[n-1]>=closes[0], col=up?'var(--buy)':'var(--sell)';
+  const area=line+` L ${w} ${h} L 0 ${h} Z`;
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="none" style="background:#12192b;border:1px solid var(--line);border-radius:8px;">`
+    + `<path d="${area}" fill="${col}" opacity="0.08"/><path d="${line}" fill="none" stroke="${col}" stroke-width="2"/></svg>`
+    + `<div class="muted" style="font-size:12px;margin-top:4px;">Low ${min.toLocaleString('en-US',{maximumFractionDigits:2})} · High ${max.toLocaleString('en-US',{maximumFractionDigits:2})} · Last ${closes[n-1].toLocaleString('en-US',{maximumFractionDigits:2})}</div>`;
+}
+
 function openRatings(sym) {
   const country = document.getElementById('f-country').value || 'US';
   const mac = (DATA.markets.most_active_by_country||{})[country] || [];
@@ -1192,15 +1261,24 @@ function openRatings(sym) {
   document.getElementById('s-ratings').classList.add('active');
   document.getElementById('rate-name').textContent = `${it.name} (${it.symbol})`;
   const cur = it.currency || '';
+  const fN = v => v==null ? '—' : Number(v).toLocaleString('en-US',{maximumFractionDigits:2});
   const kpis = [
     ['Consensus', it.rating ? it.rating.replace(/_/g,' ') : '—'],
     ['Mean (1=Buy…5=Sell)', it.mean!=null ? Number(it.mean).toFixed(2) : '—'],
-    ['Avg Target', it.target!=null ? Number(it.target).toLocaleString('en-US',{maximumFractionDigits:2})+' '+cur : '—'],
+    ['Avg Target', it.target!=null ? fN(it.target)+' '+cur : '—'],
     ['# Analysts', it.analysts!=null ? fmtNum(it.analysts) : '—'],
-    ['Price', it.price!=null ? Number(it.price).toLocaleString('en-US',{maximumFractionDigits:2})+' '+cur : '—'],
+    ['Price', it.price!=null ? fN(it.price)+' '+cur : '—'],
+    ['P/E (TTM)', it.pe!=null ? Number(it.pe).toFixed(1) : '—'],
+    ['Fwd P/E', it.pe_fwd!=null ? Number(it.pe_fwd).toFixed(1) : '—'],
+    ['Valuation', it.valuation ? it.valuation + (it.upside_pct!=null?` (${it.upside_pct>=0?'+':''}${it.upside_pct}% to target)`:'') : '—'],
+    ['Momentum', it.momentum ? it.momentum + (it.rsi!=null?` (RSI ${it.rsi})`:'') : '—'],
+    ['52-wk Range', (it.w52_low!=null&&it.w52_high!=null) ? `${fN(it.w52_low)}–${fN(it.w52_high)}` : '—'],
+    ['Market Cap', it.market_cap!=null ? fmtUsd(it.market_cap) : '—'],
+    ['Div Yield', it.div_yield!=null ? (it.div_yield*100).toFixed(2)+'%' : '—'],
   ];
   document.getElementById('rate-kpis').innerHTML = kpis.map(([l,v])=>
     `<div class="kpi"><div class="n">${esc(String(v))}</div><div class="l">${esc(l)}</div></div>`).join('');
+  document.getElementById('rate-chart').innerHTML = sparkSVG((it.chart&&it.chart.c)||[]);
   const t = it.trend || {};
   const parts = [['Strong Buy',t.strongBuy,'#1a9e5a'],['Buy',t.buy,'#2ec26b'],['Hold',t.hold,'#c9a227'],['Sell',t.sell,'#ef5b6b'],['Strong Sell',t.strongSell,'#c0392b']];
   const total = parts.reduce((s,p)=>s+(p[1]||0),0) || 0;

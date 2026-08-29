@@ -118,6 +118,8 @@
     <button class="backbtn" id="back-ratings">← Markets</button>
     <h2 id="rate-name"></h2>
     <div class="kpis" id="rate-kpis"></div>
+    <h3>Price (6 months)</h3>
+    <div id="rate-chart"></div>
     <h3>Recommendation breakdown</h3>
     <div id="rate-breakdown"></div>
     <h3>Recent analyst rating changes</h3>
@@ -393,6 +395,8 @@ function renderMarkets() {
     {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
     {label:'Analyst Rating', key:'rating', fmt:ratingCell},
     {label:'Avg Target', key:'target', num:true, fmt:v=>v==null?'\u2014':Number(v).toLocaleString('en-US',{maximumFractionDigits:2})},
+    {label:'P/E', key:'pe', num:true, fmt:v=>v==null?'\u2014':Number(v).toFixed(1)},
+    {label:'Valuation', key:'valuation', fmt:v=>{if(!v)return '<span class="muted">\u2014</span>';const c=v==='Undervalued'?'pos':(v==='Overvalued'?'neg':'muted');return `<span class="${c}">${esc(v)}</span>`;}},
   ], mac);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const cols = [
@@ -406,6 +410,18 @@ function renderMarkets() {
   makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
 }
 
+function sparkSVG(closes, w=760, h=200) {
+  if (!closes || closes.length < 2) return '<div class="muted">No chart data available.</div>';
+  const min=Math.min(...closes), max=Math.max(...closes), rng=(max-min)||1, n=closes.length;
+  const x=i=>(i/(n-1))*w, y=c=>h-10-((c-min)/rng)*(h-20);
+  const line=closes.map((c,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(c).toFixed(1)).join(' ');
+  const up=closes[n-1]>=closes[0], col=up?'var(--buy)':'var(--sell)';
+  const area=line+` L ${w} ${h} L 0 ${h} Z`;
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="none" style="background:#12192b;border:1px solid var(--line);border-radius:8px;">`
+    + `<path d="${area}" fill="${col}" opacity="0.08"/><path d="${line}" fill="none" stroke="${col}" stroke-width="2"/></svg>`
+    + `<div class="muted" style="font-size:12px;margin-top:4px;">Low ${min.toLocaleString('en-US',{maximumFractionDigits:2})} · High ${max.toLocaleString('en-US',{maximumFractionDigits:2})} · Last ${closes[n-1].toLocaleString('en-US',{maximumFractionDigits:2})}</div>`;
+}
+
 function openRatings(sym) {
   const country = document.getElementById('f-country').value || 'US';
   const mac = (DATA.markets.most_active_by_country||{})[country] || [];
@@ -416,15 +432,24 @@ function openRatings(sym) {
   document.getElementById('s-ratings').classList.add('active');
   document.getElementById('rate-name').textContent = `${it.name} (${it.symbol})`;
   const cur = it.currency || '';
+  const fN = v => v==null ? '—' : Number(v).toLocaleString('en-US',{maximumFractionDigits:2});
   const kpis = [
     ['Consensus', it.rating ? it.rating.replace(/_/g,' ') : '—'],
     ['Mean (1=Buy…5=Sell)', it.mean!=null ? Number(it.mean).toFixed(2) : '—'],
-    ['Avg Target', it.target!=null ? Number(it.target).toLocaleString('en-US',{maximumFractionDigits:2})+' '+cur : '—'],
+    ['Avg Target', it.target!=null ? fN(it.target)+' '+cur : '—'],
     ['# Analysts', it.analysts!=null ? fmtNum(it.analysts) : '—'],
-    ['Price', it.price!=null ? Number(it.price).toLocaleString('en-US',{maximumFractionDigits:2})+' '+cur : '—'],
+    ['Price', it.price!=null ? fN(it.price)+' '+cur : '—'],
+    ['P/E (TTM)', it.pe!=null ? Number(it.pe).toFixed(1) : '—'],
+    ['Fwd P/E', it.pe_fwd!=null ? Number(it.pe_fwd).toFixed(1) : '—'],
+    ['Valuation', it.valuation ? it.valuation + (it.upside_pct!=null?` (${it.upside_pct>=0?'+':''}${it.upside_pct}% to target)`:'') : '—'],
+    ['Momentum', it.momentum ? it.momentum + (it.rsi!=null?` (RSI ${it.rsi})`:'') : '—'],
+    ['52-wk Range', (it.w52_low!=null&&it.w52_high!=null) ? `${fN(it.w52_low)}–${fN(it.w52_high)}` : '—'],
+    ['Market Cap', it.market_cap!=null ? fmtUsd(it.market_cap) : '—'],
+    ['Div Yield', it.div_yield!=null ? (it.div_yield*100).toFixed(2)+'%' : '—'],
   ];
   document.getElementById('rate-kpis').innerHTML = kpis.map(([l,v])=>
     `<div class="kpi"><div class="n">${esc(String(v))}</div><div class="l">${esc(l)}</div></div>`).join('');
+  document.getElementById('rate-chart').innerHTML = sparkSVG((it.chart&&it.chart.c)||[]);
   const t = it.trend || {};
   const parts = [['Strong Buy',t.strongBuy,'#1a9e5a'],['Buy',t.buy,'#2ec26b'],['Hold',t.hold,'#c9a227'],['Sell',t.sell,'#ef5b6b'],['Strong Sell',t.strongSell,'#c0392b']];
   const total = parts.reduce((s,p)=>s+(p[1]||0),0) || 0;

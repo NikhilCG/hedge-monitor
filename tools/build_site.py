@@ -327,10 +327,10 @@ def _rsi(closes: list[float], period: int = 14) -> float | None:
     return round(100 - 100 / (1 + rs), 1)
 
 
-def _history(sym: str, rng: str = "6mo") -> list[tuple[int, float]]:
+def _history(sym: str, rng: str = "6mo", interval: str = "1d") -> list[tuple[int, float]]:
     try:
         r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
-                         params={"range": rng, "interval": "1d"},
+             params={"range": rng, "interval": interval},
                          headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         res = r.json()["chart"]["result"][0]
         ts = res.get("timestamp") or []
@@ -338,6 +338,51 @@ def _history(sym: str, rng: str = "6mo") -> list[tuple[int, float]]:
     except Exception:  # noqa: BLE001
         return []
     return [(int(t), c) for t, c in zip(ts, closes) if c is not None]
+
+
+def _ohlc_history(sym: str, rng: str, interval: str = "1d") -> list[dict[str, float | int]]:
+    try:
+        r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
+                         params={"range": rng, "interval": interval},
+                         headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        res = r.json()["chart"]["result"][0]
+        ts = res.get("timestamp") or []
+        quote = res["indicators"]["quote"][0]
+    except Exception:  # noqa: BLE001
+        return []
+    return [
+        {"t": int(t), "o": o, "h": h, "l": l, "c": c}
+        for t, o, h, l, c in zip(ts, quote.get("open") or [], quote.get("high") or [],
+                                 quote.get("low") or [], quote.get("close") or [])
+        if None not in (o, h, l, c)
+    ]
+
+
+def _candlestick_pattern(bars: list[dict[str, float | int]]) -> dict[str, str]:
+    if not bars:
+        return {"name": "No pattern", "bias": "neutral"}
+    last = bars[-1]
+    body = abs(float(last["c"]) - float(last["o"]))
+    span = float(last["h"]) - float(last["l"])
+    if span <= 0:
+        return {"name": "No clear pattern", "bias": "neutral"}
+    upper = float(last["h"]) - max(float(last["o"]), float(last["c"]))
+    lower = min(float(last["o"]), float(last["c"])) - float(last["l"])
+    if len(bars) >= 2:
+        prev = bars[-2]
+        if (float(prev["c"]) < float(prev["o"]) and float(last["c"]) > float(last["o"])
+                and float(last["c"]) >= float(prev["o"]) and float(last["o"]) <= float(prev["c"])):
+            return {"name": "Bullish engulfing", "bias": "bullish"}
+        if (float(prev["c"]) > float(prev["o"]) and float(last["c"]) < float(last["o"])
+                and float(last["o"]) >= float(prev["c"]) and float(last["c"]) <= float(prev["o"])):
+            return {"name": "Bearish engulfing", "bias": "bearish"}
+    if body / span <= 0.1:
+        return {"name": "Doji (indecision)", "bias": "neutral"}
+    if lower >= body * 2 and upper <= body:
+        return {"name": "Hammer", "bias": "bullish"}
+    if upper >= body * 2 and lower <= body:
+        return {"name": "Shooting star", "bias": "bearish"}
+    return {"name": "No clear pattern", "bias": "neutral"}
 
 
 def _quote_full(sym: str) -> dict | None:
@@ -408,28 +453,45 @@ def fetch_markets(max_active: int = 25) -> dict:
 
     # Enrich each most-active stock with analyst recommendations (crumb-authed).
     sess, crumb = _yahoo_session()
-    for lst in by_country.values():
-        for item in lst:
-            if crumb:
-                item.update(fetch_analyst(item["symbol"], sess, crumb))
-            pts = _history(item["symbol"])
-            closes = [c for _, c in pts]
-            if closes:
-                item["rsi"] = _rsi(closes)
-                step = max(1, len(pts) // 90)
-                ser = pts[::step]
-                item["chart"] = {"t": [t for t, _ in ser], "c": [round(c, 2) for _, c in ser]}
-            price, target = item.get("price"), item.get("target")
-            if price and target:
-                up = (target - price) / price * 100.0
-                item["upside_pct"] = round(up, 1)
-                item["valuation"] = ("Undervalued" if up >= 10
-                                     else "Overvalued" if up <= -10 else "Fair value")
-            rsi = item.get("rsi")
-            if rsi is not None:
-                item["momentum"] = ("Oversold" if rsi < 30
-                                    else "Overbought" if rsi > 70 else "Neutral")
-            time.sleep(0.06)
+    # Full history is embedded for the US Yahoo "most active" list; the other
+    # country lists retain their live quote rows without a large static payload.
+    for item in by_country["US"]:
+      if crumb:
+        item.update(fetch_analyst(item["symbol"], sess, crumb))
+      pts = _history(item["symbol"], "max")
+      closes = [c for _, c in pts]
+      if closes:
+        item["rsi"] = _rsi(closes)
+        step = max(1, len(pts) // 600)
+        ser = pts[::step]
+        item["chart"] = {"t": [t for t, _ in ser], "c": [round(c, 2) for _, c in ser]}
+      short = _history(item["symbol"], "6mo")
+      if short:
+        item["chart_short"] = {
+          "t": [t for t, _ in short],
+          "c": [round(c, 2) for _, c in short],
+        }
+      intraday = _history(item["symbol"], "1d", "5m")
+      if intraday:
+        item["chart_intraday"] = {
+          "t": [t for t, _ in intraday],
+          "c": [round(c, 2) for _, c in intraday],
+        }
+      candles = _ohlc_history(item["symbol"], "6mo")
+      if candles:
+        item["candles"] = candles
+        item["pattern"] = _candlestick_pattern(candles)
+      price, target = item.get("price"), item.get("target")
+      if price and target:
+        up = (target - price) / price * 100.0
+        item["upside_pct"] = round(up, 1)
+        item["valuation"] = ("Undervalued" if up >= 10
+                   else "Overvalued" if up <= -10 else "Fair value")
+      rsi = item.get("rsi")
+      if rsi is not None:
+        item["momentum"] = ("Oversold" if rsi < 30
+                  else "Overbought" if rsi > 70 else "Neutral")
+      time.sleep(0.06)
 
     markets["most_active_by_country"] = by_country
     markets["most_active"] = by_country["US"]  # backward compat
@@ -951,8 +1013,24 @@ INDEX_HTML = r"""<!DOCTYPE html>
     <button class="backbtn" id="back-ratings">← Markets</button>
     <h2 id="rate-name"></h2>
     <div class="kpis" id="rate-kpis"></div>
-    <h3>Price (6 months)</h3>
+    <div class="controls" style="margin-top:14px;">
+      <h3 id="chart-title" style="margin:0;">Price (6M)</h3>
+      <div class="rangebar" id="chart-ranges">
+        <button class="btn range" data-range="1d">1D</button>
+        <button class="btn range" data-range="5d">5D</button>
+        <button class="btn range" data-range="1mo">1M</button>
+        <button class="btn range active" data-range="6mo">6M</button>
+        <button class="btn range" data-range="1y">1Y</button>
+        <button class="btn range" data-range="5y">5Y</button>
+        <button class="btn range" data-range="max">Max</button>
+      </div>
+      <div class="rangebar" id="chart-mode">
+        <button class="btn chart-mode active" data-mode="line">Line</button>
+        <button class="btn chart-mode" data-mode="candles">Candles</button>
+      </div>
+    </div>
     <div id="rate-chart"></div>
+    <div class="muted" id="rate-pattern" style="font-size:12px;margin-top:6px;"></div>
     <h3>Recommendation breakdown</h3>
     <div id="rate-breakdown"></div>
     <h3>Recent analyst rating changes</h3>
@@ -1255,11 +1333,60 @@ function sparkSVG(closes, w=760, h=200) {
     + `<div class="muted" style="font-size:12px;margin-top:4px;">Low ${min.toLocaleString('en-US',{maximumFractionDigits:2})} · High ${max.toLocaleString('en-US',{maximumFractionDigits:2})} · Last ${closes[n-1].toLocaleString('en-US',{maximumFractionDigits:2})}</div>`;
 }
 
+let currentRating = null;
+let currentChartMode = 'line';
+const RANGE_DAYS = {"5d":5, "1mo":31, "6mo":183, "1y":366, "5y":1827};
+
+function candleSVG(bars, w=760, h=240) {
+  if (!bars || bars.length < 2) return '<div class="muted">No candlestick data available for this range.</div>';
+  const lo=Math.min(...bars.map(b=>b.l)), hi=Math.max(...bars.map(b=>b.h)), rng=(hi-lo)||1;
+  const y=v=>h-12-((v-lo)/rng)*(h-24), dx=w/bars.length, bw=Math.max(1,dx*.62);
+  const shapes=bars.map((b,i)=>{
+    const x=i*dx+dx/2, up=b.c>=b.o, c=up?'var(--buy)':'var(--sell)';
+    const top=Math.min(y(b.o),y(b.c)), bh=Math.max(1,Math.abs(y(b.o)-y(b.c)));
+    return `<path d="M ${x.toFixed(1)} ${y(b.h).toFixed(1)} L ${x.toFixed(1)} ${y(b.l).toFixed(1)}" stroke="${c}"/>`
+      + `<rect x="${(x-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}" fill="${c}"/>`;
+  }).join('');
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="none" style="background:#12192b;border:1px solid var(--line);border-radius:8px;">${shapes}</svg>`
+    + `<div class="muted" style="font-size:12px;margin-top:4px;">Low ${lo.toLocaleString('en-US',{maximumFractionDigits:2})} · High ${hi.toLocaleString('en-US',{maximumFractionDigits:2})} · Last ${bars[bars.length-1].c.toLocaleString('en-US',{maximumFractionDigits:2})}</div>`;
+}
+
+function renderRatingChart(range) {
+  if (!currentRating) return;
+  const pattern = currentRating.pattern || {};
+  const p = document.getElementById('rate-pattern');
+  p.textContent = currentChartMode === 'candles' ? `Latest candle: ${pattern.name || 'No clear pattern'}` : '';
+  if (currentChartMode === 'candles') {
+    let bars = currentRating.candles || [];
+    if (RANGE_DAYS[range]) {
+      const cutoff = Date.now()/1000 - RANGE_DAYS[range]*86400;
+      bars = bars.filter(b=>b.t >= cutoff);
+    }
+    document.getElementById('chart-title').textContent = `Candles (${range.toUpperCase()})`;
+    document.getElementById('rate-chart').innerHTML = candleSVG(bars);
+    return;
+  }
+  let series = range === '1d' ? currentRating.chart_intraday :
+    (['5d','1mo','6mo'].includes(range) ? currentRating.chart_short : currentRating.chart);
+  if (!series || !series.t || !series.c) {
+    document.getElementById('rate-chart').innerHTML = '<div class="muted">No chart data available.</div>';
+    return;
+  }
+  let points = series.t.map((t,i)=>[t,series.c[i]]);
+  if (RANGE_DAYS[range]) {
+    const cutoff = Date.now()/1000 - RANGE_DAYS[range]*86400;
+    points = points.filter(([t])=>t >= cutoff);
+  }
+  document.getElementById('chart-title').textContent = `Price (${range.toUpperCase()})`;
+  document.getElementById('rate-chart').innerHTML = sparkSVG(points.map(([,c])=>c));
+}
+
 function openRatings(sym) {
   const country = document.getElementById('f-country').value || 'US';
   const mac = (DATA.markets.most_active_by_country||{})[country] || [];
   const it = mac.find(x => x.symbol === sym);
   if (!it) return;
+  currentRating = it;
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
   document.getElementById('s-ratings').classList.add('active');
@@ -1282,7 +1409,10 @@ function openRatings(sym) {
   ];
   document.getElementById('rate-kpis').innerHTML = kpis.map(([l,v])=>
     `<div class="kpi"><div class="n">${esc(String(v))}</div><div class="l">${esc(l)}</div></div>`).join('');
-  document.getElementById('rate-chart').innerHTML = sparkSVG((it.chart&&it.chart.c)||[]);
+  currentChartMode = 'line';
+  document.querySelectorAll('.chart-mode').forEach(b=>b.classList.toggle('active', b.dataset.mode==='line'));
+  document.querySelectorAll('.range').forEach(b=>b.classList.toggle('active', b.dataset.range==='6mo'));
+  renderRatingChart('6mo');
   const t = it.trend || {};
   const parts = [['Strong Buy',t.strongBuy,'#1a9e5a'],['Buy',t.buy,'#2ec26b'],['Hold',t.hold,'#c9a227'],['Sell',t.sell,'#ef5b6b'],['Strong Sell',t.strongSell,'#c0392b']];
   const total = parts.reduce((s,p)=>s+(p[1]||0),0) || 0;
@@ -1471,6 +1601,20 @@ function showMainView(target) {
 
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => showMainView(t.dataset.t));
 document.getElementById('back-markets').onclick = () => showMainView('markets');
+document.getElementById('chart-ranges').addEventListener('click', e => {
+  const button = e.target.closest('.range');
+  if (!button || !currentRating) return;
+  document.querySelectorAll('.range').forEach(b=>b.classList.toggle('active', b===button));
+  renderRatingChart(button.dataset.range);
+});
+document.getElementById('chart-mode').addEventListener('click', e => {
+  const button = e.target.closest('.chart-mode');
+  if (!button || !currentRating) return;
+  currentChartMode = button.dataset.mode;
+  document.querySelectorAll('.chart-mode').forEach(b=>b.classList.toggle('active', b===button));
+  const activeRange = document.querySelector('.range.active');
+  renderRatingChart(activeRange ? activeRange.dataset.range : '6mo');
+});
 ['q-actions','f-side'].forEach(id=>document.getElementById(id).addEventListener('input',renderActions));
 document.getElementById('q-common').addEventListener('input',renderCommon);
 document.getElementById('q-funds').addEventListener('input',renderFunds);

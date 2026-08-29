@@ -213,9 +213,64 @@ CRYPTO = [
     ("Chainlink", "LINK-USD"),
 ]
 
+# Major listed stocks per country (Yahoo symbols) for the country-specific
+# "Most Active" table. US uses the live Yahoo most-actives screener instead.
+COUNTRY_MOVERS: dict[str, list[tuple[str, str]]] = {
+    "IN": [("RELIANCE.NS", "Reliance Industries"), ("TCS.NS", "TCS"),
+           ("HDFCBANK.NS", "HDFC Bank"), ("INFY.NS", "Infosys"),
+           ("ICICIBANK.NS", "ICICI Bank"), ("SBIN.NS", "State Bank of India"),
+           ("BHARTIARTL.NS", "Bharti Airtel"), ("ADANIENT.NS", "Adani Enterprises")],
+    "JP": [("7203.T", "Toyota"), ("6758.T", "Sony"), ("9984.T", "SoftBank"),
+           ("6861.T", "Keyence"), ("7974.T", "Nintendo"), ("8306.T", "Mitsubishi UFJ"),
+           ("8035.T", "Tokyo Electron"), ("9983.T", "Fast Retailing")],
+    "SE": [("ATCO-A.ST", "Atlas Copco"), ("VOLV-B.ST", "Volvo"), ("ERIC-B.ST", "Ericsson"),
+           ("INVE-B.ST", "Investor AB"), ("EQT.ST", "EQT"), ("HM-B.ST", "H&M"),
+           ("SEB-A.ST", "SEB"), ("SAND.ST", "Sandvik")],
+    "DK": [("NOVO-B.CO", "Novo Nordisk"), ("MAERSK-B.CO", "Maersk"), ("DSV.CO", "DSV"),
+           ("VWS.CO", "Vestas"), ("CARL-B.CO", "Carlsberg"), ("COLO-B.CO", "Coloplast"),
+           ("ORSTED.CO", "Orsted"), ("DANSKE.CO", "Danske Bank")],
+    "NO": [("EQNR.OL", "Equinor"), ("DNB.OL", "DNB"), ("NHY.OL", "Norsk Hydro"),
+           ("TEL.OL", "Telenor"), ("AKRBP.OL", "Aker BP"), ("MOWI.OL", "Mowi"),
+           ("YAR.OL", "Yara"), ("ORK.OL", "Orkla")],
+    "FR": [("MC.PA", "LVMH"), ("TTE.PA", "TotalEnergies"), ("SAN.PA", "Sanofi"),
+           ("AIR.PA", "Airbus"), ("SU.PA", "Schneider Electric"), ("OR.PA", "L'Oreal"),
+           ("BNP.PA", "BNP Paribas"), ("AI.PA", "Air Liquide")],
+    "DE": [("SAP.DE", "SAP"), ("SIE.DE", "Siemens"), ("VOW3.DE", "Volkswagen"),
+           ("ALV.DE", "Allianz"), ("MBG.DE", "Mercedes-Benz"), ("DTE.DE", "Deutsche Telekom"),
+           ("BAS.DE", "BASF"), ("BMW.DE", "BMW")],
+    "IE": [("RYA.IR", "Ryanair"), ("KRZ.IR", "Kerry Group"), ("KRX.IR", "Kingspan"),
+           ("BIRG.IR", "Bank of Ireland"), ("A5G.IR", "AIB Group"), ("GL9.IR", "Glanbia"),
+           ("CRH", "CRH"), ("DHG.IR", "Dalata Hotel")],
+    "GB": [("AZN.L", "AstraZeneca"), ("SHEL.L", "Shell"), ("HSBA.L", "HSBC"),
+           ("ULVR.L", "Unilever"), ("BP.L", "BP"), ("GSK.L", "GSK"),
+           ("RR.L", "Rolls-Royce"), ("RIO.L", "Rio Tinto")],
+    "CN": [("0700.HK", "Tencent"), ("9988.HK", "Alibaba"), ("1211.HK", "BYD"),
+           ("3690.HK", "Meituan"), ("1810.HK", "Xiaomi"), ("9618.HK", "JD.com"),
+           ("2318.HK", "Ping An"), ("0939.HK", "China Construction Bank")],
+}
+
+
+def _quote_full(sym: str) -> dict | None:
+    try:
+        r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
+                         params={"range": "5d", "interval": "1d"},
+                         headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        m = r.json()["chart"]["result"][0]["meta"]
+    except Exception:  # noqa: BLE001
+        return None
+    price = m.get("regularMarketPrice")
+    if price is None:
+        return None
+    pct = m.get("regularMarketChangePercent")
+    if pct is None:
+        prev = m.get("chartPreviousClose") or m.get("previousClose")
+        pct = ((price - prev) / prev * 100.0) if prev else 0.0
+    return {"price": price, "change_pct": round(pct, 2),
+            "volume": m.get("regularMarketVolume"), "currency": m.get("currency")}
+
 
 def fetch_markets(max_active: int = 25) -> dict:
-    """Live indices, currencies, crypto (Yahoo chart) + most-active stocks (screener)."""
+    """Live indices, currencies, crypto (global) + most-active stocks per country."""
     def rows(pairs: list[tuple[str, str]]) -> list[dict]:
         out: list[dict] = []
         for name, sym in pairs:
@@ -230,22 +285,39 @@ def fetch_markets(max_active: int = 25) -> dict:
         return out
 
     markets = {"indices": rows(INDICES), "currencies": rows(CURRENCIES),
-               "crypto": rows(CRYPTO), "most_active": []}
+               "crypto": rows(CRYPTO)}
+
+    by_country: dict[str, list[dict]] = {"US": []}
     try:
         url = ("https://query1.finance.yahoo.com/v1/finance/screener/predefined/"
                f"saved?count={max_active}&scrIds=most_actives")
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
         if r.status_code == 200:
             for x in r.json()["finance"]["result"][0]["quotes"]:
-                markets["most_active"].append({
+                by_country["US"].append({
                     "symbol": x.get("symbol"),
                     "name": x.get("shortName") or x.get("longName") or x.get("symbol"),
                     "price": x.get("regularMarketPrice"),
                     "change_pct": round(x.get("regularMarketChangePercent", 0) or 0, 2),
-                    "volume": x.get("regularMarketVolume"),
+                    "volume": x.get("regularMarketVolume"), "currency": "USD",
                 })
     except Exception as exc:  # noqa: BLE001
         print(f"  [warn] most-active screener: {exc}")
+
+    for code, movers in COUNTRY_MOVERS.items():
+        lst: list[dict] = []
+        for sym, name in movers:
+            q = _quote_full(sym)
+            if q:
+                lst.append({"symbol": sym, "name": name,
+                            "price": round(q["price"], 2), "change_pct": q["change_pct"],
+                            "volume": q["volume"], "currency": q["currency"]})
+            time.sleep(0.05)
+        lst.sort(key=lambda x: (x.get("volume") or 0), reverse=True)
+        by_country[code] = lst
+
+    markets["most_active_by_country"] = by_country
+    markets["most_active"] = by_country["US"]  # backward compat
     return markets
 
 
@@ -744,14 +816,14 @@ INDEX_HTML = r"""<!DOCTYPE html>
   </div>
 
   <div class="section active" id="s-markets">
+    <h3 id="active-head">Most Active Stocks</h3>
+    <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
     <h3>Indices</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>
     <h3>Currencies (FX)</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-fx"></table></div>
     <h3>Cryptocurrency</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-crypto"></table></div>
-    <h3>Most Active Stocks (US, by volume)</h3>
-    <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
   </div>
 
   <div class="section" id="s-actions">
@@ -1003,6 +1075,19 @@ function populateSources() {
 
 function renderMarkets() {
   const m = DATA.markets || {};
+  const country = document.getElementById('f-country').value || 'US';
+  const mac = (m.most_active_by_country||{})[country] || m.most_active || [];
+  const cname = (DATA.countries||[]).find(c=>c.code===country);
+  document.getElementById('active-head').textContent =
+    `Most Active Stocks — ${cname?cname.flag+' '+cname.name:country} (by volume)`;
+  makeTable(document.getElementById('t-active'), [
+    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':Number(v).toLocaleString('en-US',{maximumFractionDigits:2})},
+    {label:'Cur', key:'currency', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
+  ], mac);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const cols = [
     {label:'Name', key:'name'},
@@ -1013,13 +1098,6 @@ function renderMarkets() {
   makeTable(document.getElementById('t-indices'), cols, m.indices||[]);
   makeTable(document.getElementById('t-fx'), cols, m.currencies||[]);
   makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
-  makeTable(document.getElementById('t-active'), [
-    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
-    {label:'Name', key:'name'},
-    {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':'$'+Number(v).toFixed(2)},
-    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
-    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
-  ], m.most_active||[]);
 }
 
 function renderBanner() {
@@ -1180,7 +1258,7 @@ document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
 document.getElementById('q-common').addEventListener('input',renderCommon);
 document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); renderMarkets(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 

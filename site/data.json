@@ -248782,239 +248782,1120 @@
       {
         "name": "Bitcoin",
         "symbol": "BTC-USD",
-        "price": 78094.94,
-        "change_pct": 0.94
+        "price": 78122.99,
+        "change_pct": 0.98
       },
       {
         "name": "Ethereum",
         "symbol": "ETH-USD",
-        "price": 2450.4,
-        "change_pct": 1.05
+        "price": 2451.15,
+        "change_pct": 1.08
       },
       {
         "name": "BNB",
         "symbol": "BNB-USD",
-        "price": 692.51,
-        "change_pct": 0.75
+        "price": 692.83,
+        "change_pct": 0.8
       },
       {
         "name": "Solana",
         "symbol": "SOL-USD",
-        "price": 105.11,
-        "change_pct": 1.59
+        "price": 104.97,
+        "change_pct": 1.46
       },
       {
         "name": "XRP",
         "symbol": "XRP-USD",
-        "price": 1.3944,
-        "change_pct": 1.62
+        "price": 1.3952,
+        "change_pct": 1.68
       },
       {
         "name": "Cardano",
         "symbol": "ADA-USD",
-        "price": 0.2013,
-        "change_pct": 0.45
+        "price": 0.2015,
+        "change_pct": 0.55
       },
       {
         "name": "Dogecoin",
         "symbol": "DOGE-USD",
-        "price": 0.0851,
-        "change_pct": 0.72
+        "price": 0.0852,
+        "change_pct": 0.78
       },
       {
         "name": "Tron",
         "symbol": "TRX-USD",
         "price": 0.3402,
-        "change_pct": -0.43
+        "change_pct": -0.47
       },
       {
         "name": "Avalanche",
         "symbol": "AVAX-USD",
-        "price": 7.312,
-        "change_pct": 0.69
+        "price": 7.314,
+        "change_pct": 0.72
       },
       {
         "name": "Chainlink",
         "symbol": "LINK-USD",
-        "price": 11.448,
-        "change_pct": 1.18
+        "price": 11.457,
+        "change_pct": 1.25
       }
     ],
+    "most_active_by_country": {
+      "US": [
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA Corporation",
+          "price": 217.55,
+          "change_pct": -4.57,
+          "volume": 194036188,
+          "currency": "USD"
+        },
+        {
+          "symbol": "PCG",
+          "name": "Pacific Gas & Electric Co.",
+          "price": 16.6,
+          "change_pct": -7.52,
+          "volume": 114326369,
+          "currency": "USD"
+        },
+        {
+          "symbol": "INTC",
+          "name": "Intel Corporation",
+          "price": 89.47,
+          "change_pct": -2.85,
+          "volume": 85801756,
+          "currency": "USD"
+        },
+        {
+          "symbol": "NU",
+          "name": "Nu Holdings Ltd.",
+          "price": 14.3,
+          "change_pct": -3.9,
+          "volume": 79125113,
+          "currency": "USD"
+        },
+        {
+          "symbol": "IREN",
+          "name": "IREN LIMITED",
+          "price": 35.45,
+          "change_pct": -12.53,
+          "volume": 89323370,
+          "currency": "USD"
+        },
+        {
+          "symbol": "ONDS",
+          "name": "Ondas Inc",
+          "price": 7.9,
+          "change_pct": -9.71,
+          "volume": 69500498,
+          "currency": "USD"
+        },
+        {
+          "symbol": "AAL",
+          "name": "American Airlines Group, Inc.",
+          "price": 13.64,
+          "change_pct": -0.58,
+          "volume": 63394944,
+          "currency": "USD"
+        },
+        {
+          "symbol": "SPCX",
+          "name": "Space Exploration Technologies ",
+          "price": 141.5,
+          "change_pct": 0.45,
+          "volume": 54893647,
+          "currency": "USD"
+        },
+        {
+          "symbol": "PATH",
+          "name": "UiPath, Inc.",
+          "price": 18.15,
+          "change_pct": -0.98,
+          "volume": 53108174,
+          "currency": "USD"
+        },
+        {
+          "symbol": "BMNR",
+          "name": "BitMine Immersion Technologies,",
+          "price": 23.8,
+          "change_pct": -7.14,
+          "volume": 51078477,
+          "currency": "USD"
+        },
+        {
+          "symbol": "NOK",
+          "name": "Nokia Corporation Sponsored",
+          "price": 10.21,
+          "change_pct": -3.59,
+          "volume": 50570353,
+          "currency": "USD"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell Technology, Inc.",
+          "price": 216.62,
+          "change_pct": -10.28,
+          "volume": 48739012,
+          "currency": "USD"
+        },
+        {
+          "symbol": "AMZN",
+          "name": "Amazon.com, Inc.",
+          "price": 266.43,
+          "change_pct": 3.97,
+          "volume": 49322804,
+          "currency": "USD"
+        },
+        {
+          "symbol": "PLUG",
+          "name": "Plug Power, Inc.",
+          "price": 2.19,
+          "change_pct": -3.52,
+          "volume": 46501812,
+          "currency": "USD"
+        },
+        {
+          "symbol": "SOFI",
+          "name": "SoFi Technologies, Inc.",
+          "price": 18.06,
+          "change_pct": -5.84,
+          "volume": 45306917,
+          "currency": "USD"
+        },
+        {
+          "symbol": "MARA",
+          "name": "MARA Holdings, Inc.",
+          "price": 10.67,
+          "change_pct": -10.11,
+          "volume": 41744319,
+          "currency": "USD"
+        },
+        {
+          "symbol": "RIVN",
+          "name": "Rivian Automotive, Inc.",
+          "price": 16.07,
+          "change_pct": -4.35,
+          "volume": 40838481,
+          "currency": "USD"
+        },
+        {
+          "symbol": "F",
+          "name": "Ford Motor Company",
+          "price": 13.88,
+          "change_pct": -0.5,
+          "volume": 40146821,
+          "currency": "USD"
+        },
+        {
+          "symbol": "BTG",
+          "name": "B2Gold Corp",
+          "price": 5.66,
+          "change_pct": -2.92,
+          "volume": 39164691,
+          "currency": "USD"
+        },
+        {
+          "symbol": "PURR",
+          "name": "Hyperliquid Strategies Inc",
+          "price": 11.61,
+          "change_pct": -9.51,
+          "volume": 37743064,
+          "currency": "USD"
+        },
+        {
+          "symbol": "VALE",
+          "name": "VALE S.A.",
+          "price": 15.03,
+          "change_pct": -1.83,
+          "volume": 36621049,
+          "currency": "USD"
+        },
+        {
+          "symbol": "PYPL",
+          "name": "PayPal Holdings, Inc.",
+          "price": 53.66,
+          "change_pct": -12.71,
+          "volume": 36208248,
+          "currency": "USD"
+        },
+        {
+          "symbol": "SMR",
+          "name": "NuScale Power Corporation",
+          "price": 9.29,
+          "change_pct": -4.62,
+          "volume": 37701450,
+          "currency": "USD"
+        },
+        {
+          "symbol": "RIG",
+          "name": "Transocean Ltd (Switzerland)",
+          "price": 5.8,
+          "change_pct": 1.05,
+          "volume": 34879440,
+          "currency": "USD"
+        },
+        {
+          "symbol": "BAC",
+          "name": "Bank of America Corporation",
+          "price": 62.32,
+          "change_pct": 1.88,
+          "volume": 32915990,
+          "currency": "USD"
+        }
+      ],
+      "IN": [
+        {
+          "symbol": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "price": 720.3,
+          "change_pct": 1.31,
+          "volume": 16487351,
+          "currency": "INR"
+        },
+        {
+          "symbol": "INFY.NS",
+          "name": "Infosys",
+          "price": 1144.0,
+          "change_pct": 2.99,
+          "volume": 9619511,
+          "currency": "INR"
+        },
+        {
+          "symbol": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "price": 1422.8,
+          "change_pct": -1.4,
+          "volume": 8625517,
+          "currency": "INR"
+        },
+        {
+          "symbol": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "price": 1287.0,
+          "change_pct": 0.37,
+          "volume": 6826848,
+          "currency": "INR"
+        },
+        {
+          "symbol": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "price": 1882.4,
+          "change_pct": 0.22,
+          "volume": 6103006,
+          "currency": "INR"
+        },
+        {
+          "symbol": "SBIN.NS",
+          "name": "State Bank of India",
+          "price": 1047.5,
+          "change_pct": 0.44,
+          "volume": 4968450,
+          "currency": "INR"
+        },
+        {
+          "symbol": "TCS.NS",
+          "name": "TCS",
+          "price": 2342.0,
+          "change_pct": 4.16,
+          "volume": 4052761,
+          "currency": "INR"
+        },
+        {
+          "symbol": "ADANIENT.NS",
+          "name": "Adani Enterprises",
+          "price": 3168.5,
+          "change_pct": -0.02,
+          "volume": 530753,
+          "currency": "INR"
+        }
+      ],
+      "JP": [
+        {
+          "symbol": "8306.T",
+          "name": "Mitsubishi UFJ",
+          "price": 3658.0,
+          "change_pct": 1.39,
+          "volume": 36975500,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "9984.T",
+          "name": "SoftBank",
+          "price": 5161.0,
+          "change_pct": -0.75,
+          "volume": 29059000,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "7203.T",
+          "name": "Toyota",
+          "price": 3116.0,
+          "change_pct": 1.27,
+          "volume": 24831800,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "6758.T",
+          "name": "Sony",
+          "price": 3928.0,
+          "change_pct": 1.5,
+          "volume": 19537500,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "7974.T",
+          "name": "Nintendo",
+          "price": 8993.0,
+          "change_pct": 3.04,
+          "volume": 12451600,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "8035.T",
+          "name": "Tokyo Electron",
+          "price": 56230.0,
+          "change_pct": 0.41,
+          "volume": 3086800,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "9983.T",
+          "name": "Fast Retailing",
+          "price": 71260.0,
+          "change_pct": 0.06,
+          "volume": 927000,
+          "currency": "JPY"
+        },
+        {
+          "symbol": "6861.T",
+          "name": "Keyence",
+          "price": 82960.0,
+          "change_pct": 0.99,
+          "volume": 426100,
+          "currency": "JPY"
+        }
+      ],
+      "SE": [
+        {
+          "symbol": "ERIC-B.ST",
+          "name": "Ericsson",
+          "price": 96.76,
+          "change_pct": 0.58,
+          "volume": 4580492,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "ATCO-A.ST",
+          "name": "Atlas Copco",
+          "price": 207.9,
+          "change_pct": -0.29,
+          "volume": 4135563,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "VOLV-B.ST",
+          "name": "Volvo",
+          "price": 348.4,
+          "change_pct": 0.58,
+          "volume": 2488889,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "INVE-B.ST",
+          "name": "Investor AB",
+          "price": 417.2,
+          "change_pct": 0.55,
+          "volume": 1695126,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "HM-B.ST",
+          "name": "H&M",
+          "price": 174.95,
+          "change_pct": 0.11,
+          "volume": 1666127,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "SEB-A.ST",
+          "name": "SEB",
+          "price": 223.6,
+          "change_pct": 0.9,
+          "volume": 1339178,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "EQT.ST",
+          "name": "EQT",
+          "price": 339.1,
+          "change_pct": 0.59,
+          "volume": 1192869,
+          "currency": "SEK"
+        },
+        {
+          "symbol": "SAND.ST",
+          "name": "Sandvik",
+          "price": 393.1,
+          "change_pct": -0.25,
+          "volume": 1115309,
+          "currency": "SEK"
+        }
+      ],
+      "DK": [
+        {
+          "symbol": "NOVO-B.CO",
+          "name": "Novo Nordisk",
+          "price": 295.5,
+          "change_pct": 0.09,
+          "volume": 3933015,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "VWS.CO",
+          "name": "Vestas",
+          "price": 211.5,
+          "change_pct": -2.4,
+          "volume": 1847364,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "ORSTED.CO",
+          "name": "Orsted",
+          "price": 139.25,
+          "change_pct": -1.45,
+          "volume": 988853,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "DANSKE.CO",
+          "name": "Danske Bank",
+          "price": 371.9,
+          "change_pct": 0.79,
+          "volume": 764590,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "COLO-B.CO",
+          "name": "Coloplast",
+          "price": 462.7,
+          "change_pct": 0.81,
+          "volume": 301510,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "DSV.CO",
+          "name": "DSV",
+          "price": 1373.0,
+          "change_pct": 1.59,
+          "volume": 292000,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "CARL-B.CO",
+          "name": "Carlsberg",
+          "price": 889.4,
+          "change_pct": 0.89,
+          "volume": 227702,
+          "currency": "DKK"
+        },
+        {
+          "symbol": "MAERSK-B.CO",
+          "name": "Maersk",
+          "price": 21970.0,
+          "change_pct": 2.04,
+          "volume": 8993,
+          "currency": "DKK"
+        }
+      ],
+      "NO": [
+        {
+          "symbol": "NHY.OL",
+          "name": "Norsk Hydro",
+          "price": 93.24,
+          "change_pct": 1.33,
+          "volume": 3240733,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "EQNR.OL",
+          "name": "Equinor",
+          "price": 386.4,
+          "change_pct": 0.62,
+          "volume": 1788200,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "TEL.OL",
+          "name": "Telenor",
+          "price": 136.7,
+          "change_pct": 1.41,
+          "volume": 1536982,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "ORK.OL",
+          "name": "Orkla",
+          "price": 95.2,
+          "change_pct": 0.95,
+          "volume": 1139886,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "MOWI.OL",
+          "name": "Mowi",
+          "price": 209.0,
+          "change_pct": 1.36,
+          "volume": 1022439,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "DNB.OL",
+          "name": "DNB",
+          "price": 315.9,
+          "change_pct": 0.45,
+          "volume": 891606,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "AKRBP.OL",
+          "name": "Aker BP",
+          "price": 349.9,
+          "change_pct": 0.72,
+          "volume": 458905,
+          "currency": "NOK"
+        },
+        {
+          "symbol": "YAR.OL",
+          "name": "Yara",
+          "price": 446.4,
+          "change_pct": 1.87,
+          "volume": 383959,
+          "currency": "NOK"
+        }
+      ],
+      "FR": [
+        {
+          "symbol": "TTE.PA",
+          "name": "TotalEnergies",
+          "price": 74.67,
+          "change_pct": 0.67,
+          "volume": 2508613,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "BNP.PA",
+          "name": "BNP Paribas",
+          "price": 102.56,
+          "change_pct": 1.89,
+          "volume": 2227916,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "SAN.PA",
+          "name": "Sanofi",
+          "price": 77.25,
+          "change_pct": -0.04,
+          "volume": 1056025,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "AIR.PA",
+          "name": "Airbus",
+          "price": 203.05,
+          "change_pct": -0.17,
+          "volume": 752184,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "AI.PA",
+          "name": "Air Liquide",
+          "price": 169.8,
+          "change_pct": 1.81,
+          "volume": 680408,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "SU.PA",
+          "name": "Schneider Electric",
+          "price": 301.75,
+          "change_pct": 1.41,
+          "volume": 658116,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "MC.PA",
+          "name": "LVMH",
+          "price": 458.15,
+          "change_pct": 2.4,
+          "volume": 467296,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "OR.PA",
+          "name": "L'Oreal",
+          "price": 388.5,
+          "change_pct": 0.95,
+          "volume": 296828,
+          "currency": "EUR"
+        }
+      ],
+      "DE": [
+        {
+          "symbol": "DTE.DE",
+          "name": "Deutsche Telekom",
+          "price": 28.52,
+          "change_pct": 1.17,
+          "volume": 5010418,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "MBG.DE",
+          "name": "Mercedes-Benz",
+          "price": 46.95,
+          "change_pct": 2.96,
+          "volume": 2887435,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "BMW.DE",
+          "name": "BMW",
+          "price": 62.64,
+          "change_pct": 4.5,
+          "volume": 2734292,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "SAP.DE",
+          "name": "SAP",
+          "price": 191.32,
+          "change_pct": 0.76,
+          "volume": 2183127,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "BAS.DE",
+          "name": "BASF",
+          "price": 52.52,
+          "change_pct": 1.96,
+          "volume": 1585806,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "VOW3.DE",
+          "name": "Volkswagen",
+          "price": 77.42,
+          "change_pct": 3.23,
+          "volume": 1376154,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "SIE.DE",
+          "name": "Siemens",
+          "price": 289.85,
+          "change_pct": 1.01,
+          "volume": 795534,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "ALV.DE",
+          "name": "Allianz",
+          "price": 453.0,
+          "change_pct": 1.75,
+          "volume": 430767,
+          "currency": "EUR"
+        }
+      ],
+      "IE": [
+        {
+          "symbol": "CRH",
+          "name": "CRH",
+          "price": 95.86,
+          "change_pct": 0.29,
+          "volume": 3341650,
+          "currency": "USD"
+        },
+        {
+          "symbol": "A5G.IR",
+          "name": "AIB Group",
+          "price": 10.82,
+          "change_pct": 0.32,
+          "volume": 2606026,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "BIRG.IR",
+          "name": "Bank of Ireland",
+          "price": 18.77,
+          "change_pct": -0.03,
+          "volume": 1415713,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "RYA.IR",
+          "name": "Ryanair",
+          "price": 23.52,
+          "change_pct": 1.6,
+          "volume": 859599,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "KRX.IR",
+          "name": "Kingspan",
+          "price": 102.1,
+          "change_pct": -1.83,
+          "volume": 472044,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "KRZ.IR",
+          "name": "Kerry Group",
+          "price": 84.9,
+          "change_pct": 0.35,
+          "volume": 412356,
+          "currency": "EUR"
+        },
+        {
+          "symbol": "GL9.IR",
+          "name": "Glanbia",
+          "price": 22.18,
+          "change_pct": -1.33,
+          "volume": 187169,
+          "currency": "EUR"
+        }
+      ],
+      "GB": [
+        {
+          "symbol": "BP.L",
+          "name": "BP",
+          "price": 514.5,
+          "change_pct": -0.17,
+          "volume": 65229703,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "HSBA.L",
+          "name": "HSBC",
+          "price": 1528.4,
+          "change_pct": 1.62,
+          "volume": 25816741,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "RR.L",
+          "name": "Rolls-Royce",
+          "price": 1530.2,
+          "change_pct": 0.03,
+          "volume": 11496266,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "SHEL.L",
+          "name": "Shell",
+          "price": 3344.5,
+          "change_pct": 1.01,
+          "volume": 9306315,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "GSK.L",
+          "name": "GSK",
+          "price": 1853.5,
+          "change_pct": 0.08,
+          "volume": 7789975,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "ULVR.L",
+          "name": "Unilever",
+          "price": 4776.0,
+          "change_pct": 0.51,
+          "volume": 6709213,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "AZN.L",
+          "name": "AstraZeneca",
+          "price": 11970.0,
+          "change_pct": -1.19,
+          "volume": 3571974,
+          "currency": "GBp"
+        },
+        {
+          "symbol": "RIO.L",
+          "name": "Rio Tinto",
+          "price": 7674.0,
+          "change_pct": -0.18,
+          "volume": 2994168,
+          "currency": "GBp"
+        }
+      ],
+      "CN": [
+        {
+          "symbol": "0939.HK",
+          "name": "China Construction Bank",
+          "price": 9.14,
+          "change_pct": 0.06,
+          "volume": 212829907,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "1810.HK",
+          "name": "Xiaomi",
+          "price": 27.82,
+          "change_pct": 1.24,
+          "volume": 85332131,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "9988.HK",
+          "name": "Alibaba",
+          "price": 113.9,
+          "change_pct": -1.39,
+          "volume": 73046322,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "3690.HK",
+          "name": "Meituan",
+          "price": 77.5,
+          "change_pct": 0.0,
+          "volume": 33405003,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "0700.HK",
+          "name": "Tencent",
+          "price": 455.2,
+          "change_pct": 1.65,
+          "volume": 27742575,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "2318.HK",
+          "name": "Ping An",
+          "price": 56.9,
+          "change_pct": -0.52,
+          "volume": 24247818,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "1211.HK",
+          "name": "BYD",
+          "price": 91.95,
+          "change_pct": 0.77,
+          "volume": 10946948,
+          "currency": "HKD"
+        },
+        {
+          "symbol": "9618.HK",
+          "name": "JD.com",
+          "price": 110.5,
+          "change_pct": -1.43,
+          "volume": 6242744,
+          "currency": "HKD"
+        }
+      ]
+    },
     "most_active": [
       {
         "symbol": "NVDA",
         "name": "NVIDIA Corporation",
         "price": 217.55,
         "change_pct": -4.57,
-        "volume": 194036188
+        "volume": 194036188,
+        "currency": "USD"
       },
       {
         "symbol": "PCG",
         "name": "Pacific Gas & Electric Co.",
         "price": 16.6,
         "change_pct": -7.52,
-        "volume": 114326369
+        "volume": 114326369,
+        "currency": "USD"
       },
       {
         "symbol": "INTC",
         "name": "Intel Corporation",
         "price": 89.47,
         "change_pct": -2.85,
-        "volume": 85801756
+        "volume": 85801756,
+        "currency": "USD"
       },
       {
         "symbol": "NU",
         "name": "Nu Holdings Ltd.",
         "price": 14.3,
         "change_pct": -3.9,
-        "volume": 79125113
+        "volume": 79125113,
+        "currency": "USD"
       },
       {
         "symbol": "IREN",
         "name": "IREN LIMITED",
         "price": 35.45,
         "change_pct": -12.53,
-        "volume": 89323370
+        "volume": 89323370,
+        "currency": "USD"
       },
       {
         "symbol": "ONDS",
         "name": "Ondas Inc",
         "price": 7.9,
         "change_pct": -9.71,
-        "volume": 69500498
+        "volume": 69500498,
+        "currency": "USD"
       },
       {
         "symbol": "AAL",
         "name": "American Airlines Group, Inc.",
         "price": 13.64,
         "change_pct": -0.58,
-        "volume": 63394944
+        "volume": 63394944,
+        "currency": "USD"
       },
       {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies ",
         "price": 141.5,
         "change_pct": 0.45,
-        "volume": 54893647
+        "volume": 54893647,
+        "currency": "USD"
       },
       {
         "symbol": "PATH",
         "name": "UiPath, Inc.",
         "price": 18.15,
         "change_pct": -0.98,
-        "volume": 53108174
+        "volume": 53108174,
+        "currency": "USD"
       },
       {
         "symbol": "BMNR",
         "name": "BitMine Immersion Technologies,",
         "price": 23.8,
         "change_pct": -7.14,
-        "volume": 51078477
+        "volume": 51078477,
+        "currency": "USD"
       },
       {
         "symbol": "NOK",
         "name": "Nokia Corporation Sponsored",
         "price": 10.21,
         "change_pct": -3.59,
-        "volume": 50570353
+        "volume": 50570353,
+        "currency": "USD"
       },
       {
         "symbol": "MRVL",
         "name": "Marvell Technology, Inc.",
         "price": 216.62,
         "change_pct": -10.28,
-        "volume": 48739012
+        "volume": 48739012,
+        "currency": "USD"
       },
       {
         "symbol": "AMZN",
         "name": "Amazon.com, Inc.",
         "price": 266.43,
         "change_pct": 3.97,
-        "volume": 49322804
+        "volume": 49322804,
+        "currency": "USD"
       },
       {
         "symbol": "PLUG",
         "name": "Plug Power, Inc.",
         "price": 2.19,
         "change_pct": -3.52,
-        "volume": 46501812
+        "volume": 46501812,
+        "currency": "USD"
       },
       {
         "symbol": "SOFI",
         "name": "SoFi Technologies, Inc.",
         "price": 18.06,
         "change_pct": -5.84,
-        "volume": 45306917
+        "volume": 45306917,
+        "currency": "USD"
       },
       {
         "symbol": "MARA",
         "name": "MARA Holdings, Inc.",
         "price": 10.67,
         "change_pct": -10.11,
-        "volume": 41744319
+        "volume": 41744319,
+        "currency": "USD"
       },
       {
         "symbol": "RIVN",
         "name": "Rivian Automotive, Inc.",
         "price": 16.07,
         "change_pct": -4.35,
-        "volume": 40838481
+        "volume": 40838481,
+        "currency": "USD"
       },
       {
         "symbol": "F",
         "name": "Ford Motor Company",
         "price": 13.88,
         "change_pct": -0.5,
-        "volume": 40146821
+        "volume": 40146821,
+        "currency": "USD"
       },
       {
         "symbol": "BTG",
         "name": "B2Gold Corp",
         "price": 5.66,
         "change_pct": -2.92,
-        "volume": 39164691
+        "volume": 39164691,
+        "currency": "USD"
       },
       {
         "symbol": "PURR",
         "name": "Hyperliquid Strategies Inc",
         "price": 11.61,
         "change_pct": -9.51,
-        "volume": 37743064
+        "volume": 37743064,
+        "currency": "USD"
       },
       {
         "symbol": "VALE",
         "name": "VALE S.A.",
         "price": 15.03,
         "change_pct": -1.83,
-        "volume": 36621049
+        "volume": 36621049,
+        "currency": "USD"
       },
       {
         "symbol": "PYPL",
         "name": "PayPal Holdings, Inc.",
         "price": 53.66,
         "change_pct": -12.71,
-        "volume": 36208248
+        "volume": 36208248,
+        "currency": "USD"
       },
       {
         "symbol": "SMR",
         "name": "NuScale Power Corporation",
         "price": 9.29,
         "change_pct": -4.62,
-        "volume": 37701450
+        "volume": 37701450,
+        "currency": "USD"
       },
       {
         "symbol": "RIG",
         "name": "Transocean Ltd (Switzerland)",
         "price": 5.8,
         "change_pct": 1.05,
-        "volume": 34879440
+        "volume": 34879440,
+        "currency": "USD"
       },
       {
         "symbol": "BAC",
         "name": "Bank of America Corporation",
         "price": 62.32,
         "change_pct": 1.88,
-        "volume": 32915990
+        "volume": 32915990,
+        "currency": "USD"
       }
     ]
   }

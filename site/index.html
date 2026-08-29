@@ -102,14 +102,14 @@
   </div>
 
   <div class="section active" id="s-markets">
+    <h3 id="active-head">Most Active Stocks</h3>
+    <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
     <h3>Indices</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>
     <h3>Currencies (FX)</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-fx"></table></div>
     <h3>Cryptocurrency</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-crypto"></table></div>
-    <h3>Most Active Stocks (US, by volume)</h3>
-    <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
   </div>
 
   <div class="section" id="s-actions">
@@ -361,6 +361,19 @@ function populateSources() {
 
 function renderMarkets() {
   const m = DATA.markets || {};
+  const country = document.getElementById('f-country').value || 'US';
+  const mac = (m.most_active_by_country||{})[country] || m.most_active || [];
+  const cname = (DATA.countries||[]).find(c=>c.code===country);
+  document.getElementById('active-head').textContent =
+    `Most Active Stocks — ${cname?cname.flag+' '+cname.name:country} (by volume)`;
+  makeTable(document.getElementById('t-active'), [
+    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':Number(v).toLocaleString('en-US',{maximumFractionDigits:2})},
+    {label:'Cur', key:'currency', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
+  ], mac);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const cols = [
     {label:'Name', key:'name'},
@@ -371,13 +384,6 @@ function renderMarkets() {
   makeTable(document.getElementById('t-indices'), cols, m.indices||[]);
   makeTable(document.getElementById('t-fx'), cols, m.currencies||[]);
   makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
-  makeTable(document.getElementById('t-active'), [
-    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
-    {label:'Name', key:'name'},
-    {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':'$'+Number(v).toFixed(2)},
-    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
-    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
-  ], m.most_active||[]);
 }
 
 function renderBanner() {
@@ -538,7 +544,7 @@ document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
 document.getElementById('q-common').addEventListener('input',renderCommon);
 document.getElementById('q-funds').addEventListener('input',renderFunds);
 document.getElementById('f-fundsort').addEventListener('change',renderFunds);
-document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); });
+document.getElementById('f-country').addEventListener('change',()=>{ renderFunds(); renderActions(); renderSignals(); renderAnalysts(); renderCommon(); renderBanner(); renderMarkets(); });
 ['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
 ['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
 

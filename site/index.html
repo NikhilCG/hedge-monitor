@@ -111,6 +111,10 @@
   <div class="section active" id="s-markets">
     <h3 id="active-head">Most Active Stocks</h3>
     <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
+    <h3>Most Active Buyers (Top Gainers, US)</h3>
+    <div style="overflow:auto; max-height:30vh;"><table id="t-buyers"></table></div>
+    <h3>Most Active Sellers (Top Losers, US)</h3>
+    <div style="overflow:auto; max-height:30vh;"><table id="t-sellers"></table></div>
     <h3>Indices</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>
     <h3>Currencies (FX)</h3>
@@ -431,6 +435,15 @@ function renderMarkets() {
     {label:'P/E', key:'pe', num:true, fmt:v=>v==null?'\u2014':Number(v).toFixed(1)},
     {label:'Valuation', key:'valuation', fmt:v=>{if(!v)return '<span class="muted">\u2014</span>';const c=v==='Undervalued'?'pos':(v==='Overvalued'?'neg':'muted');return `<span class="${c}">${esc(v)}</span>`;}},
   ], mac);
+  const moverCols = [
+    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:v=>v==null?'—':'$'+Number(v).toFixed(2)},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'—':fmtNum(v)},
+  ];
+  makeTable(document.getElementById('t-buyers'), moverCols, m.active_buyers||[]);
+  makeTable(document.getElementById('t-sellers'), moverCols, m.active_sellers||[]);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const marketCols = [
     {label:'Name', key:'name'},

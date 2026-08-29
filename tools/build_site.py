@@ -441,22 +441,27 @@ def fetch_markets(max_active: int = 25) -> dict:
     markets = {"indices": rows(INDICES), "currencies": rows(CURRENCIES),
                "crypto": rows(CRYPTO)}
 
-    by_country: dict[str, list[dict]] = {"US": []}
-    try:
+    def screener(screen: str, count: int = max_active) -> list[dict]:
+      try:
         url = ("https://query1.finance.yahoo.com/v1/finance/screener/predefined/"
-               f"saved?count={max_active}&scrIds=most_actives")
+             f"saved?count={count}&scrIds={screen}")
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
-        if r.status_code == 200:
-            for x in r.json()["finance"]["result"][0]["quotes"]:
-                by_country["US"].append({
-                    "symbol": x.get("symbol"),
-                    "name": x.get("shortName") or x.get("longName") or x.get("symbol"),
-                    "price": x.get("regularMarketPrice"),
-                    "change_pct": round(x.get("regularMarketChangePercent", 0) or 0, 2),
-                    "volume": x.get("regularMarketVolume"), "currency": "USD",
-                })
-    except Exception as exc:  # noqa: BLE001
-        print(f"  [warn] most-active screener: {exc}")
+        quotes = r.json()["finance"]["result"][0]["quotes"] if r.status_code == 200 else []
+      except Exception as exc:  # noqa: BLE001
+        print(f"  [warn] {screen} screener: {exc}")
+        return []
+      return [{
+        "symbol": x.get("symbol"),
+        "name": x.get("shortName") or x.get("longName") or x.get("symbol"),
+        "price": x.get("regularMarketPrice"),
+        "change_pct": round(x.get("regularMarketChangePercent", 0) or 0, 2),
+        "volume": x.get("regularMarketVolume"), "currency": "USD",
+      } for x in quotes]
+
+    by_country: dict[str, list[dict]] = {"US": []}
+    by_country["US"] = screener("most_actives")
+    markets["active_buyers"] = screener("day_gainers")
+    markets["active_sellers"] = screener("day_losers")
 
     for code, movers in COUNTRY_MOVERS.items():
         lst: list[dict] = []
@@ -1032,6 +1037,10 @@ INDEX_HTML = r"""<!DOCTYPE html>
   <div class="section active" id="s-markets">
     <h3 id="active-head">Most Active Stocks</h3>
     <div style="overflow:auto; max-height:34vh;"><table id="t-active"></table></div>
+    <h3>Most Active Buyers (Top Gainers, US)</h3>
+    <div style="overflow:auto; max-height:30vh;"><table id="t-buyers"></table></div>
+    <h3>Most Active Sellers (Top Losers, US)</h3>
+    <div style="overflow:auto; max-height:30vh;"><table id="t-sellers"></table></div>
     <h3>Indices</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-indices"></table></div>
     <h3>Currencies (FX)</h3>
@@ -1352,6 +1361,15 @@ function renderMarkets() {
     {label:'P/E', key:'pe', num:true, fmt:v=>v==null?'\u2014':Number(v).toFixed(1)},
     {label:'Valuation', key:'valuation', fmt:v=>{if(!v)return '<span class="muted">\u2014</span>';const c=v==='Undervalued'?'pos':(v==='Overvalued'?'neg':'muted');return `<span class="${c}">${esc(v)}</span>`;}},
   ], mac);
+  const moverCols = [
+    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Name', key:'name'},
+    {label:'Price', key:'price', num:true, fmt:v=>v==null?'—':'$'+Number(v).toFixed(2)},
+    {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
+    {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'—':fmtNum(v)},
+  ];
+  makeTable(document.getElementById('t-buyers'), moverCols, m.active_buyers||[]);
+  makeTable(document.getElementById('t-sellers'), moverCols, m.active_sellers||[]);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const marketCols = [
     {label:'Name', key:'name'},

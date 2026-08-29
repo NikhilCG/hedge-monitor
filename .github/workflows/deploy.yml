@@ -1,0 +1,60 @@
+name: Deploy Hedge Monitor to Pages
+
+# Rebuilds the site and publishes it to GitHub Pages on a schedule and on demand.
+# 13F holdings are quarterly, so a few times a day is plenty; prices + news are
+# refreshed on every run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_build:
+        description: "Full rebuild (re-fetch 13F holdings) instead of prices+news only"
+        type: boolean
+        default: true
+  schedule:
+    # Every 3 hours (UTC). GitHub cron granularity is 5 min and runs may be delayed.
+    - cron: "0 */3 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build site (full 13F rebuild)
+        if: github.event_name == 'schedule' || inputs.full_build
+        run: python -m tools.build_site
+
+      - name: Refresh prices + news only
+        if: github.event_name == 'workflow_dispatch' && !inputs.full_build
+        run: python -m tools.build_site --refresh-only
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

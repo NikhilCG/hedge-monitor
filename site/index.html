@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hedge Monitor — Fund Activity</title>
+<style>
+  :root { --bg:#0f1420; --card:#171e2e; --line:#26304a; --fg:#e6ebf5; --mut:#93a0bd;
+          --buy:#2ec26b; --sell:#ef5b6b; --accent:#5b9dff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;
+         background:var(--bg); color:var(--fg); }
+  header { padding:20px 24px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:20px; }
+  .sub { color:var(--mut); font-size:13px; margin-top:4px; }
+  .wrap { padding:20px 24px; }
+  .cards { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px;
+          padding:12px 16px; min-width:130px; }
+  .card .n { font-size:22px; font-weight:700; }
+  .card .l { color:var(--mut); font-size:12px; }
+  .tabs { display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; }
+  .tab { background:var(--card); border:1px solid var(--line); color:var(--fg);
+         padding:8px 14px; border-radius:8px; cursor:pointer; }
+  .tab.active { background:var(--accent); border-color:var(--accent); color:#04122c; font-weight:600; }
+  .btn { background:var(--card); border:1px solid var(--line); color:var(--fg);
+         padding:8px 14px; border-radius:8px; cursor:pointer; }
+  .btn.on { background:var(--accent); border-color:var(--accent); color:#04122c; font-weight:600; }
+  .controls { display:flex; gap:10px; margin-bottom:10px; flex-wrap:wrap; align-items:center; }
+  input[type=search], select { background:var(--card); border:1px solid var(--line);
+         color:var(--fg); padding:8px 10px; border-radius:8px; min-width:220px; }
+  table { width:100%; border-collapse:collapse; background:var(--card);
+          border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  th, td { padding:9px 12px; text-align:left; border-bottom:1px solid var(--line);
+           white-space:nowrap; }
+  th { position:sticky; top:0; background:#1b2438; cursor:pointer; user-select:none; font-size:12px;
+       color:var(--mut); text-transform:uppercase; letter-spacing:.03em; }
+  th:hover { color:var(--fg); }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tr:hover td { background:rgba(91,157,255,.06); }
+  .pill { padding:2px 8px; border-radius:20px; font-size:12px; font-weight:600; }
+  .BUY,.ADD { color:var(--buy); background:rgba(46,194,107,.12); }
+  .SELL,.TRIM { color:var(--sell); background:rgba(239,91,107,.12); }
+  .pos { color:var(--buy); } .neg { color:var(--sell); }
+  .muted { color:var(--mut); }
+  .section { display:none; } .section.active { display:block; }
+  .count { color:var(--mut); margin-left:auto; font-size:13px; }
+  .fundlink { color:var(--accent); cursor:pointer; text-decoration:none; }
+  .fundlink:hover { text-decoration:underline; }
+  .chip { display:inline-block; background:var(--card); border:1px solid var(--line);
+          border-radius:20px; padding:4px 12px; margin:0 6px 6px 0; }
+  .backbtn { background:var(--card); border:1px solid var(--line); color:var(--fg);
+             padding:7px 12px; border-radius:8px; cursor:pointer; margin-bottom:12px; }
+  .kpis { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 16px; }
+  .kpi { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:8px 14px; }
+  .kpi .n { font-size:18px; font-weight:700; } .kpi .l { color:var(--mut); font-size:12px; }
+  h2 { margin:6px 0; } h3 { margin:18px 0 8px; font-size:15px; }
+  .news { display:flex; flex-direction:column; gap:8px; }
+  .newsitem { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .newsitem a { color:var(--fg); text-decoration:none; font-weight:600; }
+  .newsitem a:hover { color:var(--accent); }
+  .newsmeta { color:var(--mut); font-size:12px; margin-top:3px; }
+  footer { padding:16px 24px; color:var(--mut); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Hedge Monitor — Fund Activity</h1>
+  <div class="sub" id="meta">Loading…</div>
+</header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="tabs">
+    <button class="tab active" data-t="actions">Latest Actions (Buy / Sell)</button>
+    <button class="tab" data-t="news">News (by date)</button>
+    <button class="tab" data-t="signals">News Signals</button>
+    <button class="tab" data-t="common">Common Holdings</button>
+    <button class="tab" data-t="funds">Funds</button>
+  </div>
+
+  <div class="section active" id="s-actions">
+    <div class="controls">
+      <input type="search" id="q-actions" placeholder="Search fund or stock…">
+      <select id="f-side">
+        <option value="">All actions</option>
+        <option value="buy">Buys only</option>
+        <option value="sell">Sells only</option>
+      </select>
+      <span class="count" id="c-actions"></span>
+    </div>
+    <div style="overflow:auto; max-height:70vh;"><table id="t-actions"></table></div>
+  </div>
+
+  <div class="section" id="s-common">
+    <div class="controls">
+      <input type="search" id="q-common" placeholder="Search stock or fund…">
+      <span class="muted">Click a stock to see who holds it &amp; its actions by date</span>
+      <span class="count" id="c-common"></span>
+    </div>
+    <div style="overflow:auto; max-height:70vh;"><table id="t-common"></table></div>
+  </div>
+
+  <div class="section" id="s-stock">
+    <button class="backbtn" id="back-stock">← Common holdings</button>
+    <h2 id="stock-name"></h2>
+    <div class="kpis" id="stock-kpis"></div>
+    <h3>Actions on this stock (by date)</h3>
+    <div style="overflow:auto; max-height:38vh;"><table id="t-stock-actions"></table></div>
+    <h3>Held by <span class="muted" id="held-sub"></span></h3>
+    <div id="held-funds"></div>
+  </div>
+
+  <div class="section" id="s-news">
+    <div class="controls">
+      <input type="search" id="q-news" placeholder="Search headline or fund…">
+      <select id="f-source"><option value="">All sources</option></select>
+      <button class="btn" id="only-bbg">Bloomberg only</button>
+      <span class="count" id="c-news"></span>
+    </div>
+    <div style="overflow:auto; max-height:74vh;"><table id="t-news"></table></div>
+  </div>
+
+  <div class="section" id="s-signals">
+    <h3>Buy / Sell Signals — Famous Stocks (from news)</h3>
+    <div class="controls">
+      <input type="search" id="q-sig" placeholder="Search stock or headline…">
+      <select id="f-sig">
+        <option value="">All signals</option>
+        <option value="BUY">Buy</option>
+        <option value="SELL">Sell</option>
+      </select>
+      <span class="count" id="c-sig"></span>
+    </div>
+    <div style="overflow:auto; max-height:38vh;"><table id="t-sig"></table></div>
+    <h3>Analyst Commentary (Jim Cramer &amp; others)</h3>
+    <div class="controls">
+      <input type="search" id="q-an" placeholder="Search analyst or headline…">
+      <select id="f-analyst"><option value="">All analysts</option></select>
+      <span class="count" id="c-an"></span>
+    </div>
+    <div style="overflow:auto; max-height:38vh;"><table id="t-an"></table></div>
+  </div>
+
+  <div class="section" id="s-funds">
+    <div class="controls">
+      <input type="search" id="q-funds" placeholder="Search fund…">
+      <label class="muted">Sort by
+        <select id="f-fundsort">
+          <option value="value">Portfolio value (assets)</option>
+          <option value="date">Latest filing date</option>
+          <option value="action">Latest action date</option>
+          <option value="positions">Positions</option>
+          <option value="buys">Buys</option>
+          <option value="sells">Sells</option>
+        </select>
+      </label>
+      <span class="muted">Click a fund to open its page</span>
+      <span class="count" id="c-funds"></span>
+    </div>
+    <div style="overflow:auto; max-height:70vh;"><table id="t-funds"></table></div>
+  </div>
+
+  <div class="section" id="s-fund">
+    <button class="backbtn" id="backbtn">← All funds</button>
+    <h2 id="fund-name"></h2>
+    <div class="kpis" id="fund-kpis"></div>
+    <h3>Latest Actions (Buy / Sell)</h3>
+    <div style="overflow:auto; max-height:40vh;"><table id="t-fund-actions"></table></div>
+    <h3>Latest News <span class="muted" id="news-sub"></span></h3>
+    <div class="news" id="fund-news"></div>
+  </div>
+</div>
+<footer>Holdings &amp; buy/sell: SEC EDGAR 13F filings (public, quarterly). Live prices &amp; day change: Yahoo Finance public quote API.
+Fund list from hedgefollow.com featured managers. Bloomberg is paywalled and not scraped.</footer>
+
+<script>
+const fmtUsd = v => {
+  v = Number(v)||0; const a = Math.abs(v);
+  if (a >= 1e9) return '$'+(v/1e9).toFixed(2)+'B';
+  if (a >= 1e6) return '$'+(v/1e6).toFixed(2)+'M';
+  if (a >= 1e3) return '$'+(v/1e3).toFixed(1)+'K';
+  return '$'+v;
+};
+const fmtNum = v => (Number(v)||0).toLocaleString('en-US');
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+let DATA = {funds:[], actions:[], common:[], news_feed:[], stock_signals:[], analysts:[]};
+
+function makeTable(el, cols, rows) {
+  let sortIdx = -1, sortDir = -1;
+  function render() {
+    let r = rows.slice();
+    if (sortIdx >= 0) {
+      const key = cols[sortIdx].key;
+      r.sort((a,b) => {
+        let x=a[key], y=b[key];
+        if (typeof x === 'number' || typeof y === 'number') return (x-y)*sortDir;
+        return String(x).localeCompare(String(y))*sortDir;
+      });
+    }
+    let html = '<thead><tr>' + cols.map((c,i) =>
+      `<th data-i="${i}">${c.label}${i===sortIdx?(sortDir>0?' ▲':' ▼'):''}</th>`).join('') + '</tr></thead><tbody>';
+    html += r.map(row => '<tr>' + cols.map(c =>
+      `<td class="${c.num?'num':''}">${c.fmt?c.fmt(row[c.key],row):esc(row[c.key])}</td>`).join('') + '</tr>').join('');
+    html += '</tbody>';
+    el.innerHTML = html;
+    el.querySelectorAll('th').forEach(th => th.onclick = () => {
+      const i = +th.dataset.i;
+      if (i===sortIdx) sortDir = -sortDir; else { sortIdx = i; sortDir = 1; }
+      render();
+    });
+  }
+  render();
+  return rows.length;
+}
+
+const actionPill = a => `<span class="pill ${a}">${a}</span>`;
+const deltaCell = v => `<span class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${fmtNum(v)}</span>`;
+const priceCell = v => (v==null) ? '<span class="muted">—</span>' : '$'+Number(v).toFixed(2);
+const pctCell = v => (v==null) ? '<span class="muted">—</span>'
+  : `<span class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${Number(v).toFixed(2)}%</span>`;
+const tickerCell = v => v ? `<b>${esc(v)}</b>` : '<span class="muted">—</span>';
+
+function renderActions() {
+  const q = document.getElementById('q-actions').value.toLowerCase();
+  const side = document.getElementById('f-side').value;
+  let rows = DATA.actions.filter(a =>
+    (a.fund+' '+a.name+' '+(a.ticker||'')).toLowerCase().includes(q) &&
+    (!side || (side==='buy' ? ['BUY','ADD'].includes(a.action) : ['SELL','TRIM'].includes(a.action)))
+  );
+  const n = makeTable(document.getElementById('t-actions'), [
+    {label:'Fund', key:'fund'},
+    {label:'Date', key:'date', fmt:v=>v||'<span class="muted">—</span>'},
+    {label:'Action', key:'action', fmt:actionPill},
+    {label:'Stock', key:'name'},
+    {label:'Ticker', key:'ticker', fmt:tickerCell},
+    {label:'Price (live)', key:'price', num:true, fmt:priceCell},
+    {label:'Day %', key:'day_pct', num:true, fmt:pctCell},
+    {label:'Shares Δ', key:'shares_delta', num:true, fmt:deltaCell},
+    {label:'Value', key:'value', num:true, fmt:v=>v?fmtUsd(v):'<span class="muted">—</span>'},
+  ], rows);
+  document.getElementById('c-actions').textContent = n + ' rows';
+}
+
+function renderCommon() {
+  const q = document.getElementById('q-common').value.toLowerCase();
+  let rows = DATA.common.filter(c =>
+    (c.name+' '+(c.ticker||'')+' '+c.funds.join(' ')).toLowerCase().includes(q));
+  const n = makeTable(document.getElementById('t-common'), [
+    {label:'Stock', key:'name', fmt:(v,row)=>`<a class="stocklink" data-cusip="${esc(row.cusip)}">${esc(v)}</a>`},
+    {label:'Ticker', key:'ticker', fmt:tickerCell},
+    {label:'Price (live)', key:'price', num:true, fmt:priceCell},
+    {label:'Day %', key:'day_pct', num:true, fmt:pctCell},
+    {label:'# Funds', key:'num_funds', num:true},
+    {label:'Total Value', key:'total_value', num:true, fmt:fmtUsd},
+    {label:'Total Shares', key:'total_shares', num:true, fmt:fmtNum},
+  ], rows);
+  document.getElementById('c-common').textContent = n + ' rows';
+}
+
+function openStock(cusip) {
+  const c = (DATA.common||[]).find(x => x.cusip === cusip);
+  if (!c) return;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.getElementById('s-stock').classList.add('active');
+  document.getElementById('stock-name').textContent = c.name + (c.ticker ? ' ('+c.ticker+')' : '');
+  const kpis = [
+    ['Ticker', c.ticker||'—'],
+    ['Price (live)', c.price!=null ? '$'+Number(c.price).toFixed(2) : '—'],
+    ['Day %', c.day_pct!=null ? (c.day_pct>=0?'+':'')+Number(c.day_pct).toFixed(2)+'%' : '—'],
+    ['# Funds', fmtNum(c.num_funds)], ['Total Value', fmtUsd(c.total_value)],
+    ['Total Shares', fmtNum(c.total_shares)],
+  ];
+  document.getElementById('stock-kpis').innerHTML = kpis.map(([l,val])=>
+    `<div class="kpi"><div class="n">${val}</div><div class="l">${l}</div></div>`).join('');
+  const acts = (DATA.actions||[]).filter(a => a.cusip === cusip)
+    .slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+  makeTable(document.getElementById('t-stock-actions'), [
+    {label:'Date', key:'date', fmt:v=>v||'<span class="muted">—</span>'},
+    {label:'Fund', key:'fund', fmt:v=>`<a class="fundlink" data-name="${esc(v)}">${esc(v)}</a>`},
+    {label:'Action', key:'action', fmt:actionPill},
+    {label:'Shares Δ', key:'shares_delta', num:true, fmt:deltaCell},
+    {label:'Value', key:'value', num:true, fmt:v=>v?fmtUsd(v):'<span class="muted">—</span>'},
+  ], acts);
+  document.getElementById('held-sub').textContent = `(${c.num_funds})`;
+  document.getElementById('held-funds').innerHTML = c.funds.map(nm =>
+    `<span class="chip"><a class="fundlink" data-name="${esc(nm)}">${esc(nm)}</a></span>`).join('');
+  window.scrollTo(0,0);
+}
+
+function renderNews() {
+  const q = document.getElementById('q-news').value.toLowerCase();
+  const src = document.getElementById('f-source').value;
+  let rows = (DATA.news_feed||[]).filter(x =>
+    (x.title+' '+(x.source||'')+' '+x.funds.join(' ')).toLowerCase().includes(q) &&
+    (!src || x.source === src));
+  const srcPill = v => `<span class="pill" style="background:rgba(91,157,255,.12);color:var(--accent)">${esc(v||'—')}</span>`;
+  const headline = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:none;font-weight:600">${esc(v)}</a>`;
+  const n = makeTable(document.getElementById('t-news'), [
+    {label:'Date (UTC)', key:'published'},
+    {label:'Source', key:'source', fmt:srcPill},
+    {label:'Headline', key:'title', fmt:headline},
+    {label:'Fund(s)', key:'funds', fmt:v=>`<span class="muted">${esc(v.join(', '))}</span>`},
+  ], rows);
+  document.getElementById('c-news').textContent = n + ' items';
+}
+
+function populateSources() {
+  const sel = document.getElementById('f-source');
+  const set = [...new Set((DATA.news_feed||[]).map(x=>x.source).filter(Boolean))].sort();
+  set.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+}
+
+const newsLink = (v,row) => `<a href="${esc(row.link)}" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:none;font-weight:600">${esc(v)}</a>`;
+
+function renderSignals() {
+  const q = document.getElementById('q-sig').value.toLowerCase();
+  const s = document.getElementById('f-sig').value;
+  let rows = (DATA.stock_signals||[]).filter(x =>
+    (x.ticker+' '+x.company+' '+x.title).toLowerCase().includes(q) && (!s || x.signal === s));
+  const n = makeTable(document.getElementById('t-sig'), [
+    {label:'Date (UTC)', key:'published'},
+    {label:'Stock', key:'ticker', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Signal', key:'signal', fmt:actionPill},
+    {label:'Headline', key:'title', fmt:newsLink},
+    {label:'Source', key:'source', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
+  ], rows);
+  document.getElementById('c-sig').textContent = n + ' signals';
+}
+
+function renderAnalysts() {
+  const q = document.getElementById('q-an').value.toLowerCase();
+  const a = document.getElementById('f-analyst').value;
+  let rows = (DATA.analysts||[]).filter(x =>
+    (x.analyst+' '+x.title+' '+(x.source||'')).toLowerCase().includes(q) && (!a || x.analyst === a));
+  const n = makeTable(document.getElementById('t-an'), [
+    {label:'Date (UTC)', key:'published'},
+    {label:'Analyst', key:'analyst', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Headline', key:'title', fmt:newsLink},
+    {label:'Source', key:'source', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
+  ], rows);
+  document.getElementById('c-an').textContent = n + ' items';
+}
+
+function populateAnalysts() {
+  const sel = document.getElementById('f-analyst');
+  const set = [...new Set((DATA.analysts||[]).map(x=>x.analyst).filter(Boolean))].sort();
+  set.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+}
+
+function renderFunds() {
+  const q = document.getElementById('q-funds').value.toLowerCase();
+  const sort = document.getElementById('f-fundsort').value;
+  let rows = DATA.funds.filter(f => f.name.toLowerCase().includes(q));
+  const lastAct = {};
+  (DATA.actions||[]).forEach(a => {
+    const d = a.date || '';
+    if (!lastAct[a.fund] || d > lastAct[a.fund]) lastAct[a.fund] = d;
+  });
+  const keyFns = {
+    value: f => f.total_value||0,
+    date: f => f.filing_date||'',
+    action: f => lastAct[f.name]||'',
+    positions: f => f.positions||0,
+    buys: f => f.buys||0,
+    sells: f => f.sells||0,
+  };
+  const kf = keyFns[sort] || keyFns.value;
+  rows = rows.slice().sort((a,b) => {
+    const x=kf(a), y=kf(b);
+    if (typeof x === 'number') return y-x;
+    return String(y).localeCompare(String(x));
+  });
+  const n = makeTable(document.getElementById('t-funds'), [
+    {label:'#', key:'rank', num:true},
+    {label:'Fund', key:'name', fmt:v=>`<a class="fundlink" data-name="${esc(v)}">${esc(v)}</a>`},
+    {label:'Latest Filing', key:'filing_date'},
+    {label:'Positions', key:'positions', num:true, fmt:fmtNum},
+    {label:'Buys', key:'buys', num:true, fmt:v=>`<span class="pos">${fmtNum(v)}</span>`},
+    {label:'Sells', key:'sells', num:true, fmt:v=>`<span class="neg">${fmtNum(v)}</span>`},
+    {label:'News', key:'news', num:true, fmt:v=>fmtNum((v||[]).length)},
+    {label:'Portfolio Value', key:'total_value', num:true, fmt:fmtUsd},
+  ], rows);
+  document.getElementById('c-funds').textContent = n + ' rows';
+}
+
+function openFund(name) {
+  const f = DATA.funds.find(x => x.name === name);
+  if (!f) return;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.getElementById('s-fund').classList.add('active');
+  document.getElementById('fund-name').textContent = f.name;
+  const kpis = [
+    ['Latest Filing', f.filing_date||'—'], ['Positions', fmtNum(f.positions)],
+    ['Buys', fmtNum(f.buys)], ['Sells', fmtNum(f.sells)],
+    ['Portfolio Value', fmtUsd(f.total_value)],
+  ];
+  document.getElementById('fund-kpis').innerHTML = kpis.map(([l,n])=>
+    `<div class="kpi"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+  const acts = DATA.actions.filter(a => a.fund === name);
+  makeTable(document.getElementById('t-fund-actions'), [
+    {label:'Date', key:'date', fmt:v=>v||'<span class="muted">—</span>'},
+    {label:'Action', key:'action', fmt:actionPill},
+    {label:'Stock', key:'name'},
+    {label:'Ticker', key:'ticker', fmt:tickerCell},
+    {label:'Price (live)', key:'price', num:true, fmt:priceCell},
+    {label:'Day %', key:'day_pct', num:true, fmt:pctCell},
+    {label:'Shares Δ', key:'shares_delta', num:true, fmt:deltaCell},
+    {label:'Value', key:'value', num:true, fmt:v=>v?fmtUsd(v):'<span class="muted">—</span>'},
+  ], acts);
+  const news = f.news || [];
+  document.getElementById('news-sub').textContent = news.length ? `(${news.length})` : '';
+  document.getElementById('fund-news').innerHTML = news.length ? news.map(item =>
+    `<div class="newsitem"><a href="${esc(item.link)}" target="_blank" rel="noopener">${esc(item.title)}</a>`
+    + `<div class="newsmeta">${esc(item.source||'')}${item.published?' · '+esc(item.published):''}</div></div>`
+  ).join('') : '<div class="muted">No recent news found for this fund.</div>';
+  window.scrollTo(0,0);
+}
+
+document.addEventListener('click', e => {
+  const link = e.target.closest('.fundlink');
+  if (link) { e.preventDefault(); openFund(link.dataset.name); return; }
+  const slink = e.target.closest('.stocklink');
+  if (slink) { e.preventDefault(); openStock(slink.dataset.cusip); }
+});
+document.getElementById('backbtn').onclick = () => {
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.querySelector('.tab[data-t="funds"]').classList.add('active');
+  document.getElementById('s-funds').classList.add('active');
+};
+document.getElementById('back-stock').onclick = () => {
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.querySelector('.tab[data-t="common"]').classList.add('active');
+  document.getElementById('s-common').classList.add('active');
+};
+
+function renderCards() {
+  const totalBuys = DATA.funds.reduce((s,f)=>s+f.buys,0);
+  const totalSells = DATA.funds.reduce((s,f)=>s+f.sells,0);
+  const aum = DATA.funds.reduce((s,f)=>s+(f.total_value||0),0);
+  const cards = [
+    ['Funds', DATA.funds.length], ['Total Buys', fmtNum(totalBuys)],
+    ['Total Sells', fmtNum(totalSells)], ['Common Holdings', fmtNum(DATA.common.length)],
+    ['Live Prices', fmtNum(DATA.quotes_count||0)], ['News Articles', fmtNum(DATA.news_feed_count||0)],
+    ['Combined AUM', fmtUsd(aum)],
+  ];
+  document.getElementById('cards').innerHTML = cards.map(([l,n]) =>
+    `<div class="card"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+}
+
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('s-'+t.dataset.t).classList.add('active');
+});
+['q-actions','f-side'].forEach(id=>document.getElementById(id).addEventListener('input',renderActions));
+document.getElementById('q-common').addEventListener('input',renderCommon);
+document.getElementById('q-funds').addEventListener('input',renderFunds);
+document.getElementById('f-fundsort').addEventListener('change',renderFunds);
+document.getElementById('q-news').addEventListener('input',renderNews);
+document.getElementById('f-source').addEventListener('change',renderNews);
+['q-sig','f-sig'].forEach(id=>document.getElementById(id).addEventListener('input',renderSignals));
+['q-an','f-analyst'].forEach(id=>document.getElementById(id).addEventListener('input',renderAnalysts));
+document.getElementById('only-bbg').addEventListener('click',(e)=>{
+  const sel=document.getElementById('f-source');
+  const on = sel.value!=='Bloomberg.com';
+  sel.value = on ? 'Bloomberg.com' : '';
+  e.currentTarget.classList.toggle('on', on);
+  renderNews();
+});
+
+async function loadData(initial) {
+  try {
+    const d = await (await fetch('data.json?t=' + Date.now())).json();
+    DATA = d;
+    const priced = d.priced_at ? ` · live prices ${d.priced_at}` : '';
+    document.getElementById('meta').textContent =
+      `${d.funds.length} funds · updated ${d.generated}${priced}`;
+    if (initial) { populateSources(); populateAnalysts(); }
+    renderCards(); renderActions(); renderCommon(); renderFunds(); renderNews();
+    renderSignals(); renderAnalysts();
+  } catch (e) {
+    document.getElementById('meta').textContent = 'Failed to load data.json: ' + e;
+  }
+}
+loadData(true);
+setInterval(() => loadData(false), 20000);  // re-read local data.json every 20s (no external calls)
+</script>
+</body>
+</html>

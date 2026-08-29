@@ -1,0 +1,55 @@
+# Hedge Monitor configuration.
+# Copy to config.yml and edit. config.yml is gitignored.
+
+# Required by SEC EDGAR fair-access policy: a real contact string.
+# Format: "Your Name your@email.com"
+sec_user_agent: "Your Name your@email.com"
+
+# Hedge funds / institutional managers to track, by SEC CIK number.
+# Find a CIK at https://www.sec.gov/cgi-bin/browse-edgar (search the manager name).
+funds:
+  - name: "Berkshire Hathaway"
+    cik: "0001067983"
+  - name: "Bridgewater Associates"
+    cik: "0001350694"
+  - name: "Scion Asset Management (Michael Burry)"
+    cik: "0001649339"
+
+# Stock tickers to watch for price moves and news.
+watch_tickers:
+  - AAPL
+  - NVDA
+  - MSFT
+
+# Price alert: notify if absolute daily % change exceeds this threshold.
+price_move_threshold_pct: 5.0
+
+# News keywords. A news item matches if it mentions a watched ticker,
+# a fund name, or any keyword below.
+news_keywords:
+  - merger
+  - acquisition
+  - lawsuit
+  - bankruptcy
+  - "earnings"
+  - "SEC investigation"
+
+# RSS news feeds (free, no API key). Add or remove as you like.
+news_feeds:
+  - "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+  - "https://www.nasdaq.com/feed/rssoutbound?category=Stocks"
+  - "https://news.google.com/rss/search?q=hedge+fund+when:1d&hl=en-US&gl=US&ceid=US:en"
+
+# Notifications.
+notify:
+  desktop: true          # uses notify-send on Linux if available
+  email:
+    enabled: false
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    username: "you@gmail.com"
+    # Use an app password. Better: set env HEDGE_SMTP_PASSWORD.
+    password: ""
+    from_addr: "you@gmail.com"
+    to_addrs:
+      - "you@gmail.com"

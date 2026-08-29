@@ -1,0 +1,237 @@
+sec_user_agent: ngeorge test ngeorge@example.com
+funds:
+- name: Situational Awareness (Leopold Aschenbrenner)
+  cik: '0002045724'
+- name: Berkshire Hathaway (Warren Buffett)
+  cik: 0001067983
+- name: Duquesne Family Office (Stanley Druckenmiller)
+  cik: '0001536411'
+- name: Pershing Square (Bill Ackman)
+  cik: 0001336528
+- name: Bridgewater Associates (Ray Dalio)
+  cik: 0001350694
+- name: Renaissance Technologies (Jim Simons)
+  cik: 0001037389
+- name: BlackRock
+  cik: '0001060021'
+- name: Altimeter Capital (Brad Gerstner)
+  cik: '0001541617'
+- name: TCI Fund Management (Chris Hohn)
+  cik: '0001647251'
+- name: Appaloosa (David Tepper)
+  cik: '0001656456'
+- name: Tudor Investment (Paul Tudor Jones)
+  cik: 0000923093
+- name: Citadel Advisors (Ken Griffin)
+  cik: '0001423053'
+- name: Himalaya Capital (Li Lu)
+  cik: 0001709323
+- name: ARK Investment Management (Cathie Wood)
+  cik: 0001697748
+- name: Jane Street Group
+  cik: 0001595888
+- name: Oaktree Capital (Howard Marks)
+  cik: '0001403527'
+- name: Point72 (Steven Cohen)
+  cik: '0001603466'
+- name: Coatue Management (Philippe Laffont)
+  cik: '0001135730'
+- name: Dalal Street (Mohnish Pabrai)
+  cik: 0001549575
+- name: Fisher Asset Management (Ken Fisher)
+  cik: 0000850529
+- name: Atreides Management (Gavin Baker)
+  cik: 0001777813
+- name: Soros Fund Management (George Soros)
+  cik: 0001029160
+- name: Valley Forge Capital (Dev Kantesaria)
+  cik: 0001364558
+- name: Semper Augustus (Christopher Bloomstran)
+  cik: '0001115373'
+- name: Baupost Group (Seth Klarman)
+  cik: '0001054420'
+- name: Markel (Tom Gayner)
+  cik: 0001096343
+- name: Tiger Global Management (Chase Coleman)
+  cik: 0001167483
+- name: Fundsmith (Terry Smith)
+  cik: '0001520023'
+- name: Alpine Fox (Mike Alfred)
+  cik: 0002096493
+- name: Whale Rock Capital (Alex Sacerdote)
+  cik: 0001387322
+- name: Millennium Management (Israel Englander)
+  cik: 0001273087
+- name: Elliott Investment Management (Paul Singer)
+  cik: 0001791786
+- name: Horizon Kinetics (Murray Stahl)
+  cik: 0001056823
+- name: Robotti (Bob Robotti)
+  cik: 0001105838
+- name: D. E. Shaw (David Shaw)
+  cik: 0001009268
+- name: Giverny Capital (Francois Rochon)
+  cik: 0001641864
+- name: Gates Foundation Trust (Bill Gates)
+  cik: 0001663801
+- name: JPMorgan Chase
+  cik: 0001418204
+- name: Baker Bros Advisors (Julian Baker)
+  cik: 0001263508
+- name: Icahn (Carl Icahn)
+  cik: 0000921669
+- name: Eminence Capital (Ricky Sandler)
+  cik: '0001107310'
+- name: D1 Capital Partners (Daniel Sundheim)
+  cik: '0001747057'
+- name: Gotham Asset Management (Joel Greenblatt)
+  cik: 0001279148
+- name: Ratan Capital (Nehal Chopra)
+  cik: 0001566887
+- name: Fairfax Financial Holdings (Prem Watsa)
+  cik: 0000915191
+- name: Pentwater Capital Management
+  cik: 0001425851
+- name: H&H International Investment
+  cik: 0001759760
+- name: Goldman Sachs Group
+  cik: 0000886982
+- name: Lone Pine Capital (Stephen Mandel)
+  cik: '0001061165'
+- name: Viking Global Investors (Andreas Halvorsen)
+  cik: 0001103804
+- name: Third Point (Dan Loeb)
+  cik: '0001040273'
+- name: Greenlight Capital (David Einhorn)
+  cik: 0001079114
+- name: Maverick Capital (Lee Ainslie)
+  cik: 0000934639
+- name: Two Sigma Investments
+  cik: 0001179392
+- name: Two Sigma Advisers
+  cik: 0001478735
+- name: AQR Capital Management (Cliff Asness)
+  cik: '0001167557'
+- name: Marshall Wace
+  cik: 0001519964
+- name: Hudson Bay Capital Management
+  cik: 0001393825
+- name: Farallon Capital Management
+  cik: 0000909661
+- name: Davidson Kempner Capital
+  cik: 0000937617
+- name: Glenview Capital (Larry Robbins)
+  cik: 0001138995
+- name: Trian Fund Management (Nelson Peltz)
+  cik: '0001345472'
+- name: ValueAct Capital
+  cik: 0001351069
+- name: Starboard Value (Jeff Smith)
+  cik: '0001517137'
+- name: Sands Capital Management
+  cik: 0001846444
+- name: Durable Capital Partners
+  cik: 0001798849
+- name: Egerton Capital
+  cik: 0001581811
+- name: Baillie Gifford
+  cik: 0001088875
+- name: Dodge & Cox
+  cik: '0000200217'
+- name: Geode Capital Management
+  cik: '0001214717'
+- name: Northern Trust
+  cik: '0001065441'
+- name: Bank of America
+  cik: 0000070858
+- name: Morgan Stanley
+  cik: 0000728672
+- name: Wells Fargo & Company
+  cik: 0000072971
+- name: UBS Group
+  cik: '0001610520'
+- name: Deutsche Bank
+  cik: 0000948046
+- name: Barclays
+  cik: '0001013231'
+- name: Susquehanna International Group
+  cik: 0001765924
+- name: Schonfeld Strategic Advisors
+  cik: '0001665241'
+- name: Verition Fund Management
+  cik: '0001454027'
+- name: PDT Partners
+  cik: '0001564702'
+- name: Akre Capital Management (Chuck Akre)
+  cik: '0001112520'
+- name: Ruane Cunniff (Sequoia)
+  cik: 0000728014
+- name: First Eagle Investment Management
+  cik: '0001325447'
+- name: Southeastern Asset Management (Longleaf)
+  cik: 0000807985
+- name: Pzena Investment Management
+  cik: 0001027796
+- name: Diamond Hill Capital
+  cik: '0001217541'
+- name: Polen Capital Management
+  cik: '0001010422'
+- name: Sanders Capital
+  cik: 0001508097
+- name: Yacktman Asset Management
+  cik: 0000905567
+- name: Abrams Capital Management (David Abrams)
+  cik: 0001358706
+- name: Jana Partners
+  cik: 0001159159
+- name: Sculptor Capital
+  cik: 0001054587
+- name: Corvex Management (Keith Meister)
+  cik: '0001535472'
+- name: Sachem Head Capital (Scott Ferguson)
+  cik: 0001582090
+- name: Senator Investment Group
+  cik: 0001443689
+- name: Light Street Capital
+  cik: 0001569049
+- name: Tybourne Capital Management
+  cik: 0001553936
+- name: Matrix Capital Management
+  cik: 0001410830
+- name: Steadfast Capital Management
+  cik: 0001872297
+- name: Brave Warrior Advisors (Glenn Greenberg)
+  cik: '0001553733'
+- name: Hillhouse (HHLR Advisors)
+  cik: '0001762304'
+- name: Capital Research Global Investors
+  cik: 0001422848
+- name: Slate Path Capital
+  cik: 0001559706
+watch_tickers:
+- AAPL
+- NVDA
+- MSFT
+price_move_threshold_pct: 5.0
+news_keywords:
+- merger
+- acquisition
+- lawsuit
+- bankruptcy
+- earnings
+- SEC investigation
+news_feeds:
+- https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+- https://www.nasdaq.com/feed/rssoutbound?category=Stocks
+- https://news.google.com/rss/search?q=hedge+fund+when:1d&hl=en-US&gl=US&ceid=US:en
+notify:
+  desktop: true
+  email:
+    enabled: false
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    username: you@gmail.com
+    password: ''
+    from_addr: you@gmail.com
+    to_addrs:
+    - you@gmail.com

@@ -633,7 +633,7 @@ INDEX_HTML = r"""<!DOCTYPE html>
   .banner-label { flex:0 0 auto; font-size:12px; font-weight:700; color:var(--accent);
                   text-transform:uppercase; letter-spacing:.04em; }
   .banner-view { flex:1 1 auto; overflow:hidden; white-space:nowrap; }
-  .banner-track { display:inline-block; padding:9px 0; animation:bannerscroll 80s linear infinite; }
+  .banner-track { display:inline-block; padding:9px 0; animation:bannerscroll 220s linear infinite; }
   .banner-view:hover .banner-track { animation-play-state:paused; }
   @keyframes bannerscroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
   .banner-item { color:var(--fg); text-decoration:none; margin-right:38px; font-size:13px; }

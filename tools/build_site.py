@@ -927,7 +927,7 @@ INDEX_HTML = r"""<!DOCTYPE html>
   <div class="banner-view"><div class="banner-track" id="banner-track"></div></div>
 </div>
 <div class="wrap">
-  <button class="backbtn" id="back-markets">← Markets</button>
+  <button class="backbtn" id="back-markets">← Return</button>
   <div class="tabs">
     <button class="tab active" data-t="markets">Markets</button>
     <button class="tab" data-t="actions">Latest Actions (Buy / Sell)</button>

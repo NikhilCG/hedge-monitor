@@ -250,6 +250,60 @@ COUNTRY_MOVERS: dict[str, list[tuple[str, str]]] = {
 }
 
 
+def _yahoo_session():
+    """Authenticated Yahoo session (cookie + crumb) for quoteSummary analyst data."""
+    s = requests.Session()
+    s.headers.update({"User-Agent": "Mozilla/5.0"})
+    try:
+        s.get("https://fc.yahoo.com", timeout=10)
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        crumb = s.get("https://query2.finance.yahoo.com/v1/test/getcrumb", timeout=10).text
+    except Exception:  # noqa: BLE001
+        crumb = ""
+    return s, crumb
+
+
+def fetch_analyst(sym: str, s, crumb: str) -> dict:
+    """Analyst recommendations, target price and recent rating changes for a symbol."""
+    import datetime as _dt
+
+    def num(v):
+        return v.get("raw") if isinstance(v, dict) else v
+
+    try:
+        u = (f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{sym}"
+             f"?modules=financialData,recommendationTrend,upgradeDowngradeHistory&crumb={crumb}")
+        r = s.get(u, timeout=15)
+        if r.status_code != 200:
+            return {}
+        res = r.json()["quoteSummary"]["result"][0]
+    except Exception:  # noqa: BLE001
+        return {}
+    fd = res.get("financialData", {})
+    trend = (res.get("recommendationTrend", {}).get("trend") or [{}])[0]
+    hist = []
+    for x in (res.get("upgradeDowngradeHistory", {}).get("history") or [])[:12]:
+        date = ""
+        ep = x.get("epochGradeDate")
+        if ep:
+            try:
+                date = _dt.datetime.utcfromtimestamp(int(ep)).strftime("%Y-%m-%d")
+            except Exception:  # noqa: BLE001
+                pass
+        hist.append({"firm": x.get("firm"), "action": x.get("action"),
+                     "from": x.get("fromGrade"), "to": x.get("toGrade"), "date": date})
+    return {
+        "rating": fd.get("recommendationKey"),
+        "mean": num(fd.get("recommendationMean")),
+        "target": num(fd.get("targetMeanPrice")),
+        "analysts": num(fd.get("numberOfAnalystOpinions")),
+        "trend": {k: trend.get(k, 0) for k in ("strongBuy", "buy", "hold", "sell", "strongSell")},
+        "history": hist,
+    }
+
+
 def _quote_full(sym: str) -> dict | None:
     try:
         r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
@@ -315,6 +369,14 @@ def fetch_markets(max_active: int = 25) -> dict:
             time.sleep(0.05)
         lst.sort(key=lambda x: (x.get("volume") or 0), reverse=True)
         by_country[code] = lst
+
+    # Enrich each most-active stock with analyst recommendations (crumb-authed).
+    sess, crumb = _yahoo_session()
+    if crumb:
+        for lst in by_country.values():
+            for item in lst:
+                item.update(fetch_analyst(item["symbol"], sess, crumb))
+                time.sleep(0.08)
 
     markets["most_active_by_country"] = by_country
     markets["most_active"] = by_country["US"]  # backward compat
@@ -761,6 +823,8 @@ INDEX_HTML = r"""<!DOCTYPE html>
   .count { color:var(--mut); margin-left:auto; font-size:13px; }
   .fundlink { color:var(--accent); cursor:pointer; text-decoration:none; }
   .fundlink:hover { text-decoration:underline; }
+  .ratelink { color:var(--accent); cursor:pointer; text-decoration:none; }
+  .ratelink:hover { text-decoration:underline; }
   .chip { display:inline-block; background:var(--card); border:1px solid var(--line);
           border-radius:20px; padding:4px 12px; margin:0 6px 6px 0; }
   .banner-wrap { display:flex; align-items:center; gap:10px; background:#10192b;
@@ -824,6 +888,16 @@ INDEX_HTML = r"""<!DOCTYPE html>
     <div style="overflow:auto; max-height:26vh;"><table id="t-fx"></table></div>
     <h3>Cryptocurrency</h3>
     <div style="overflow:auto; max-height:26vh;"><table id="t-crypto"></table></div>
+  </div>
+
+  <div class="section" id="s-ratings">
+    <button class="backbtn" id="back-ratings">← Markets</button>
+    <h2 id="rate-name"></h2>
+    <div class="kpis" id="rate-kpis"></div>
+    <h3>Recommendation breakdown</h3>
+    <div id="rate-breakdown"></div>
+    <h3>Recent analyst rating changes</h3>
+    <div style="overflow:auto; max-height:40vh;"><table id="t-ratehist"></table></div>
   </div>
 
   <div class="section" id="s-actions">
@@ -1080,13 +1154,21 @@ function renderMarkets() {
   const cname = (DATA.countries||[]).find(c=>c.code===country);
   document.getElementById('active-head').textContent =
     `Most Active Stocks — ${cname?cname.flag+' '+cname.name:country} (by volume)`;
+  const ratingCell = (v,row) => {
+    if (!v) return '<span class="muted">\u2014</span>';
+    const cls = /buy/i.test(v) ? 'pos' : (/sell|underperform/i.test(v) ? 'neg' : 'muted');
+    const mean = row.mean!=null ? ` (${Number(row.mean).toFixed(2)})` : '';
+    return `<span class="${cls}">${esc(v.replace(/_/g,' '))}${mean}</span>`;
+  };
   makeTable(document.getElementById('t-active'), [
-    {label:'Symbol', key:'symbol', fmt:v=>`<b>${esc(v)}</b>`},
+    {label:'Symbol', key:'symbol', fmt:v=>`<a class="ratelink" data-sym="${esc(v)}"><b>${esc(v)}</b></a>`},
     {label:'Name', key:'name'},
     {label:'Price', key:'price', num:true, fmt:v=>v==null?'\u2014':Number(v).toLocaleString('en-US',{maximumFractionDigits:2})},
     {label:'Cur', key:'currency', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
     {label:'Change %', key:'change_pct', num:true, fmt:pctCell},
     {label:'Volume', key:'volume', num:true, fmt:v=>v==null?'\u2014':fmtNum(v)},
+    {label:'Analyst Rating', key:'rating', fmt:ratingCell},
+    {label:'Avg Target', key:'target', num:true, fmt:v=>v==null?'\u2014':Number(v).toLocaleString('en-US',{maximumFractionDigits:2})},
   ], mac);
   const num = v => v==null ? '<span class="muted">\u2014</span>' : Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
   const cols = [
@@ -1098,6 +1180,46 @@ function renderMarkets() {
   makeTable(document.getElementById('t-indices'), cols, m.indices||[]);
   makeTable(document.getElementById('t-fx'), cols, m.currencies||[]);
   makeTable(document.getElementById('t-crypto'), cols, m.crypto||[]);
+}
+
+function openRatings(sym) {
+  const country = document.getElementById('f-country').value || 'US';
+  const mac = (DATA.markets.most_active_by_country||{})[country] || [];
+  const it = mac.find(x => x.symbol === sym);
+  if (!it) return;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.getElementById('s-ratings').classList.add('active');
+  document.getElementById('rate-name').textContent = `${it.name} (${it.symbol})`;
+  const cur = it.currency || '';
+  const kpis = [
+    ['Consensus', it.rating ? it.rating.replace(/_/g,' ') : '—'],
+    ['Mean (1=Buy…5=Sell)', it.mean!=null ? Number(it.mean).toFixed(2) : '—'],
+    ['Avg Target', it.target!=null ? Number(it.target).toLocaleString('en-US',{maximumFractionDigits:2})+' '+cur : '—'],
+    ['# Analysts', it.analysts!=null ? fmtNum(it.analysts) : '—'],
+    ['Price', it.price!=null ? Number(it.price).toLocaleString('en-US',{maximumFractionDigits:2})+' '+cur : '—'],
+  ];
+  document.getElementById('rate-kpis').innerHTML = kpis.map(([l,v])=>
+    `<div class="kpi"><div class="n">${esc(String(v))}</div><div class="l">${esc(l)}</div></div>`).join('');
+  const t = it.trend || {};
+  const parts = [['Strong Buy',t.strongBuy,'#1a9e5a'],['Buy',t.buy,'#2ec26b'],['Hold',t.hold,'#c9a227'],['Sell',t.sell,'#ef5b6b'],['Strong Sell',t.strongSell,'#c0392b']];
+  const total = parts.reduce((s,p)=>s+(p[1]||0),0) || 0;
+  document.getElementById('rate-breakdown').innerHTML = (total ? parts.map(([l,n,c])=>
+    `<div style="display:flex;align-items:center;gap:10px;margin:5px 0;">
+       <span style="flex:0 0 90px;color:var(--mut);font-size:12px;">${l}</span>
+       <span style="flex:1 1 auto;background:#1b2438;border-radius:6px;overflow:hidden;">
+         <span style="display:block;height:14px;width:${(100*(n||0)/total).toFixed(1)}%;background:${c};"></span></span>
+       <span style="flex:0 0 30px;text-align:right;">${n||0}</span>
+     </div>`).join('') + `<div class="muted" style="margin-top:6px;">${total} analyst ratings</div>`
+    : '<div class="muted">No recommendation breakdown available.</div>');
+  makeTable(document.getElementById('t-ratehist'), [
+    {label:'Date', key:'date', fmt:v=>v||'<span class="muted">—</span>'},
+    {label:'Firm', key:'firm'},
+    {label:'Action', key:'action', fmt:v=>{const cls=v==='up'?'pos':(v==='down'?'neg':'muted');return `<span class="${cls}">${esc(v||'')}</span>`;}},
+    {label:'From', key:'from', fmt:v=>`<span class="muted">${esc(v||'')}</span>`},
+    {label:'To', key:'to', fmt:v=>`<b>${esc(v||'')}</b>`},
+  ], it.history || []);
+  window.scrollTo(0,0);
 }
 
 function renderBanner() {
@@ -1235,7 +1357,9 @@ document.addEventListener('click', e => {
   const link = e.target.closest('.fundlink');
   if (link) { e.preventDefault(); openFund(link.dataset.name); return; }
   const slink = e.target.closest('.stocklink');
-  if (slink) { e.preventDefault(); openStock(slink.dataset.cusip); }
+  if (slink) { e.preventDefault(); openStock(slink.dataset.cusip); return; }
+  const rl = e.target.closest('.ratelink');
+  if (rl) { e.preventDefault(); openRatings(rl.dataset.sym); }
 });
 document.getElementById('backbtn').onclick = () => {
   document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
@@ -1246,6 +1370,11 @@ document.getElementById('back-stock').onclick = () => {
   document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
   document.querySelector('.tab[data-t="common"]').classList.add('active');
   document.getElementById('s-common').classList.add('active');
+};
+document.getElementById('back-ratings').onclick = () => {
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.querySelector('.tab[data-t="markets"]').classList.add('active');
+  document.getElementById('s-markets').classList.add('active');
 };
 
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
